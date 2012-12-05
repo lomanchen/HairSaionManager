@@ -1,0 +1,327 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D6A1A280166EDDD80044A26B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A1A27F166EDDD80044A26B /* UIKit.framework */; };
+		D6A1A282166EDDD80044A26B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A1A281166EDDD80044A26B /* Foundation.framework */; };
+		D6A1A284166EDDD80044A26B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A1A283166EDDD80044A26B /* CoreGraphics.framework */; };
+		D6A1A286166EDDD80044A26B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A1A285166EDDD80044A26B /* CoreData.framework */; };
+		D6A1A28C166EDDD80044A26B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6A1A28A166EDDD80044A26B /* InfoPlist.strings */; };
+		D6A1A28E166EDDD80044A26B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A1A28D166EDDD80044A26B /* main.m */; };
+		D6A1A292166EDDD80044A26B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A1A291166EDDD80044A26B /* AppDelegate.m */; };
+		D6A1A294166EDDD80044A26B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A1A293166EDDD80044A26B /* Default.png */; };
+		D6A1A296166EDDD80044A26B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A1A295166EDDD80044A26B /* Default@2x.png */; };
+		D6A1A298166EDDD80044A26B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A1A297166EDDD80044A26B /* Default-568h@2x.png */; };
+		D6A1A29B166EDDD80044A26B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6A1A299166EDDD80044A26B /* MainStoryboard.storyboard */; };
+		D6A1A29E166EDDD80044A26B /* HairSaionManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D6A1A29C166EDDD80044A26B /* HairSaionManager.xcdatamodeld */; };
+		D6A1A2A1166EDDD80044A26B /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A1A2A0166EDDD80044A26B /* MasterViewController.m */; };
+		D6A1A2A4166EDDD80044A26B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A1A2A3166EDDD80044A26B /* DetailViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D6A1A27B166EDDD80044A26B /* HairSaionManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HairSaionManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6A1A27F166EDDD80044A26B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D6A1A281166EDDD80044A26B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D6A1A283166EDDD80044A26B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D6A1A285166EDDD80044A26B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D6A1A289166EDDD80044A26B /* HairSaionManager-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HairSaionManager-Info.plist"; sourceTree = "<group>"; };
+		D6A1A28B166EDDD80044A26B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D6A1A28D166EDDD80044A26B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D6A1A28F166EDDD80044A26B /* HairSaionManager-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HairSaionManager-Prefix.pch"; sourceTree = "<group>"; };
+		D6A1A290166EDDD80044A26B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D6A1A291166EDDD80044A26B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D6A1A293166EDDD80044A26B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		D6A1A295166EDDD80044A26B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		D6A1A297166EDDD80044A26B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		D6A1A29A166EDDD80044A26B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		D6A1A29D166EDDD80044A26B /* HairSaionManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HairSaionManager.xcdatamodel; sourceTree = "<group>"; };
+		D6A1A29F166EDDD80044A26B /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		D6A1A2A0166EDDD80044A26B /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		D6A1A2A2166EDDD80044A26B /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		D6A1A2A3166EDDD80044A26B /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D6A1A278166EDDD80044A26B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6A1A280166EDDD80044A26B /* UIKit.framework in Frameworks */,
+				D6A1A282166EDDD80044A26B /* Foundation.framework in Frameworks */,
+				D6A1A284166EDDD80044A26B /* CoreGraphics.framework in Frameworks */,
+				D6A1A286166EDDD80044A26B /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D6A1A270166EDDD80044A26B = {
+			isa = PBXGroup;
+			children = (
+				D6A1A287166EDDD80044A26B /* HairSaionManager */,
+				D6A1A27E166EDDD80044A26B /* Frameworks */,
+				D6A1A27C166EDDD80044A26B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D6A1A27C166EDDD80044A26B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D6A1A27B166EDDD80044A26B /* HairSaionManager.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D6A1A27E166EDDD80044A26B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D6A1A27F166EDDD80044A26B /* UIKit.framework */,
+				D6A1A281166EDDD80044A26B /* Foundation.framework */,
+				D6A1A283166EDDD80044A26B /* CoreGraphics.framework */,
+				D6A1A285166EDDD80044A26B /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D6A1A287166EDDD80044A26B /* HairSaionManager */ = {
+			isa = PBXGroup;
+			children = (
+				D6A1A290166EDDD80044A26B /* AppDelegate.h */,
+				D6A1A291166EDDD80044A26B /* AppDelegate.m */,
+				D6A1A299166EDDD80044A26B /* MainStoryboard.storyboard */,
+				D6A1A29F166EDDD80044A26B /* MasterViewController.h */,
+				D6A1A2A0166EDDD80044A26B /* MasterViewController.m */,
+				D6A1A2A2166EDDD80044A26B /* DetailViewController.h */,
+				D6A1A2A3166EDDD80044A26B /* DetailViewController.m */,
+				D6A1A29C166EDDD80044A26B /* HairSaionManager.xcdatamodeld */,
+				D6A1A288166EDDD80044A26B /* Supporting Files */,
+			);
+			path = HairSaionManager;
+			sourceTree = "<group>";
+		};
+		D6A1A288166EDDD80044A26B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D6A1A289166EDDD80044A26B /* HairSaionManager-Info.plist */,
+				D6A1A28A166EDDD80044A26B /* InfoPlist.strings */,
+				D6A1A28D166EDDD80044A26B /* main.m */,
+				D6A1A28F166EDDD80044A26B /* HairSaionManager-Prefix.pch */,
+				D6A1A293166EDDD80044A26B /* Default.png */,
+				D6A1A295166EDDD80044A26B /* Default@2x.png */,
+				D6A1A297166EDDD80044A26B /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D6A1A27A166EDDD80044A26B /* HairSaionManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6A1A2A7166EDDD80044A26B /* Build configuration list for PBXNativeTarget "HairSaionManager" */;
+			buildPhases = (
+				D6A1A277166EDDD80044A26B /* Sources */,
+				D6A1A278166EDDD80044A26B /* Frameworks */,
+				D6A1A279166EDDD80044A26B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HairSaionManager;
+			productName = HairSaionManager;
+			productReference = D6A1A27B166EDDD80044A26B /* HairSaionManager.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D6A1A272166EDDD80044A26B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "chen loman";
+			};
+			buildConfigurationList = D6A1A275166EDDD80044A26B /* Build configuration list for PBXProject "HairSaionManager" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D6A1A270166EDDD80044A26B;
+			productRefGroup = D6A1A27C166EDDD80044A26B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D6A1A27A166EDDD80044A26B /* HairSaionManager */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D6A1A279166EDDD80044A26B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6A1A28C166EDDD80044A26B /* InfoPlist.strings in Resources */,
+				D6A1A294166EDDD80044A26B /* Default.png in Resources */,
+				D6A1A296166EDDD80044A26B /* Default@2x.png in Resources */,
+				D6A1A298166EDDD80044A26B /* Default-568h@2x.png in Resources */,
+				D6A1A29B166EDDD80044A26B /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D6A1A277166EDDD80044A26B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6A1A28E166EDDD80044A26B /* main.m in Sources */,
+				D6A1A292166EDDD80044A26B /* AppDelegate.m in Sources */,
+				D6A1A29E166EDDD80044A26B /* HairSaionManager.xcdatamodeld in Sources */,
+				D6A1A2A1166EDDD80044A26B /* MasterViewController.m in Sources */,
+				D6A1A2A4166EDDD80044A26B /* DetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D6A1A28A166EDDD80044A26B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D6A1A28B166EDDD80044A26B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D6A1A299166EDDD80044A26B /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D6A1A29A166EDDD80044A26B /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D6A1A2A5166EDDD80044A26B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		D6A1A2A6166EDDD80044A26B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D6A1A2A8166EDDD80044A26B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HairSaionManager/HairSaionManager-Prefix.pch";
+				INFOPLIST_FILE = "HairSaionManager/HairSaionManager-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D6A1A2A9166EDDD80044A26B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HairSaionManager/HairSaionManager-Prefix.pch";
+				INFOPLIST_FILE = "HairSaionManager/HairSaionManager-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D6A1A275166EDDD80044A26B /* Build configuration list for PBXProject "HairSaionManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6A1A2A5166EDDD80044A26B /* Debug */,
+				D6A1A2A6166EDDD80044A26B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6A1A2A7166EDDD80044A26B /* Build configuration list for PBXNativeTarget "HairSaionManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6A1A2A8166EDDD80044A26B /* Debug */,
+				D6A1A2A9166EDDD80044A26B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D6A1A29C166EDDD80044A26B /* HairSaionManager.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D6A1A29D166EDDD80044A26B /* HairSaionManager.xcdatamodel */,
+			);
+			currentVersion = D6A1A29D166EDDD80044A26B /* HairSaionManager.xcdatamodel */;
+			path = HairSaionManager.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D6A1A272166EDDD80044A26B /* Project object */;
+}
