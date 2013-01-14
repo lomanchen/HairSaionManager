@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MGSplitViewController.h"
 
-@interface DetailViewController : UIViewController <UISplitViewControllerDelegate>
+@interface DetailViewController : UIViewController <MGSplitViewControllerDelegate>
 
 @property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) MGSplitViewController *splitViewController;
 
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @end

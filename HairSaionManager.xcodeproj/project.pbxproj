@@ -7,6 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D601C47B1678246700AEC70A /* TextEditTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D601C47A1678246700AEC70A /* TextEditTableCell.m */; };
+		D60BD92F167832230034CE24 /* TextViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D60BD92E167832230034CE24 /* TextViewTableCell.m */; };
+		D622DF40169E6C69005415A8 /* KPOperation+LCAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = D622DF3F169E6C69005415A8 /* KPOperation+LCAddition.m */; };
+		D622DF43169E86EC005415A8 /* SyncMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D622DF42169E86EC005415A8 /* SyncMainViewController.xib */; };
+		D622DF4C169E8EB6005415A8 /* SyncProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D622DF4A169E8EB6005415A8 /* SyncProcessViewController.m */; };
+		D622DF4D169E8EB6005415A8 /* SyncProcessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D622DF4B169E8EB6005415A8 /* SyncProcessViewController.xib */; };
+		D622DF50169EABE2005415A8 /* SyncPopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D622DF4F169EABE2005415A8 /* SyncPopUpViewController.m */; };
+		D622DF5F169EC79F005415A8 /* SyncOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D622DF5E169EC79F005415A8 /* SyncOperationManager.m */; };
+		D622DF64169ED724005415A8 /* LCKPFolderOperationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D622DF63169ED724005415A8 /* LCKPFolderOperationItem.m */; };
+		D659214D168C024300474F66 /* KuaiPanOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6592146168C024300474F66 /* KuaiPanOpenAPI.framework */; };
+		D659214E168C024300474F66 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = D6592148168C024300474F66 /* background.png */; };
+		D659214F168C024300474F66 /* KPAuthController_ipad.nib in Resources */ = {isa = PBXBuildFile; fileRef = D6592149168C024300474F66 /* KPAuthController_ipad.nib */; };
+		D6592150168C024300474F66 /* KPAuthController_iphone.nib in Resources */ = {isa = PBXBuildFile; fileRef = D659214A168C024300474F66 /* KPAuthController_iphone.nib */; };
+		D6592151168C024300474F66 /* KPRegisterAuthController_ipad.nib in Resources */ = {isa = PBXBuildFile; fileRef = D659214B168C024300474F66 /* KPRegisterAuthController_ipad.nib */; };
+		D6592152168C024300474F66 /* KPRegisterAuthController_iphone.nib in Resources */ = {isa = PBXBuildFile; fileRef = D659214C168C024300474F66 /* KPRegisterAuthController_iphone.nib */; };
+		D659215A168C02EB00474F66 /* SyncMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6592155168C02EB00474F66 /* SyncMainViewController.m */; };
+		D6592160168C03F600474F66 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D659215F168C03F600474F66 /* Security.framework */; };
+		D66FB3951689F1210008F9F7 /* TypePolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = D66FB3941689F1210008F9F7 /* TypePolicy.m */; };
+		D66FB39A1689F2150008F9F7 /* TableLSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66FB3981689F2150008F9F7 /* TableLSViewController.m */; };
+		D66FB39B1689F2150008F9F7 /* TableLSViewController1.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66FB3991689F2150008F9F7 /* TableLSViewController1.xib */; };
+		D66FB39E1689F6BC0008F9F7 /* TypeLSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66FB39D1689F6BC0008F9F7 /* TypeLSViewController.m */; };
+		D672B67B16777A04005292DB /* ProductRSStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D672B67A16777A04005292DB /* ProductRSStoryboard.storyboard */; };
+		D672B67F1677832C005292DB /* TextEditTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D672B67E1677832C005292DB /* TextEditTableViewController.m */; };
+		D6948A7916899E1500C58C1E /* UIImage+fixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = D6948A7816899E1400C58C1E /* UIImage+fixOrientation.m */; };
 		D6A1A280166EDDD80044A26B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A1A27F166EDDD80044A26B /* UIKit.framework */; };
 		D6A1A282166EDDD80044A26B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A1A281166EDDD80044A26B /* Foundation.framework */; };
 		D6A1A284166EDDD80044A26B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A1A283166EDDD80044A26B /* CoreGraphics.framework */; };
@@ -18,12 +42,121 @@
 		D6A1A296166EDDD80044A26B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A1A295166EDDD80044A26B /* Default@2x.png */; };
 		D6A1A298166EDDD80044A26B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A1A297166EDDD80044A26B /* Default-568h@2x.png */; };
 		D6A1A29B166EDDD80044A26B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6A1A299166EDDD80044A26B /* MainStoryboard.storyboard */; };
-		D6A1A29E166EDDD80044A26B /* HairSaionManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D6A1A29C166EDDD80044A26B /* HairSaionManager.xcdatamodeld */; };
 		D6A1A2A1166EDDD80044A26B /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A1A2A0166EDDD80044A26B /* MasterViewController.m */; };
 		D6A1A2A4166EDDD80044A26B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A1A2A3166EDDD80044A26B /* DetailViewController.m */; };
+		D6A1A305166F15070044A26B /* MySplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A1A304166F15070044A26B /* MySplitViewController.m */; };
+		D6A1A308166F1CA20044A26B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A1A307166F1CA20044A26B /* MainViewController.m */; };
+		D6A1A30B166F1CE80044A26B /* TypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A1A30A166F1CE80044A26B /* TypeViewController.m */; };
+		D6A1A319166F38150044A26B /* MainSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A1A311166F38140044A26B /* MainSplitViewController.m */; };
+		D6A1A31B166F38150044A26B /* MGSplitCornersView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A1A314166F38140044A26B /* MGSplitCornersView.m */; };
+		D6A1A31C166F38150044A26B /* MGSplitDividerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A1A316166F38150044A26B /* MGSplitDividerView.m */; };
+		D6A1A31D166F38150044A26B /* MGSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A1A318166F38150044A26B /* MGSplitViewController.m */; };
+		D6A1A3B2166F446B0044A26B /* babaibang0.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D6A1A350166F446B0044A26B /* babaibang0.jpeg */; };
+		D6A1A3B3166F446B0044A26B /* babaibang1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D6A1A351166F446B0044A26B /* babaibang1.jpeg */; };
+		D6A1A3B4166F446B0044A26B /* babaibang2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D6A1A352166F446B0044A26B /* babaibang2.jpeg */; };
+		D6A1A3B5166F446B0044A26B /* babaibang3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D6A1A353166F446B0044A26B /* babaibang3.jpeg */; };
+		D6BB7C1C167837D90057B510 /* TextViewTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BB7C1B167837D90057B510 /* TextViewTableViewController.m */; };
+		D6C0BAD51676CB0600F39206 /* Window.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C0BAD41676CB0600F39206 /* Window.xib */; };
+		D6C0BAE31676CF4000F39206 /* NGTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BAD91676CF4000F39206 /* NGTabBar.m */; };
+		D6C0BAE41676CF4000F39206 /* NGTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BADB1676CF4000F39206 /* NGTabBarController.m */; };
+		D6C0BAE51676CF4000F39206 /* NGTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BADF1676CF4000F39206 /* NGTabBarItem.m */; };
+		D6C0BAE61676CF4000F39206 /* UIViewController+NGTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BAE21676CF4000F39206 /* UIViewController+NGTabBarItem.m */; };
+		D6C0BAEA1676D0D600F39206 /* ProductLSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BAE81676D0D600F39206 /* ProductLSViewController.m */; };
+		D6C0BAEB1676D0D600F39206 /* TableLSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C0BAE91676D0D600F39206 /* TableLSViewController.xib */; };
+		D6C0BAEF1676D1D800F39206 /* BaseRightSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BAED1676D1D800F39206 /* BaseRightSideViewController.m */; };
+		D6C0BAF91676D55200F39206 /* BaseTabBarPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BAF81676D55200F39206 /* BaseTabBarPolicy.m */; };
+		D6C0BB041676D69800F39206 /* OrganizationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BAFD1676D69800F39206 /* OrganizationItem.m */; };
+		D6C0BB051676D69800F39206 /* PsDataItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BAFF1676D69800F39206 /* PsDataItem.m */; };
+		D6C0BB061676D69800F39206 /* DiscountCardItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB011676D69800F39206 /* DiscountCardItem.m */; };
+		D6C0BB071676D69800F39206 /* ProductShowingDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB031676D69800F39206 /* ProductShowingDetail.m */; };
+		D6C0BB0A1676D77700F39206 /* BaseLeftSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB091676D77700F39206 /* BaseLeftSideViewController.m */; };
+		D6C0BB0D1676D91D00F39206 /* LCFileManager.h in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB0B1676D91D00F39206 /* LCFileManager.h */; };
+		D6C0BB0E1676D91D00F39206 /* LCFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB0C1676D91D00F39206 /* LCFileManager.m */; };
+		D6C0BB271676D9EE00F39206 /* DataAdapter.h in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB131676D9EA00F39206 /* DataAdapter.h */; };
+		D6C0BB281676D9EE00F39206 /* DataAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB141676D9EA00F39206 /* DataAdapter.m */; };
+		D6C0BB291676D9EE00F39206 /* DBManager.h in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB151676D9EA00F39206 /* DBManager.h */; };
+		D6C0BB2A1676D9EE00F39206 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB161676D9EA00F39206 /* DBManager.m */; };
+		D6C0BB2B1676D9EE00F39206 /* DiscountCard.h in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB171676D9EB00F39206 /* DiscountCard.h */; };
+		D6C0BB2C1676D9EE00F39206 /* DiscountCard.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB181676D9EB00F39206 /* DiscountCard.m */; };
+		D6C0BB2D1676D9EE00F39206 /* Organization.h in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB191676D9EB00F39206 /* Organization.h */; };
+		D6C0BB2E1676D9EE00F39206 /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB1A1676D9EB00F39206 /* Organization.m */; };
+		D6C0BB2F1676D9EE00F39206 /* ProductAmount.h in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB1B1676D9EB00F39206 /* ProductAmount.h */; };
+		D6C0BB301676D9EE00F39206 /* ProductAmount.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB1C1676D9EC00F39206 /* ProductAmount.m */; };
+		D6C0BB311676D9EE00F39206 /* ProductAttr.h in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB1D1676D9EC00F39206 /* ProductAttr.h */; };
+		D6C0BB321676D9EE00F39206 /* ProductAttr.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB1E1676D9EC00F39206 /* ProductAttr.m */; };
+		D6C0BB331676D9EE00F39206 /* ProductBase.h in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB1F1676D9EC00F39206 /* ProductBase.h */; };
+		D6C0BB341676D9EE00F39206 /* ProductBase.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB201676D9ED00F39206 /* ProductBase.m */; };
+		D6C0BB351676D9EE00F39206 /* ProductPic.h in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB211676D9ED00F39206 /* ProductPic.h */; };
+		D6C0BB361676D9EE00F39206 /* ProductPic.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB221676D9ED00F39206 /* ProductPic.m */; };
+		D6C0BB371676D9EE00F39206 /* ProductPricing.h in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB231676D9ED00F39206 /* ProductPricing.h */; };
+		D6C0BB381676D9EE00F39206 /* ProductPricing.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB241676D9ED00F39206 /* ProductPricing.m */; };
+		D6C0BB391676D9EE00F39206 /* ProductType.h in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB251676D9EE00F39206 /* ProductType.h */; };
+		D6C0BB3A1676D9EE00F39206 /* ProductType.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB261676D9EE00F39206 /* ProductType.m */; };
+		D6CF70EC166F57F900BD9150 /* YourHairSaion.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = D6CF70EB166F57F900BD9150 /* YourHairSaion.sqlite */; };
+		D6CF7123166F8A5600BD9150 /* PopMideaPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6CF7120166F8A5500BD9150 /* PopMideaPickerViewController.m */; };
+		D6CF7124166F8A5600BD9150 /* PopMideaPickerViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6CF7121166F8A5500BD9150 /* PopMideaPickerViewController_iPhone.xib */; };
+		D6CF7125166F8A5600BD9150 /* PopMideaPickerViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6CF7122166F8A5600BD9150 /* PopMideaPickerViewController_iPad.xib */; };
+		D6CF7127166F8B2D00BD9150 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6CF7126166F8B2C00BD9150 /* MobileCoreServices.framework */; };
+		D6CF7129166F8B3300BD9150 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6CF7128166F8B3300BD9150 /* AssetsLibrary.framework */; };
+		D6F9AE3E167705B400782B32 /* YourHairSaion.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D6F9AE3C167705B400782B32 /* YourHairSaion.xcdatamodeld */; };
+		D6F9AE421677090E00782B32 /* DefalueRSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F9AE401677090E00782B32 /* DefalueRSViewController.m */; };
+		D6F9AE431677090E00782B32 /* DefalueRSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6F9AE411677090E00782B32 /* DefalueRSViewController.xib */; };
+		D6F9AE4716770AF000782B32 /* ProductRSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F9AE4516770AF000782B32 /* ProductRSViewController.m */; };
+		D6F9AE4B16770D2A00782B32 /* ProductPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F9AE4A16770D2A00782B32 /* ProductPolicy.m */; };
+		D6F9AE4E1677181300782B32 /* ProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F9AE4D1677181300782B32 /* ProductCell.m */; };
+		D6FAEC461682BAEB002A4258 /* PopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAEC441682BAEB002A4258 /* PopUpViewController.m */; };
+		D6FAEC471682BAEB002A4258 /* PopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6FAEC451682BAEB002A4258 /* PopUpViewController.xib */; };
+		D6FAEC4C1682F01D002A4258 /* ImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAEC4A1682F01D002A4258 /* ImagePickerViewController.m */; };
+		D6FAEC4D1682F01D002A4258 /* ImagePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6FAEC4B1682F01D002A4258 /* ImagePickerViewController.xib */; };
+		D6FAEC581682FD51002A4258 /* YSImageCrop.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAEC521682FD50002A4258 /* YSImageCrop.m */; };
+		D6FAEC591682FD51002A4258 /* YSImagePickerEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAEC541682FD50002A4258 /* YSImagePickerEditor.m */; };
+		D6FAEC5E1683085B002A4258 /* PopUpSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAEC5D1683085B002A4258 /* PopUpSubViewController.m */; };
+		D6FB5D501678694500797DFE /* ProductTypePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FB5D4F1678694400797DFE /* ProductTypePickerViewController.m */; };
+		D6FD81C416A44AF6000B3926 /* 护发产品 in Resources */ = {isa = PBXBuildFile; fileRef = D6FD81C016A44AF6000B3926 /* 护发产品 */; };
+		D6FD81C516A44AF6000B3926 /* 流行发型 in Resources */ = {isa = PBXBuildFile; fileRef = D6FD81C116A44AF6000B3926 /* 流行发型 */; };
+		D6FD81C616A44AF6000B3926 /* 男士发型 in Resources */ = {isa = PBXBuildFile; fileRef = D6FD81C216A44AF6000B3926 /* 男士发型 */; };
+		D6FD81C716A44AF6000B3926 /* 女士发型 in Resources */ = {isa = PBXBuildFile; fileRef = D6FD81C316A44AF6000B3926 /* 女士发型 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D601C4791678246700AEC70A /* TextEditTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextEditTableCell.h; sourceTree = "<group>"; };
+		D601C47A1678246700AEC70A /* TextEditTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextEditTableCell.m; sourceTree = "<group>"; };
+		D60BD92D167832230034CE24 /* TextViewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewTableCell.h; sourceTree = "<group>"; };
+		D60BD92E167832230034CE24 /* TextViewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewTableCell.m; sourceTree = "<group>"; };
+		D622DF3E169E6C69005415A8 /* KPOperation+LCAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KPOperation+LCAddition.h"; sourceTree = "<group>"; };
+		D622DF3F169E6C69005415A8 /* KPOperation+LCAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KPOperation+LCAddition.m"; sourceTree = "<group>"; };
+		D622DF42169E86EC005415A8 /* SyncMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SyncMainViewController.xib; sourceTree = "<group>"; };
+		D622DF49169E8EB6005415A8 /* SyncProcessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncProcessViewController.h; sourceTree = "<group>"; };
+		D622DF4A169E8EB6005415A8 /* SyncProcessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncProcessViewController.m; sourceTree = "<group>"; };
+		D622DF4B169E8EB6005415A8 /* SyncProcessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SyncProcessViewController.xib; sourceTree = "<group>"; };
+		D622DF4E169EABE2005415A8 /* SyncPopUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncPopUpViewController.h; sourceTree = "<group>"; };
+		D622DF4F169EABE2005415A8 /* SyncPopUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncPopUpViewController.m; sourceTree = "<group>"; };
+		D622DF5D169EC79F005415A8 /* SyncOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncOperationManager.h; sourceTree = "<group>"; };
+		D622DF5E169EC79F005415A8 /* SyncOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncOperationManager.m; sourceTree = "<group>"; };
+		D622DF60169ED426005415A8 /* SyncMainViewController+Action.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SyncMainViewController+Action.m"; sourceTree = "<group>"; };
+		D622DF62169ED724005415A8 /* LCKPFolderOperationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCKPFolderOperationItem.h; sourceTree = "<group>"; };
+		D622DF63169ED724005415A8 /* LCKPFolderOperationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCKPFolderOperationItem.m; sourceTree = "<group>"; };
+		D6592146168C024300474F66 /* KuaiPanOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KuaiPanOpenAPI.framework; sourceTree = "<group>"; };
+		D6592148168C024300474F66 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		D6592149168C024300474F66 /* KPAuthController_ipad.nib */ = {isa = PBXFileReference; lastKnownFileType = file; path = KPAuthController_ipad.nib; sourceTree = "<group>"; };
+		D659214A168C024300474F66 /* KPAuthController_iphone.nib */ = {isa = PBXFileReference; lastKnownFileType = file; path = KPAuthController_iphone.nib; sourceTree = "<group>"; };
+		D659214B168C024300474F66 /* KPRegisterAuthController_ipad.nib */ = {isa = PBXFileReference; lastKnownFileType = file; path = KPRegisterAuthController_ipad.nib; sourceTree = "<group>"; };
+		D659214C168C024300474F66 /* KPRegisterAuthController_iphone.nib */ = {isa = PBXFileReference; lastKnownFileType = file; path = KPRegisterAuthController_iphone.nib; sourceTree = "<group>"; };
+		D6592154168C02EB00474F66 /* SyncMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncMainViewController.h; sourceTree = "<group>"; };
+		D6592155168C02EB00474F66 /* SyncMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncMainViewController.m; sourceTree = "<group>"; };
+		D659215F168C03F600474F66 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		D66FB3931689F1210008F9F7 /* TypePolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypePolicy.h; sourceTree = "<group>"; };
+		D66FB3941689F1210008F9F7 /* TypePolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypePolicy.m; sourceTree = "<group>"; };
+		D66FB3971689F2150008F9F7 /* TableLSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableLSViewController.h; sourceTree = "<group>"; };
+		D66FB3981689F2150008F9F7 /* TableLSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableLSViewController.m; sourceTree = "<group>"; };
+		D66FB3991689F2150008F9F7 /* TableLSViewController1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableLSViewController1.xib; sourceTree = "<group>"; };
+		D66FB39C1689F6BC0008F9F7 /* TypeLSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeLSViewController.h; sourceTree = "<group>"; };
+		D66FB39D1689F6BC0008F9F7 /* TypeLSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeLSViewController.m; sourceTree = "<group>"; };
+		D672B67A16777A04005292DB /* ProductRSStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProductRSStoryboard.storyboard; sourceTree = "<group>"; };
+		D672B67D1677832C005292DB /* TextEditTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextEditTableViewController.h; sourceTree = "<group>"; };
+		D672B67E1677832C005292DB /* TextEditTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextEditTableViewController.m; sourceTree = "<group>"; };
+		D6948A7716899E1400C58C1E /* UIImage+fixOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+fixOrientation.h"; sourceTree = "<group>"; };
+		D6948A7816899E1400C58C1E /* UIImage+fixOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+fixOrientation.m"; sourceTree = "<group>"; };
 		D6A1A27B166EDDD80044A26B /* HairSaionManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HairSaionManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6A1A27F166EDDD80044A26B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D6A1A281166EDDD80044A26B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -39,11 +172,118 @@
 		D6A1A295166EDDD80044A26B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		D6A1A297166EDDD80044A26B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D6A1A29A166EDDD80044A26B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		D6A1A29D166EDDD80044A26B /* HairSaionManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HairSaionManager.xcdatamodel; sourceTree = "<group>"; };
 		D6A1A29F166EDDD80044A26B /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		D6A1A2A0166EDDD80044A26B /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		D6A1A2A2166EDDD80044A26B /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		D6A1A2A3166EDDD80044A26B /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		D6A1A303166F15070044A26B /* MySplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySplitViewController.h; sourceTree = "<group>"; };
+		D6A1A304166F15070044A26B /* MySplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySplitViewController.m; sourceTree = "<group>"; };
+		D6A1A306166F1CA10044A26B /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		D6A1A307166F1CA20044A26B /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		D6A1A309166F1CE80044A26B /* TypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeViewController.h; sourceTree = "<group>"; };
+		D6A1A30A166F1CE80044A26B /* TypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeViewController.m; sourceTree = "<group>"; };
+		D6A1A310166F38140044A26B /* MainSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainSplitViewController.h; sourceTree = "<group>"; };
+		D6A1A311166F38140044A26B /* MainSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainSplitViewController.m; sourceTree = "<group>"; };
+		D6A1A313166F38140044A26B /* MGSplitCornersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitCornersView.h; sourceTree = "<group>"; };
+		D6A1A314166F38140044A26B /* MGSplitCornersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitCornersView.m; sourceTree = "<group>"; };
+		D6A1A315166F38150044A26B /* MGSplitDividerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitDividerView.h; sourceTree = "<group>"; };
+		D6A1A316166F38150044A26B /* MGSplitDividerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitDividerView.m; sourceTree = "<group>"; };
+		D6A1A317166F38150044A26B /* MGSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitViewController.h; sourceTree = "<group>"; };
+		D6A1A318166F38150044A26B /* MGSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitViewController.m; sourceTree = "<group>"; };
+		D6A1A350166F446B0044A26B /* babaibang0.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = babaibang0.jpeg; sourceTree = "<group>"; };
+		D6A1A351166F446B0044A26B /* babaibang1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = babaibang1.jpeg; sourceTree = "<group>"; };
+		D6A1A352166F446B0044A26B /* babaibang2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = babaibang2.jpeg; sourceTree = "<group>"; };
+		D6A1A353166F446B0044A26B /* babaibang3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = babaibang3.jpeg; sourceTree = "<group>"; };
+		D6BB7C1A167837D90057B510 /* TextViewTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewTableViewController.h; sourceTree = "<group>"; };
+		D6BB7C1B167837D90057B510 /* TextViewTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewTableViewController.m; sourceTree = "<group>"; };
+		D6C0BAD41676CB0600F39206 /* Window.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Window.xib; sourceTree = "<group>"; };
+		D6C0BAD81676CF4000F39206 /* NGTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGTabBar.h; sourceTree = "<group>"; };
+		D6C0BAD91676CF4000F39206 /* NGTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGTabBar.m; sourceTree = "<group>"; };
+		D6C0BADA1676CF4000F39206 /* NGTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGTabBarController.h; sourceTree = "<group>"; };
+		D6C0BADB1676CF4000F39206 /* NGTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGTabBarController.m; sourceTree = "<group>"; };
+		D6C0BADC1676CF4000F39206 /* NGTabBarControllerAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGTabBarControllerAnimation.h; sourceTree = "<group>"; };
+		D6C0BADD1676CF4000F39206 /* NGTabBarControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGTabBarControllerDelegate.h; sourceTree = "<group>"; };
+		D6C0BADE1676CF4000F39206 /* NGTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGTabBarItem.h; sourceTree = "<group>"; };
+		D6C0BADF1676CF4000F39206 /* NGTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGTabBarItem.m; sourceTree = "<group>"; };
+		D6C0BAE01676CF4000F39206 /* NGTabBarPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGTabBarPosition.h; sourceTree = "<group>"; };
+		D6C0BAE11676CF4000F39206 /* UIViewController+NGTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+NGTabBarItem.h"; sourceTree = "<group>"; };
+		D6C0BAE21676CF4000F39206 /* UIViewController+NGTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+NGTabBarItem.m"; sourceTree = "<group>"; };
+		D6C0BAE71676D0D500F39206 /* ProductLSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductLSViewController.h; sourceTree = "<group>"; };
+		D6C0BAE81676D0D600F39206 /* ProductLSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductLSViewController.m; sourceTree = "<group>"; };
+		D6C0BAE91676D0D600F39206 /* TableLSViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableLSViewController.xib; sourceTree = "<group>"; };
+		D6C0BAEC1676D1D800F39206 /* BaseRightSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRightSideViewController.h; sourceTree = "<group>"; };
+		D6C0BAED1676D1D800F39206 /* BaseRightSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRightSideViewController.m; sourceTree = "<group>"; };
+		D6C0BAF71676D55200F39206 /* BaseTabBarPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseTabBarPolicy.h; path = TabBarPolicy/BaseTabBarPolicy.h; sourceTree = "<group>"; };
+		D6C0BAF81676D55200F39206 /* BaseTabBarPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseTabBarPolicy.m; path = TabBarPolicy/BaseTabBarPolicy.m; sourceTree = "<group>"; };
+		D6C0BAFC1676D69800F39206 /* OrganizationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrganizationItem.h; path = ../../YourHairSaion/OrganizationItem.h; sourceTree = "<group>"; };
+		D6C0BAFD1676D69800F39206 /* OrganizationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrganizationItem.m; path = ../../YourHairSaion/OrganizationItem.m; sourceTree = "<group>"; };
+		D6C0BAFE1676D69800F39206 /* PsDataItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PsDataItem.h; path = ../../YourHairSaion/PsDataItem.h; sourceTree = "<group>"; };
+		D6C0BAFF1676D69800F39206 /* PsDataItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PsDataItem.m; path = ../../YourHairSaion/PsDataItem.m; sourceTree = "<group>"; };
+		D6C0BB001676D69800F39206 /* DiscountCardItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscountCardItem.h; path = ../../YourHairSaion/YourHairSaion/DiscountCardItem.h; sourceTree = "<group>"; };
+		D6C0BB011676D69800F39206 /* DiscountCardItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscountCardItem.m; path = ../../YourHairSaion/YourHairSaion/DiscountCardItem.m; sourceTree = "<group>"; };
+		D6C0BB021676D69800F39206 /* ProductShowingDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductShowingDetail.h; path = ../../YourHairSaion/YourHairSaion/ProductShowingDetail.h; sourceTree = "<group>"; };
+		D6C0BB031676D69800F39206 /* ProductShowingDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductShowingDetail.m; path = ../../YourHairSaion/YourHairSaion/ProductShowingDetail.m; sourceTree = "<group>"; };
+		D6C0BB081676D77700F39206 /* BaseLeftSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLeftSideViewController.h; sourceTree = "<group>"; };
+		D6C0BB091676D77700F39206 /* BaseLeftSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseLeftSideViewController.m; sourceTree = "<group>"; };
+		D6C0BB0B1676D91D00F39206 /* LCFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LCFileManager.h; path = ../YourHairSaion/LCFileManager/LCFileManager.h; sourceTree = "<group>"; };
+		D6C0BB0C1676D91D00F39206 /* LCFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LCFileManager.m; path = ../YourHairSaion/LCFileManager/LCFileManager.m; sourceTree = "<group>"; };
+		D6C0BB131676D9EA00F39206 /* DataAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DataAdapter.h; path = ../YourHairSaion/YourHairSaion/DataBase/DataAdapter.h; sourceTree = "<group>"; };
+		D6C0BB141676D9EA00F39206 /* DataAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DataAdapter.m; path = ../YourHairSaion/YourHairSaion/DataBase/DataAdapter.m; sourceTree = "<group>"; };
+		D6C0BB151676D9EA00F39206 /* DBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DBManager.h; path = ../YourHairSaion/YourHairSaion/DataBase/DBManager.h; sourceTree = "<group>"; };
+		D6C0BB161676D9EA00F39206 /* DBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DBManager.m; path = ../YourHairSaion/YourHairSaion/DataBase/DBManager.m; sourceTree = "<group>"; };
+		D6C0BB171676D9EB00F39206 /* DiscountCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DiscountCard.h; path = ../YourHairSaion/YourHairSaion/DataBase/DiscountCard.h; sourceTree = "<group>"; };
+		D6C0BB181676D9EB00F39206 /* DiscountCard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DiscountCard.m; path = ../YourHairSaion/YourHairSaion/DataBase/DiscountCard.m; sourceTree = "<group>"; };
+		D6C0BB191676D9EB00F39206 /* Organization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Organization.h; path = ../YourHairSaion/YourHairSaion/DataBase/Organization.h; sourceTree = "<group>"; };
+		D6C0BB1A1676D9EB00F39206 /* Organization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Organization.m; path = ../YourHairSaion/YourHairSaion/DataBase/Organization.m; sourceTree = "<group>"; };
+		D6C0BB1B1676D9EB00F39206 /* ProductAmount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ProductAmount.h; path = ../YourHairSaion/YourHairSaion/DataBase/ProductAmount.h; sourceTree = "<group>"; };
+		D6C0BB1C1676D9EC00F39206 /* ProductAmount.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ProductAmount.m; path = ../YourHairSaion/YourHairSaion/DataBase/ProductAmount.m; sourceTree = "<group>"; };
+		D6C0BB1D1676D9EC00F39206 /* ProductAttr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ProductAttr.h; path = ../YourHairSaion/YourHairSaion/DataBase/ProductAttr.h; sourceTree = "<group>"; };
+		D6C0BB1E1676D9EC00F39206 /* ProductAttr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ProductAttr.m; path = ../YourHairSaion/YourHairSaion/DataBase/ProductAttr.m; sourceTree = "<group>"; };
+		D6C0BB1F1676D9EC00F39206 /* ProductBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ProductBase.h; path = ../YourHairSaion/YourHairSaion/DataBase/ProductBase.h; sourceTree = "<group>"; };
+		D6C0BB201676D9ED00F39206 /* ProductBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ProductBase.m; path = ../YourHairSaion/YourHairSaion/DataBase/ProductBase.m; sourceTree = "<group>"; };
+		D6C0BB211676D9ED00F39206 /* ProductPic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ProductPic.h; path = ../YourHairSaion/YourHairSaion/DataBase/ProductPic.h; sourceTree = "<group>"; };
+		D6C0BB221676D9ED00F39206 /* ProductPic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ProductPic.m; path = ../YourHairSaion/YourHairSaion/DataBase/ProductPic.m; sourceTree = "<group>"; };
+		D6C0BB231676D9ED00F39206 /* ProductPricing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ProductPricing.h; path = ../YourHairSaion/YourHairSaion/DataBase/ProductPricing.h; sourceTree = "<group>"; };
+		D6C0BB241676D9ED00F39206 /* ProductPricing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ProductPricing.m; path = ../YourHairSaion/YourHairSaion/DataBase/ProductPricing.m; sourceTree = "<group>"; };
+		D6C0BB251676D9EE00F39206 /* ProductType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ProductType.h; path = ../YourHairSaion/YourHairSaion/DataBase/ProductType.h; sourceTree = "<group>"; };
+		D6C0BB261676D9EE00F39206 /* ProductType.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ProductType.m; path = ../YourHairSaion/YourHairSaion/DataBase/ProductType.m; sourceTree = "<group>"; };
+		D6CF70EB166F57F900BD9150 /* YourHairSaion.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = YourHairSaion.sqlite; sourceTree = "<group>"; };
+		D6CF711F166F8A5500BD9150 /* PopMideaPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopMideaPickerViewController.h; path = DataBase/PopMideaPickerViewController.h; sourceTree = "<group>"; };
+		D6CF7120166F8A5500BD9150 /* PopMideaPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopMideaPickerViewController.m; path = DataBase/PopMideaPickerViewController.m; sourceTree = "<group>"; };
+		D6CF7121166F8A5500BD9150 /* PopMideaPickerViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PopMideaPickerViewController_iPhone.xib; path = DataBase/PopMideaPickerViewController_iPhone.xib; sourceTree = "<group>"; };
+		D6CF7122166F8A5600BD9150 /* PopMideaPickerViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PopMideaPickerViewController_iPad.xib; path = DataBase/PopMideaPickerViewController_iPad.xib; sourceTree = "<group>"; };
+		D6CF7126166F8B2C00BD9150 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D6CF7128166F8B3300BD9150 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		D6F9AE3D167705B400782B32 /* YourHairSaion.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YourHairSaion.xcdatamodel; sourceTree = "<group>"; };
+		D6F9AE3F1677090E00782B32 /* DefalueRSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefalueRSViewController.h; sourceTree = "<group>"; };
+		D6F9AE401677090E00782B32 /* DefalueRSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefalueRSViewController.m; sourceTree = "<group>"; };
+		D6F9AE411677090E00782B32 /* DefalueRSViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefalueRSViewController.xib; sourceTree = "<group>"; };
+		D6F9AE4416770AF000782B32 /* ProductRSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductRSViewController.h; sourceTree = "<group>"; };
+		D6F9AE4516770AF000782B32 /* ProductRSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductRSViewController.m; sourceTree = "<group>"; };
+		D6F9AE4916770D2A00782B32 /* ProductPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductPolicy.h; sourceTree = "<group>"; };
+		D6F9AE4A16770D2A00782B32 /* ProductPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductPolicy.m; sourceTree = "<group>"; };
+		D6F9AE4C1677181300782B32 /* ProductCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCell.h; sourceTree = "<group>"; };
+		D6F9AE4D1677181300782B32 /* ProductCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCell.m; sourceTree = "<group>"; };
+		D6FAEC431682BAEB002A4258 /* PopUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopUpViewController.h; sourceTree = "<group>"; };
+		D6FAEC441682BAEB002A4258 /* PopUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopUpViewController.m; sourceTree = "<group>"; };
+		D6FAEC451682BAEB002A4258 /* PopUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpViewController.xib; sourceTree = "<group>"; };
+		D6FAEC491682F01C002A4258 /* ImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerViewController.h; sourceTree = "<group>"; };
+		D6FAEC4A1682F01D002A4258 /* ImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickerViewController.m; sourceTree = "<group>"; };
+		D6FAEC4B1682F01D002A4258 /* ImagePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagePickerViewController.xib; sourceTree = "<group>"; };
+		D6FAEC521682FD50002A4258 /* YSImageCrop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSImageCrop.m; sourceTree = "<group>"; };
+		D6FAEC531682FD50002A4258 /* YSImageCrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSImageCrop.h; sourceTree = "<group>"; };
+		D6FAEC541682FD50002A4258 /* YSImagePickerEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSImagePickerEditor.m; sourceTree = "<group>"; };
+		D6FAEC551682FD51002A4258 /* YSImageCropDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSImageCropDelegate.h; sourceTree = "<group>"; };
+		D6FAEC561682FD51002A4258 /* YSImagePickerEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSImagePickerEditor.h; sourceTree = "<group>"; };
+		D6FAEC571682FD51002A4258 /* YSImagePickerEditorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSImagePickerEditorDelegate.h; sourceTree = "<group>"; };
+		D6FAEC5C1683085B002A4258 /* PopUpSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopUpSubViewController.h; sourceTree = "<group>"; };
+		D6FAEC5D1683085B002A4258 /* PopUpSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopUpSubViewController.m; sourceTree = "<group>"; };
+		D6FB5D4E1678694400797DFE /* ProductTypePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductTypePickerViewController.h; sourceTree = "<group>"; };
+		D6FB5D4F1678694400797DFE /* ProductTypePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductTypePickerViewController.m; sourceTree = "<group>"; };
+		D6FD81C016A44AF6000B3926 /* 护发产品 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "护发产品"; path = "../../../../Downloads/My Pic in use/护发产品"; sourceTree = "<group>"; };
+		D6FD81C116A44AF6000B3926 /* 流行发型 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "流行发型"; path = "../../../../Downloads/My Pic in use/流行发型"; sourceTree = "<group>"; };
+		D6FD81C216A44AF6000B3926 /* 男士发型 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "男士发型"; path = "../../../../Downloads/My Pic in use/男士发型"; sourceTree = "<group>"; };
+		D6FD81C316A44AF6000B3926 /* 女士发型 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "女士发型"; path = "../../../../Downloads/My Pic in use/女士发型"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,19 +291,119 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6592160168C03F600474F66 /* Security.framework in Frameworks */,
+				D6CF7129166F8B3300BD9150 /* AssetsLibrary.framework in Frameworks */,
+				D6CF7127166F8B2D00BD9150 /* MobileCoreServices.framework in Frameworks */,
 				D6A1A280166EDDD80044A26B /* UIKit.framework in Frameworks */,
 				D6A1A282166EDDD80044A26B /* Foundation.framework in Frameworks */,
 				D6A1A284166EDDD80044A26B /* CoreGraphics.framework in Frameworks */,
 				D6A1A286166EDDD80044A26B /* CoreData.framework in Frameworks */,
+				D659214D168C024300474F66 /* KuaiPanOpenAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D623454F1677593200F9A168 /* RSVC */ = {
+			isa = PBXGroup;
+			children = (
+				D6C0BAEC1676D1D800F39206 /* BaseRightSideViewController.h */,
+				D6F9AE3F1677090E00782B32 /* DefalueRSViewController.h */,
+				D6F9AE401677090E00782B32 /* DefalueRSViewController.m */,
+				D6F9AE411677090E00782B32 /* DefalueRSViewController.xib */,
+				D6C0BAED1676D1D800F39206 /* BaseRightSideViewController.m */,
+				D6F9AE4416770AF000782B32 /* ProductRSViewController.h */,
+				D672B67A16777A04005292DB /* ProductRSStoryboard.storyboard */,
+				D6FB5D4E1678694400797DFE /* ProductTypePickerViewController.h */,
+				D6FB5D4F1678694400797DFE /* ProductTypePickerViewController.m */,
+				D6F9AE4516770AF000782B32 /* ProductRSViewController.m */,
+				D672B67D1677832C005292DB /* TextEditTableViewController.h */,
+				D6BB7C1A167837D90057B510 /* TextViewTableViewController.h */,
+				D6BB7C1B167837D90057B510 /* TextViewTableViewController.m */,
+				D672B67E1677832C005292DB /* TextEditTableViewController.m */,
+				D601C4791678246700AEC70A /* TextEditTableCell.h */,
+				D601C47A1678246700AEC70A /* TextEditTableCell.m */,
+				D60BD92D167832230034CE24 /* TextViewTableCell.h */,
+				D60BD92E167832230034CE24 /* TextViewTableCell.m */,
+			);
+			name = RSVC;
+			sourceTree = "<group>";
+		};
+		D62345501677594B00F9A168 /* LSVC */ = {
+			isa = PBXGroup;
+			children = (
+				D6C0BAE71676D0D500F39206 /* ProductLSViewController.h */,
+				D6C0BB081676D77700F39206 /* BaseLeftSideViewController.h */,
+				D66FB39C1689F6BC0008F9F7 /* TypeLSViewController.h */,
+				D66FB39D1689F6BC0008F9F7 /* TypeLSViewController.m */,
+				D6C0BB091676D77700F39206 /* BaseLeftSideViewController.m */,
+				D6C0BAE81676D0D600F39206 /* ProductLSViewController.m */,
+				D6C0BAE91676D0D600F39206 /* TableLSViewController.xib */,
+				D6F9AE4C1677181300782B32 /* ProductCell.h */,
+				D6F9AE4D1677181300782B32 /* ProductCell.m */,
+				D66FB3971689F2150008F9F7 /* TableLSViewController.h */,
+				D66FB3981689F2150008F9F7 /* TableLSViewController.m */,
+				D66FB3991689F2150008F9F7 /* TableLSViewController1.xib */,
+			);
+			name = LSVC;
+			sourceTree = "<group>";
+		};
+		D6592136168C01B600474F66 /* KuaiPan */ = {
+			isa = PBXGroup;
+			children = (
+				D622DF60169ED426005415A8 /* SyncMainViewController+Action.m */,
+				D622DF49169E8EB6005415A8 /* SyncProcessViewController.h */,
+				D622DF5D169EC79F005415A8 /* SyncOperationManager.h */,
+				D622DF5E169EC79F005415A8 /* SyncOperationManager.m */,
+				D622DF62169ED724005415A8 /* LCKPFolderOperationItem.h */,
+				D622DF63169ED724005415A8 /* LCKPFolderOperationItem.m */,
+				D622DF4A169E8EB6005415A8 /* SyncProcessViewController.m */,
+				D622DF4B169E8EB6005415A8 /* SyncProcessViewController.xib */,
+				D6592154168C02EB00474F66 /* SyncMainViewController.h */,
+				D6592155168C02EB00474F66 /* SyncMainViewController.m */,
+				D622DF42169E86EC005415A8 /* SyncMainViewController.xib */,
+				D622DF3E169E6C69005415A8 /* KPOperation+LCAddition.h */,
+				D622DF3F169E6C69005415A8 /* KPOperation+LCAddition.m */,
+				D622DF4E169EABE2005415A8 /* SyncPopUpViewController.h */,
+				D622DF4F169EABE2005415A8 /* SyncPopUpViewController.m */,
+			);
+			name = KuaiPan;
+			sourceTree = "<group>";
+		};
+		D6592145168C024300474F66 /* KuaiPanOpenAPI.kpframework */ = {
+			isa = PBXGroup;
+			children = (
+				D6592146168C024300474F66 /* KuaiPanOpenAPI.framework */,
+				D6592147168C024300474F66 /* Resources */,
+			);
+			path = KuaiPanOpenAPI.kpframework;
+			sourceTree = "<group>";
+		};
+		D6592147168C024300474F66 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D6592148168C024300474F66 /* background.png */,
+				D6592149168C024300474F66 /* KPAuthController_ipad.nib */,
+				D659214A168C024300474F66 /* KPAuthController_iphone.nib */,
+				D659214B168C024300474F66 /* KPRegisterAuthController_ipad.nib */,
+				D659214C168C024300474F66 /* KPRegisterAuthController_iphone.nib */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		D6A1A270166EDDD80044A26B = {
 			isa = PBXGroup;
 			children = (
+				D6592136168C01B600474F66 /* KuaiPan */,
+				D6948A7716899E1400C58C1E /* UIImage+fixOrientation.h */,
+				D6948A7816899E1400C58C1E /* UIImage+fixOrientation.m */,
+				D6FAEC5A1682FD55002A4258 /* ImagePicker */,
+				D6C0BB121676D9C900F39206 /* DataBase */,
+				D6C0BB0F1676D96300F39206 /* LCFileManager */,
+				D6C0BAD71676CF1100F39206 /* NGTabBar */,
+				D6CF70EB166F57F900BD9150 /* YourHairSaion.sqlite */,
+				D6A1A31E166F381C0044A26B /* SplitViewController */,
 				D6A1A287166EDDD80044A26B /* HairSaionManager */,
 				D6A1A27E166EDDD80044A26B /* Frameworks */,
 				D6A1A27C166EDDD80044A26B /* Products */,
@@ -81,6 +421,10 @@
 		D6A1A27E166EDDD80044A26B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D659215F168C03F600474F66 /* Security.framework */,
+				D6592145168C024300474F66 /* KuaiPanOpenAPI.kpframework */,
+				D6CF7128166F8B3300BD9150 /* AssetsLibrary.framework */,
+				D6CF7126166F8B2C00BD9150 /* MobileCoreServices.framework */,
 				D6A1A27F166EDDD80044A26B /* UIKit.framework */,
 				D6A1A281166EDDD80044A26B /* Foundation.framework */,
 				D6A1A283166EDDD80044A26B /* CoreGraphics.framework */,
@@ -92,15 +436,33 @@
 		D6A1A287166EDDD80044A26B /* HairSaionManager */ = {
 			isa = PBXGroup;
 			children = (
+				D6FAEC5B1683083F002A4258 /* PopUp */,
+				D62345501677594B00F9A168 /* LSVC */,
+				D623454F1677593200F9A168 /* RSVC */,
+				D6C0BAFB1676D63100F39206 /* DataItem */,
+				D6C0BAFA1676D56B00F39206 /* TabBarPolicy */,
+				D6A1A303166F15070044A26B /* MySplitViewController.h */,
+				D6A1A304166F15070044A26B /* MySplitViewController.m */,
 				D6A1A290166EDDD80044A26B /* AppDelegate.h */,
+				D6CF711F166F8A5500BD9150 /* PopMideaPickerViewController.h */,
+				D6CF7120166F8A5500BD9150 /* PopMideaPickerViewController.m */,
+				D6CF7121166F8A5500BD9150 /* PopMideaPickerViewController_iPhone.xib */,
+				D6CF7122166F8A5600BD9150 /* PopMideaPickerViewController_iPad.xib */,
 				D6A1A291166EDDD80044A26B /* AppDelegate.m */,
 				D6A1A299166EDDD80044A26B /* MainStoryboard.storyboard */,
+				D6C0BAD41676CB0600F39206 /* Window.xib */,
+				D6A1A309166F1CE80044A26B /* TypeViewController.h */,
+				D6A1A30A166F1CE80044A26B /* TypeViewController.m */,
+				D6A1A306166F1CA10044A26B /* MainViewController.h */,
+				D6A1A307166F1CA20044A26B /* MainViewController.m */,
 				D6A1A29F166EDDD80044A26B /* MasterViewController.h */,
 				D6A1A2A0166EDDD80044A26B /* MasterViewController.m */,
 				D6A1A2A2166EDDD80044A26B /* DetailViewController.h */,
 				D6A1A2A3166EDDD80044A26B /* DetailViewController.m */,
-				D6A1A29C166EDDD80044A26B /* HairSaionManager.xcdatamodeld */,
 				D6A1A288166EDDD80044A26B /* Supporting Files */,
+				D6FAEC491682F01C002A4258 /* ImagePickerViewController.h */,
+				D6FAEC4A1682F01D002A4258 /* ImagePickerViewController.m */,
+				D6FAEC4B1682F01D002A4258 /* ImagePickerViewController.xib */,
 			);
 			path = HairSaionManager;
 			sourceTree = "<group>";
@@ -108,6 +470,7 @@
 		D6A1A288166EDDD80044A26B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D6A1A31F166F446B0044A26B /* images */,
 				D6A1A289166EDDD80044A26B /* HairSaionManager-Info.plist */,
 				D6A1A28A166EDDD80044A26B /* InfoPlist.strings */,
 				D6A1A28D166EDDD80044A26B /* main.m */,
@@ -117,6 +480,160 @@
 				D6A1A297166EDDD80044A26B /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D6A1A31E166F381C0044A26B /* SplitViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D6A1A310166F38140044A26B /* MainSplitViewController.h */,
+				D6A1A311166F38140044A26B /* MainSplitViewController.m */,
+				D6A1A313166F38140044A26B /* MGSplitCornersView.h */,
+				D6A1A314166F38140044A26B /* MGSplitCornersView.m */,
+				D6A1A315166F38150044A26B /* MGSplitDividerView.h */,
+				D6A1A316166F38150044A26B /* MGSplitDividerView.m */,
+				D6A1A317166F38150044A26B /* MGSplitViewController.h */,
+				D6A1A318166F38150044A26B /* MGSplitViewController.m */,
+			);
+			name = SplitViewController;
+			sourceTree = "<group>";
+		};
+		D6A1A31F166F446B0044A26B /* images */ = {
+			isa = PBXGroup;
+			children = (
+				D6FD81BE16A44ACB000B3926 /* product */,
+				D6A1A34F166F446B0044A26B /* org */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		D6A1A34F166F446B0044A26B /* org */ = {
+			isa = PBXGroup;
+			children = (
+				D6A1A350166F446B0044A26B /* babaibang0.jpeg */,
+				D6A1A351166F446B0044A26B /* babaibang1.jpeg */,
+				D6A1A352166F446B0044A26B /* babaibang2.jpeg */,
+				D6A1A353166F446B0044A26B /* babaibang3.jpeg */,
+			);
+			path = org;
+			sourceTree = "<group>";
+		};
+		D6C0BAD71676CF1100F39206 /* NGTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				D6C0BAD81676CF4000F39206 /* NGTabBar.h */,
+				D6C0BAD91676CF4000F39206 /* NGTabBar.m */,
+				D6C0BADA1676CF4000F39206 /* NGTabBarController.h */,
+				D6C0BADB1676CF4000F39206 /* NGTabBarController.m */,
+				D6C0BADC1676CF4000F39206 /* NGTabBarControllerAnimation.h */,
+				D6C0BADD1676CF4000F39206 /* NGTabBarControllerDelegate.h */,
+				D6C0BADE1676CF4000F39206 /* NGTabBarItem.h */,
+				D6C0BADF1676CF4000F39206 /* NGTabBarItem.m */,
+				D6C0BAE01676CF4000F39206 /* NGTabBarPosition.h */,
+				D6C0BAE11676CF4000F39206 /* UIViewController+NGTabBarItem.h */,
+				D6C0BAE21676CF4000F39206 /* UIViewController+NGTabBarItem.m */,
+			);
+			name = NGTabBar;
+			sourceTree = "<group>";
+		};
+		D6C0BAFA1676D56B00F39206 /* TabBarPolicy */ = {
+			isa = PBXGroup;
+			children = (
+				D6C0BAF71676D55200F39206 /* BaseTabBarPolicy.h */,
+				D6C0BAF81676D55200F39206 /* BaseTabBarPolicy.m */,
+				D6F9AE4916770D2A00782B32 /* ProductPolicy.h */,
+				D6F9AE4A16770D2A00782B32 /* ProductPolicy.m */,
+				D66FB3931689F1210008F9F7 /* TypePolicy.h */,
+				D66FB3941689F1210008F9F7 /* TypePolicy.m */,
+			);
+			name = TabBarPolicy;
+			sourceTree = "<group>";
+		};
+		D6C0BAFB1676D63100F39206 /* DataItem */ = {
+			isa = PBXGroup;
+			children = (
+				D6C0BAFC1676D69800F39206 /* OrganizationItem.h */,
+				D6C0BAFD1676D69800F39206 /* OrganizationItem.m */,
+				D6C0BAFE1676D69800F39206 /* PsDataItem.h */,
+				D6C0BAFF1676D69800F39206 /* PsDataItem.m */,
+				D6C0BB001676D69800F39206 /* DiscountCardItem.h */,
+				D6C0BB011676D69800F39206 /* DiscountCardItem.m */,
+				D6C0BB021676D69800F39206 /* ProductShowingDetail.h */,
+				D6C0BB031676D69800F39206 /* ProductShowingDetail.m */,
+			);
+			name = DataItem;
+			sourceTree = "<group>";
+		};
+		D6C0BB0F1676D96300F39206 /* LCFileManager */ = {
+			isa = PBXGroup;
+			children = (
+				D6C0BB0B1676D91D00F39206 /* LCFileManager.h */,
+				D6C0BB0C1676D91D00F39206 /* LCFileManager.m */,
+			);
+			name = LCFileManager;
+			sourceTree = "<group>";
+		};
+		D6C0BB121676D9C900F39206 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				D6F9AE3C167705B400782B32 /* YourHairSaion.xcdatamodeld */,
+				D6C0BB131676D9EA00F39206 /* DataAdapter.h */,
+				D6C0BB141676D9EA00F39206 /* DataAdapter.m */,
+				D6C0BB151676D9EA00F39206 /* DBManager.h */,
+				D6C0BB161676D9EA00F39206 /* DBManager.m */,
+				D6C0BB171676D9EB00F39206 /* DiscountCard.h */,
+				D6C0BB181676D9EB00F39206 /* DiscountCard.m */,
+				D6C0BB191676D9EB00F39206 /* Organization.h */,
+				D6C0BB1A1676D9EB00F39206 /* Organization.m */,
+				D6C0BB1B1676D9EB00F39206 /* ProductAmount.h */,
+				D6C0BB1C1676D9EC00F39206 /* ProductAmount.m */,
+				D6C0BB1D1676D9EC00F39206 /* ProductAttr.h */,
+				D6C0BB1E1676D9EC00F39206 /* ProductAttr.m */,
+				D6C0BB1F1676D9EC00F39206 /* ProductBase.h */,
+				D6C0BB201676D9ED00F39206 /* ProductBase.m */,
+				D6C0BB211676D9ED00F39206 /* ProductPic.h */,
+				D6C0BB221676D9ED00F39206 /* ProductPic.m */,
+				D6C0BB231676D9ED00F39206 /* ProductPricing.h */,
+				D6C0BB241676D9ED00F39206 /* ProductPricing.m */,
+				D6C0BB251676D9EE00F39206 /* ProductType.h */,
+				D6C0BB261676D9EE00F39206 /* ProductType.m */,
+			);
+			name = DataBase;
+			sourceTree = "<group>";
+		};
+		D6FAEC5A1682FD55002A4258 /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				D6FAEC521682FD50002A4258 /* YSImageCrop.m */,
+				D6FAEC531682FD50002A4258 /* YSImageCrop.h */,
+				D6FAEC541682FD50002A4258 /* YSImagePickerEditor.m */,
+				D6FAEC551682FD51002A4258 /* YSImageCropDelegate.h */,
+				D6FAEC561682FD51002A4258 /* YSImagePickerEditor.h */,
+				D6FAEC571682FD51002A4258 /* YSImagePickerEditorDelegate.h */,
+			);
+			name = ImagePicker;
+			sourceTree = "<group>";
+		};
+		D6FAEC5B1683083F002A4258 /* PopUp */ = {
+			isa = PBXGroup;
+			children = (
+				D6FAEC431682BAEB002A4258 /* PopUpViewController.h */,
+				D6FAEC441682BAEB002A4258 /* PopUpViewController.m */,
+				D6FAEC451682BAEB002A4258 /* PopUpViewController.xib */,
+				D6FAEC5C1683085B002A4258 /* PopUpSubViewController.h */,
+				D6FAEC5D1683085B002A4258 /* PopUpSubViewController.m */,
+			);
+			name = PopUp;
+			sourceTree = "<group>";
+		};
+		D6FD81BE16A44ACB000B3926 /* product */ = {
+			isa = PBXGroup;
+			children = (
+				D6FD81C016A44AF6000B3926 /* 护发产品 */,
+				D6FD81C116A44AF6000B3926 /* 流行发型 */,
+				D6FD81C216A44AF6000B3926 /* 男士发型 */,
+				D6FD81C316A44AF6000B3926 /* 女士发型 */,
+			);
+			name = product;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,6 +646,7 @@
 				D6A1A277166EDDD80044A26B /* Sources */,
 				D6A1A278166EDDD80044A26B /* Frameworks */,
 				D6A1A279166EDDD80044A26B /* Resources */,
+				D6CF711E166F891400BD9150 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -175,21 +693,128 @@
 				D6A1A296166EDDD80044A26B /* Default@2x.png in Resources */,
 				D6A1A298166EDDD80044A26B /* Default-568h@2x.png in Resources */,
 				D6A1A29B166EDDD80044A26B /* MainStoryboard.storyboard in Resources */,
+				D6A1A3B2166F446B0044A26B /* babaibang0.jpeg in Resources */,
+				D6A1A3B3166F446B0044A26B /* babaibang1.jpeg in Resources */,
+				D6A1A3B4166F446B0044A26B /* babaibang2.jpeg in Resources */,
+				D6A1A3B5166F446B0044A26B /* babaibang3.jpeg in Resources */,
+				D6CF70EC166F57F900BD9150 /* YourHairSaion.sqlite in Resources */,
+				D6CF7124166F8A5600BD9150 /* PopMideaPickerViewController_iPhone.xib in Resources */,
+				D6CF7125166F8A5600BD9150 /* PopMideaPickerViewController_iPad.xib in Resources */,
+				D6C0BAD51676CB0600F39206 /* Window.xib in Resources */,
+				D6C0BAEB1676D0D600F39206 /* TableLSViewController.xib in Resources */,
+				D6F9AE431677090E00782B32 /* DefalueRSViewController.xib in Resources */,
+				D672B67B16777A04005292DB /* ProductRSStoryboard.storyboard in Resources */,
+				D6FAEC471682BAEB002A4258 /* PopUpViewController.xib in Resources */,
+				D6FAEC4D1682F01D002A4258 /* ImagePickerViewController.xib in Resources */,
+				D66FB39B1689F2150008F9F7 /* TableLSViewController1.xib in Resources */,
+				D659214E168C024300474F66 /* background.png in Resources */,
+				D659214F168C024300474F66 /* KPAuthController_ipad.nib in Resources */,
+				D6592150168C024300474F66 /* KPAuthController_iphone.nib in Resources */,
+				D6592151168C024300474F66 /* KPRegisterAuthController_ipad.nib in Resources */,
+				D6592152168C024300474F66 /* KPRegisterAuthController_iphone.nib in Resources */,
+				D622DF43169E86EC005415A8 /* SyncMainViewController.xib in Resources */,
+				D622DF4D169E8EB6005415A8 /* SyncProcessViewController.xib in Resources */,
+				D6FD81C416A44AF6000B3926 /* 护发产品 in Resources */,
+				D6FD81C516A44AF6000B3926 /* 流行发型 in Resources */,
+				D6FD81C616A44AF6000B3926 /* 男士发型 in Resources */,
+				D6FD81C716A44AF6000B3926 /* 女士发型 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D6CF711E166F891400BD9150 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export CODESIGN_ALLOCATE=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate\n\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ] || [ \"${PLATFORM_NAME}\" == \"ipados\" ]; then\n\n/Applications/Xcode.app/Contents/Developer/iphoneentitlements/gen_entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\n\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\n\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D6A1A277166EDDD80044A26B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6F9AE3E167705B400782B32 /* YourHairSaion.xcdatamodeld in Sources */,
+				D6C0BB271676D9EE00F39206 /* DataAdapter.h in Sources */,
+				D6C0BB281676D9EE00F39206 /* DataAdapter.m in Sources */,
+				D6C0BB291676D9EE00F39206 /* DBManager.h in Sources */,
+				D6C0BB2A1676D9EE00F39206 /* DBManager.m in Sources */,
+				D6C0BB2B1676D9EE00F39206 /* DiscountCard.h in Sources */,
+				D6C0BB2C1676D9EE00F39206 /* DiscountCard.m in Sources */,
+				D6C0BB2D1676D9EE00F39206 /* Organization.h in Sources */,
+				D6C0BB2E1676D9EE00F39206 /* Organization.m in Sources */,
+				D6C0BB2F1676D9EE00F39206 /* ProductAmount.h in Sources */,
+				D6C0BB301676D9EE00F39206 /* ProductAmount.m in Sources */,
+				D6C0BB311676D9EE00F39206 /* ProductAttr.h in Sources */,
+				D6C0BB321676D9EE00F39206 /* ProductAttr.m in Sources */,
+				D6C0BB331676D9EE00F39206 /* ProductBase.h in Sources */,
+				D6C0BB341676D9EE00F39206 /* ProductBase.m in Sources */,
+				D6C0BB351676D9EE00F39206 /* ProductPic.h in Sources */,
+				D6C0BB361676D9EE00F39206 /* ProductPic.m in Sources */,
+				D6C0BB371676D9EE00F39206 /* ProductPricing.h in Sources */,
+				D6C0BB381676D9EE00F39206 /* ProductPricing.m in Sources */,
+				D6C0BB391676D9EE00F39206 /* ProductType.h in Sources */,
+				D6C0BB3A1676D9EE00F39206 /* ProductType.m in Sources */,
+				D6C0BB0D1676D91D00F39206 /* LCFileManager.h in Sources */,
+				D6C0BB0E1676D91D00F39206 /* LCFileManager.m in Sources */,
 				D6A1A28E166EDDD80044A26B /* main.m in Sources */,
 				D6A1A292166EDDD80044A26B /* AppDelegate.m in Sources */,
-				D6A1A29E166EDDD80044A26B /* HairSaionManager.xcdatamodeld in Sources */,
 				D6A1A2A1166EDDD80044A26B /* MasterViewController.m in Sources */,
 				D6A1A2A4166EDDD80044A26B /* DetailViewController.m in Sources */,
+				D6A1A305166F15070044A26B /* MySplitViewController.m in Sources */,
+				D6A1A308166F1CA20044A26B /* MainViewController.m in Sources */,
+				D6A1A30B166F1CE80044A26B /* TypeViewController.m in Sources */,
+				D6A1A319166F38150044A26B /* MainSplitViewController.m in Sources */,
+				D6A1A31B166F38150044A26B /* MGSplitCornersView.m in Sources */,
+				D6A1A31C166F38150044A26B /* MGSplitDividerView.m in Sources */,
+				D6A1A31D166F38150044A26B /* MGSplitViewController.m in Sources */,
+				D6CF7123166F8A5600BD9150 /* PopMideaPickerViewController.m in Sources */,
+				D6C0BAE31676CF4000F39206 /* NGTabBar.m in Sources */,
+				D6C0BAE41676CF4000F39206 /* NGTabBarController.m in Sources */,
+				D6C0BAE51676CF4000F39206 /* NGTabBarItem.m in Sources */,
+				D6C0BAE61676CF4000F39206 /* UIViewController+NGTabBarItem.m in Sources */,
+				D6C0BAEA1676D0D600F39206 /* ProductLSViewController.m in Sources */,
+				D6C0BAEF1676D1D800F39206 /* BaseRightSideViewController.m in Sources */,
+				D6C0BAF91676D55200F39206 /* BaseTabBarPolicy.m in Sources */,
+				D6C0BB041676D69800F39206 /* OrganizationItem.m in Sources */,
+				D6C0BB051676D69800F39206 /* PsDataItem.m in Sources */,
+				D6C0BB061676D69800F39206 /* DiscountCardItem.m in Sources */,
+				D6C0BB071676D69800F39206 /* ProductShowingDetail.m in Sources */,
+				D6C0BB0A1676D77700F39206 /* BaseLeftSideViewController.m in Sources */,
+				D6F9AE421677090E00782B32 /* DefalueRSViewController.m in Sources */,
+				D6F9AE4716770AF000782B32 /* ProductRSViewController.m in Sources */,
+				D6F9AE4B16770D2A00782B32 /* ProductPolicy.m in Sources */,
+				D6F9AE4E1677181300782B32 /* ProductCell.m in Sources */,
+				D672B67F1677832C005292DB /* TextEditTableViewController.m in Sources */,
+				D601C47B1678246700AEC70A /* TextEditTableCell.m in Sources */,
+				D60BD92F167832230034CE24 /* TextViewTableCell.m in Sources */,
+				D6BB7C1C167837D90057B510 /* TextViewTableViewController.m in Sources */,
+				D6FB5D501678694500797DFE /* ProductTypePickerViewController.m in Sources */,
+				D6FAEC461682BAEB002A4258 /* PopUpViewController.m in Sources */,
+				D6FAEC4C1682F01D002A4258 /* ImagePickerViewController.m in Sources */,
+				D6FAEC581682FD51002A4258 /* YSImageCrop.m in Sources */,
+				D6FAEC591682FD51002A4258 /* YSImagePickerEditor.m in Sources */,
+				D6FAEC5E1683085B002A4258 /* PopUpSubViewController.m in Sources */,
+				D6948A7916899E1500C58C1E /* UIImage+fixOrientation.m in Sources */,
+				D66FB3951689F1210008F9F7 /* TypePolicy.m in Sources */,
+				D66FB39A1689F2150008F9F7 /* TableLSViewController.m in Sources */,
+				D66FB39E1689F6BC0008F9F7 /* TypeLSViewController.m in Sources */,
+				D659215A168C02EB00474F66 /* SyncMainViewController.m in Sources */,
+				D622DF40169E6C69005415A8 /* KPOperation+LCAddition.m in Sources */,
+				D622DF4C169E8EB6005415A8 /* SyncProcessViewController.m in Sources */,
+				D622DF50169EABE2005415A8 /* SyncPopUpViewController.m in Sources */,
+				D622DF5F169EC79F005415A8 /* SyncOperationManager.m in Sources */,
+				D622DF64169ED724005415A8 /* LCKPFolderOperationItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,9 +894,17 @@
 		D6A1A2A8166EDDD80044A26B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/KuaiPanOpenAPI.kpframework\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HairSaionManager/HairSaionManager-Prefix.pch";
 				INFOPLIST_FILE = "HairSaionManager/HairSaionManager-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -280,9 +913,17 @@
 		D6A1A2A9166EDDD80044A26B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/KuaiPanOpenAPI.kpframework\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HairSaionManager/HairSaionManager-Prefix.pch";
 				INFOPLIST_FILE = "HairSaionManager/HairSaionManager-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -307,17 +948,19 @@
 				D6A1A2A9166EDDD80044A26B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		D6A1A29C166EDDD80044A26B /* HairSaionManager.xcdatamodeld */ = {
+		D6F9AE3C167705B400782B32 /* YourHairSaion.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				D6A1A29D166EDDD80044A26B /* HairSaionManager.xcdatamodel */,
+				D6F9AE3D167705B400782B32 /* YourHairSaion.xcdatamodel */,
 			);
-			currentVersion = D6A1A29D166EDDD80044A26B /* HairSaionManager.xcdatamodel */;
-			path = HairSaionManager.xcdatamodeld;
+			currentVersion = D6F9AE3D167705B400782B32 /* YourHairSaion.xcdatamodel */;
+			name = YourHairSaion.xcdatamodeld;
+			path = ../YourHairSaion/YourHairSaion/YourHairSaion.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

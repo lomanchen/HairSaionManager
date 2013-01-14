@@ -14,7 +14,7 @@
 @end
 
 @implementation DetailViewController
-
+@synthesize splitViewController;
 #pragma mark - Managing the detail item
 
 - (void)setDetailItem:(id)newDetailItem
