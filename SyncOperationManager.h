@@ -31,6 +31,7 @@
 @property (nonatomic, strong)NSMutableArray* operationQueue;
 @property (nonatomic, assign)BOOL isFinish;
 
++ (SyncOperationManager*)shareInstance;
 
 - (void)push:(id)operation;
 - (void)append:(id)operation;

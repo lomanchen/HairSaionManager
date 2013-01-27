@@ -37,32 +37,32 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)setVisiable:(BOOL)flag inView:(UIView *)inView
-{
-    if (flag)
-    {
-        [self.view setAlpha:1];
-        CGRect rect = inView.bounds;
-        self.view.frame = CGRectMake(0, 0, rect.size.width, rect.size.height);
-        self.view.bounds = inView.bounds;
-        //        CGFloat subX = rect.size.width/2-self.subViewController.view.bounds.size.width/2;
-        //        CGFloat subY = rect.size.height/2-self.subViewController.view.bounds.size.height/2;
-        //        self.subViewController.view.frame = CGRectMake(subX, subY, self.subViewController.view.bounds.size.width, self.subViewController.view.bounds.size.height);
-    }
-    else
-    {
-        self.view.frame = CGRectMake(0, SCREEN_H, SCREEN_W, SCREEN_H);
-        [self.view setAlpha:0];
-    }
-    
-        CGRect rect = self.subViewController.view.frame;
-        rect = self.subViewController.view.frame;
-    
-        rect.origin.x = 70;
-       self.subViewController.view.frame = rect;
-    
-    
-}
+//- (void)setVisiable:(BOOL)flag inView:(UIView *)inView
+//{
+//    if (flag)
+//    {
+//        [self.view setAlpha:1];
+//        CGRect rect = inView.bounds;
+//        self.view.frame = CGRectMake(0, 0, rect.size.width, rect.size.height);
+//        self.view.bounds = inView.bounds;
+//        //        CGFloat subX = rect.size.width/2-self.subViewController.view.bounds.size.width/2;
+//        //        CGFloat subY = rect.size.height/2-self.subViewController.view.bounds.size.height/2;
+//        //        self.subViewController.view.frame = CGRectMake(subX, subY, self.subViewController.view.bounds.size.width, self.subViewController.view.bounds.size.height);
+//    }
+//    else
+//    {
+//        self.view.frame = CGRectMake(0, SCREEN_H, SCREEN_W, SCREEN_H);
+//        [self.view setAlpha:0];
+//    }
+//    
+//        CGRect rect = self.subViewController.view.frame;
+//        rect = self.subViewController.view.frame;
+//    
+//        rect.origin.x = 70;
+//       self.subViewController.view.frame = rect;
+//    
+//    
+//}
 
 - (void)hide:(BOOL)animated
 {

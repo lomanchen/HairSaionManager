@@ -128,6 +128,9 @@
         NSArray* array = [[DataAdapter shareInstance]productTypeForParent:self.policy.subType];
         int count = -1;
         NSMutableArray* leftItems = [NSMutableArray arrayWithCapacity:[array count]];
+        UIBarButtonItem* itemMain = [[UIBarButtonItem alloc] initWithTitle:@"主页" style:UIBarButtonItemStylePlain target:self action:@selector(onBarMain:)];
+        itemMain.tag = -2;
+        [leftItems addObject:itemMain];
         UIBarButtonItem* itemAll = [[UIBarButtonItem alloc] initWithTitle:@"全部" style:UIBarButtonItemStylePlain target:self action:@selector(onBarItem:)];
         itemAll.tag = count++;
         [leftItems addObject:itemAll];
@@ -157,6 +160,14 @@
         [self.tableView reloadData];
     }
 }
+
+- (void)onBarMain:(id)sender
+{
+    UINavigationController* nav = self.mainVc.navigationController;
+    [nav popViewControllerAnimated:YES];
+    
+}
+
 
 - (void)addObject
 {

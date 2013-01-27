@@ -23,6 +23,19 @@
 
 @implementation SyncOperationManager
 @synthesize  lastErrorString, retryArray, currentSyncSerailNo, operationCounter,operationQueue, totalOperation, remoteImageArray, isFinish;
++ (SyncOperationManager*)shareInstance;
+{
+    static dispatch_once_t pred;
+    static SyncOperationManager *shared = nil;
+    
+    dispatch_once(&pred, ^{
+        shared = [[SyncOperationManager alloc] init];
+        
+    });
+    
+    return shared;
+}
+
 
 
 - (id)init
@@ -550,9 +563,9 @@
 
 - (void)clearAuth
 {
-//    if (authController) {
-//        [authController clearAuthInfo];
-//    }
+    if (authController) {
+        [authController clearAuthInfo];
+    }
 
 }
 

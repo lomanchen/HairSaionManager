@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D601C47B1678246700AEC70A /* TextEditTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D601C47A1678246700AEC70A /* TextEditTableCell.m */; };
 		D60BD92F167832230034CE24 /* TextViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D60BD92E167832230034CE24 /* TextViewTableCell.m */; };
+		D60E5C4D16A79E3500DDC6B0 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D60E5C4C16A79E3500DDC6B0 /* MainNavigationController.m */; };
+		D60E5C5516A7A55300DDC6B0 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D60E5C5416A7A55300DDC6B0 /* HomeViewController.m */; };
 		D622DF40169E6C69005415A8 /* KPOperation+LCAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = D622DF3F169E6C69005415A8 /* KPOperation+LCAddition.m */; };
 		D622DF43169E86EC005415A8 /* SyncMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D622DF42169E86EC005415A8 /* SyncMainViewController.xib */; };
 		D622DF4C169E8EB6005415A8 /* SyncProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D622DF4A169E8EB6005415A8 /* SyncProcessViewController.m */; };
@@ -30,7 +32,12 @@
 		D66FB39E1689F6BC0008F9F7 /* TypeLSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66FB39D1689F6BC0008F9F7 /* TypeLSViewController.m */; };
 		D672B67B16777A04005292DB /* ProductRSStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D672B67A16777A04005292DB /* ProductRSStoryboard.storyboard */; };
 		D672B67F1677832C005292DB /* TextEditTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D672B67E1677832C005292DB /* TextEditTableViewController.m */; };
+		D67EEAAB16B13F7B00182B6F /* ProductTypeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D67EEAAA16B13F7B00182B6F /* ProductTypeItem.m */; };
+		D67EEAB016B1789700182B6F /* TypeAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D67EEAAE16B1789700182B6F /* TypeAddViewController.m */; };
+		D67EEAB516B17D7A00182B6F /* TypeAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D67EEAB416B17D7A00182B6F /* TypeAddViewController.xib */; };
 		D6948A7916899E1500C58C1E /* UIImage+fixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = D6948A7816899E1400C58C1E /* UIImage+fixOrientation.m */; };
+		D695401B16B21FB6008484B0 /* ProductTypeSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D695401916B21FB6008484B0 /* ProductTypeSelectorViewController.m */; };
+		D695401C16B21FB6008484B0 /* ProductTypeSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D695401A16B21FB6008484B0 /* ProductTypeSelectorViewController.xib */; };
 		D6A1A280166EDDD80044A26B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A1A27F166EDDD80044A26B /* UIKit.framework */; };
 		D6A1A282166EDDD80044A26B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A1A281166EDDD80044A26B /* Foundation.framework */; };
 		D6A1A284166EDDD80044A26B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A1A283166EDDD80044A26B /* CoreGraphics.framework */; };
@@ -55,6 +62,9 @@
 		D6A1A3B3166F446B0044A26B /* babaibang1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D6A1A351166F446B0044A26B /* babaibang1.jpeg */; };
 		D6A1A3B4166F446B0044A26B /* babaibang2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D6A1A352166F446B0044A26B /* babaibang2.jpeg */; };
 		D6A1A3B5166F446B0044A26B /* babaibang3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D6A1A353166F446B0044A26B /* babaibang3.jpeg */; };
+		D6B61F2216AFC8A6001E2956 /* TypeEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B61F2116AFC8A6001E2956 /* TypeEditViewController.m */; };
+		D6B61F2716AFF530001E2956 /* TextFieldEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B61F2516AFF530001E2956 /* TextFieldEditViewController.m */; };
+		D6B61F2816AFF530001E2956 /* TextFieldEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6B61F2616AFF530001E2956 /* TextFieldEditViewController.xib */; };
 		D6BB7C1C167837D90057B510 /* TextViewTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BB7C1B167837D90057B510 /* TextViewTableViewController.m */; };
 		D6C0BAD51676CB0600F39206 /* Window.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C0BAD41676CB0600F39206 /* Window.xib */; };
 		D6C0BAE31676CF4000F39206 /* NGTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BAD91676CF4000F39206 /* NGTabBar.m */; };
@@ -123,6 +133,10 @@
 		D601C47A1678246700AEC70A /* TextEditTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextEditTableCell.m; sourceTree = "<group>"; };
 		D60BD92D167832230034CE24 /* TextViewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewTableCell.h; sourceTree = "<group>"; };
 		D60BD92E167832230034CE24 /* TextViewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewTableCell.m; sourceTree = "<group>"; };
+		D60E5C4B16A79E3500DDC6B0 /* MainNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavigationController.h; sourceTree = "<group>"; };
+		D60E5C4C16A79E3500DDC6B0 /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
+		D60E5C5316A7A55300DDC6B0 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		D60E5C5416A7A55300DDC6B0 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		D622DF3E169E6C69005415A8 /* KPOperation+LCAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KPOperation+LCAddition.h"; sourceTree = "<group>"; };
 		D622DF3F169E6C69005415A8 /* KPOperation+LCAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KPOperation+LCAddition.m"; sourceTree = "<group>"; };
 		D622DF42169E86EC005415A8 /* SyncMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SyncMainViewController.xib; sourceTree = "<group>"; };
@@ -155,8 +169,16 @@
 		D672B67A16777A04005292DB /* ProductRSStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProductRSStoryboard.storyboard; sourceTree = "<group>"; };
 		D672B67D1677832C005292DB /* TextEditTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextEditTableViewController.h; sourceTree = "<group>"; };
 		D672B67E1677832C005292DB /* TextEditTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextEditTableViewController.m; sourceTree = "<group>"; };
+		D67EEAA916B13F7B00182B6F /* ProductTypeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductTypeItem.h; sourceTree = "<group>"; };
+		D67EEAAA16B13F7B00182B6F /* ProductTypeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductTypeItem.m; sourceTree = "<group>"; };
+		D67EEAAD16B1789700182B6F /* TypeAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeAddViewController.h; sourceTree = "<group>"; };
+		D67EEAAE16B1789700182B6F /* TypeAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeAddViewController.m; sourceTree = "<group>"; };
+		D67EEAB416B17D7A00182B6F /* TypeAddViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TypeAddViewController.xib; path = ../TypeAddViewController.xib; sourceTree = "<group>"; };
 		D6948A7716899E1400C58C1E /* UIImage+fixOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+fixOrientation.h"; sourceTree = "<group>"; };
 		D6948A7816899E1400C58C1E /* UIImage+fixOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+fixOrientation.m"; sourceTree = "<group>"; };
+		D695401816B21FB6008484B0 /* ProductTypeSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductTypeSelectorViewController.h; sourceTree = "<group>"; };
+		D695401916B21FB6008484B0 /* ProductTypeSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductTypeSelectorViewController.m; sourceTree = "<group>"; };
+		D695401A16B21FB6008484B0 /* ProductTypeSelectorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductTypeSelectorViewController.xib; sourceTree = "<group>"; };
 		D6A1A27B166EDDD80044A26B /* HairSaionManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HairSaionManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6A1A27F166EDDD80044A26B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D6A1A281166EDDD80044A26B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -194,6 +216,11 @@
 		D6A1A351166F446B0044A26B /* babaibang1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = babaibang1.jpeg; sourceTree = "<group>"; };
 		D6A1A352166F446B0044A26B /* babaibang2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = babaibang2.jpeg; sourceTree = "<group>"; };
 		D6A1A353166F446B0044A26B /* babaibang3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = babaibang3.jpeg; sourceTree = "<group>"; };
+		D6B61F2016AFC8A6001E2956 /* TypeEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeEditViewController.h; sourceTree = "<group>"; };
+		D6B61F2116AFC8A6001E2956 /* TypeEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeEditViewController.m; sourceTree = "<group>"; };
+		D6B61F2416AFF52F001E2956 /* TextFieldEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldEditViewController.h; sourceTree = "<group>"; };
+		D6B61F2516AFF530001E2956 /* TextFieldEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldEditViewController.m; sourceTree = "<group>"; };
+		D6B61F2616AFF530001E2956 /* TextFieldEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldEditViewController.xib; sourceTree = "<group>"; };
 		D6BB7C1A167837D90057B510 /* TextViewTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewTableViewController.h; sourceTree = "<group>"; };
 		D6BB7C1B167837D90057B510 /* TextViewTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewTableViewController.m; sourceTree = "<group>"; };
 		D6C0BAD41676CB0600F39206 /* Window.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Window.xib; sourceTree = "<group>"; };
@@ -449,7 +476,22 @@
 				D6CF7121166F8A5500BD9150 /* PopMideaPickerViewController_iPhone.xib */,
 				D6CF7122166F8A5600BD9150 /* PopMideaPickerViewController_iPad.xib */,
 				D6A1A291166EDDD80044A26B /* AppDelegate.m */,
+				D60E5C5316A7A55300DDC6B0 /* HomeViewController.h */,
+				D6B61F2416AFF52F001E2956 /* TextFieldEditViewController.h */,
+				D6B61F2516AFF530001E2956 /* TextFieldEditViewController.m */,
+				D6B61F2616AFF530001E2956 /* TextFieldEditViewController.xib */,
+				D60E5C5416A7A55300DDC6B0 /* HomeViewController.m */,
+				D60E5C4B16A79E3500DDC6B0 /* MainNavigationController.h */,
+				D60E5C4C16A79E3500DDC6B0 /* MainNavigationController.m */,
 				D6A1A299166EDDD80044A26B /* MainStoryboard.storyboard */,
+				D6B61F2016AFC8A6001E2956 /* TypeEditViewController.h */,
+				D6B61F2116AFC8A6001E2956 /* TypeEditViewController.m */,
+				D67EEAAD16B1789700182B6F /* TypeAddViewController.h */,
+				D67EEAAE16B1789700182B6F /* TypeAddViewController.m */,
+				D67EEAB416B17D7A00182B6F /* TypeAddViewController.xib */,
+				D695401816B21FB6008484B0 /* ProductTypeSelectorViewController.h */,
+				D695401916B21FB6008484B0 /* ProductTypeSelectorViewController.m */,
+				D695401A16B21FB6008484B0 /* ProductTypeSelectorViewController.xib */,
 				D6C0BAD41676CB0600F39206 /* Window.xib */,
 				D6A1A309166F1CE80044A26B /* TypeViewController.h */,
 				D6A1A30A166F1CE80044A26B /* TypeViewController.m */,
@@ -559,6 +601,8 @@
 				D6C0BB011676D69800F39206 /* DiscountCardItem.m */,
 				D6C0BB021676D69800F39206 /* ProductShowingDetail.h */,
 				D6C0BB031676D69800F39206 /* ProductShowingDetail.m */,
+				D67EEAA916B13F7B00182B6F /* ProductTypeItem.h */,
+				D67EEAAA16B13F7B00182B6F /* ProductTypeItem.m */,
 			);
 			name = DataItem;
 			sourceTree = "<group>";
@@ -718,6 +762,9 @@
 				D6FD81C516A44AF6000B3926 /* 流行发型 in Resources */,
 				D6FD81C616A44AF6000B3926 /* 男士发型 in Resources */,
 				D6FD81C716A44AF6000B3926 /* 女士发型 in Resources */,
+				D6B61F2816AFF530001E2956 /* TextFieldEditViewController.xib in Resources */,
+				D67EEAB516B17D7A00182B6F /* TypeAddViewController.xib in Resources */,
+				D695401C16B21FB6008484B0 /* ProductTypeSelectorViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -815,6 +862,13 @@
 				D622DF50169EABE2005415A8 /* SyncPopUpViewController.m in Sources */,
 				D622DF5F169EC79F005415A8 /* SyncOperationManager.m in Sources */,
 				D622DF64169ED724005415A8 /* LCKPFolderOperationItem.m in Sources */,
+				D60E5C4D16A79E3500DDC6B0 /* MainNavigationController.m in Sources */,
+				D60E5C5516A7A55300DDC6B0 /* HomeViewController.m in Sources */,
+				D6B61F2216AFC8A6001E2956 /* TypeEditViewController.m in Sources */,
+				D6B61F2716AFF530001E2956 /* TextFieldEditViewController.m in Sources */,
+				D67EEAAB16B13F7B00182B6F /* ProductTypeItem.m in Sources */,
+				D67EEAB016B1789700182B6F /* TypeAddViewController.m in Sources */,
+				D695401B16B21FB6008484B0 /* ProductTypeSelectorViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

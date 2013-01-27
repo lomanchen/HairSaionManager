@@ -37,11 +37,10 @@
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIButton" id="402835983">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">-2147483356</int>
 						<string key="NSFrame">{{134, 358}, {127, 53}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -182,110 +181,17 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">SyncMainViewController</string>
 					<string key="superclassName">BaseLeftSideViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="doAuthorize:">id</string>
-						<string key="doCopyFile:">id</string>
-						<string key="doCopyFolder:">id</string>
-						<string key="doCopyRefFile:">id</string>
-						<string key="doCopyRefFolder:">id</string>
-						<string key="doCreateFolder:">id</string>
-						<string key="doDeleteFile:">id</string>
-						<string key="doDeleteFolder:">id</string>
-						<string key="doDocumentView:">id</string>
-						<string key="doDownloadFile:">id</string>
-						<string key="doExit:">id</string>
-						<string key="doFileHistory:">id</string>
-						<string key="doGetDirectoryInfo:">id</string>
-						<string key="doGetUserInfo:">id</string>
-						<string key="doMoveFile:">id</string>
-						<string key="doMoveFolder:">id</string>
-						<string key="doShareFile:">id</string>
-						<string key="doSync:">id</string>
-						<string key="doThumbnail:">id</string>
-						<string key="doUploadFile:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="doAuthorize:">
-							<string key="name">doAuthorize:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="doCopyFile:">
-							<string key="name">doCopyFile:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="doCopyFolder:">
-							<string key="name">doCopyFolder:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="doCopyRefFile:">
-							<string key="name">doCopyRefFile:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="doCopyRefFolder:">
-							<string key="name">doCopyRefFolder:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="doCreateFolder:">
-							<string key="name">doCreateFolder:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="doDeleteFile:">
-							<string key="name">doDeleteFile:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="doDeleteFolder:">
-							<string key="name">doDeleteFolder:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="doDocumentView:">
-							<string key="name">doDocumentView:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="doDownloadFile:">
-							<string key="name">doDownloadFile:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="doExit:">
-							<string key="name">doExit:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="doFileHistory:">
-							<string key="name">doFileHistory:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="doGetDirectoryInfo:">
-							<string key="name">doGetDirectoryInfo:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="doGetUserInfo:">
-							<string key="name">doGetUserInfo:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="doMoveFile:">
-							<string key="name">doMoveFile:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="doMoveFolder:">
-							<string key="name">doMoveFolder:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="doShareFile:">
-							<string key="name">doShareFile:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="doSync:">
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">doSync:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">doSync:</string>
+						<object class="IBActionInfo" key="NS.object.0">
 							<string key="name">doSync:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="doThumbnail:">
-							<string key="name">doThumbnail:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="doUploadFile:">
-							<string key="name">doUploadFile:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
+					</object>
 					<object class="NSMutableDictionary" key="outlets">
 						<string key="NS.key.0">_btnSync</string>
 						<string key="NS.object.0">UIButton</string>

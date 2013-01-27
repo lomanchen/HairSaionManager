@@ -18,7 +18,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.syncManager = [[SyncOperationManager alloc]init];
+    self.syncManager = [SyncOperationManager shareInstance];
     syncManager.deleage = self;
     self.title = @"发布数据";
     //设置返回按钮
@@ -34,6 +34,7 @@
         //[self performSelectorInBackground:@selector(doSync) withObject:nil];
         
         //[self doSync:self];
+        [self doSync:self];
     }
     else {
         NSLog(@"还没有登录。。。。");

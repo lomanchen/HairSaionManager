@@ -10,7 +10,7 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic)IBOutlet UIWindow *window;
+@property (strong, nonatomic) UIWindow *window;
 
 - (void)saveContext;
 @end

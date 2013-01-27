@@ -26,8 +26,8 @@
 	<true/>
 	<key>UIInterfaceOrientation</key>
 	<string>UIInterfaceOrientationLandscapeLeft</string>
-	<key>NSMainNibFile~ipad</key>
-	<string>Window</string>
+	<key>UIMainStoryboardFile~ipad</key>
+	<string>MainStoryboard</string>
 	<key>UIStatusBarHidden</key>
 	<true/>
 	<key>UIRequiredDeviceCapabilities</key>

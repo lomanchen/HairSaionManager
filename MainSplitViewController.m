@@ -55,7 +55,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     NSFileManager *fileMgr = [NSFileManager defaultManager];
     //指向文件目录
     NSString *documentsDirectory= [[DataAdapter shareInstance]path];
@@ -72,7 +71,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+
     CALayer* layer = self.detailViewController.view.layer;
     layer.shadowColor = [UIColor blackColor].CGColor;
     layer.shadowOffset = CGSizeMake(0, 0);
@@ -86,14 +86,12 @@
     layer.shadowOpacity = 1;
     layer.shadowRadius = 10;
     layer.shadowPath = [UIBezierPath bezierPathWithRect:self.masterViewController.view.bounds].CGPath;
-
 }
 
 - (void)loadTabBar
 {
     
     //right side
-    
     DefalueRSViewController* rvc = [[DefalueRSViewController alloc]initWithNibName:@"DefalueRSViewController" bundle:nil];
     UINavigationController* nav = [[UINavigationController alloc]initWithRootViewController:rvc];
     self.detailViewController = nav;
@@ -123,7 +121,7 @@
 //    typeVc.policy = [[TypePolicy alloc]initWithSubType:nil];
 //    [tabbarVCs addObject:typeVc];
     
-    
+    /*
     //发布
     SyncMainViewController* syncVc = [[SyncMainViewController alloc]initWithNibName:@"SyncMainViewController" bundle:nil];
     UINavigationController* syncNav = [[UINavigationController alloc]initWithRootViewController:syncVc];
@@ -132,6 +130,7 @@
     syncVc.mainVc = self;
 
     [tabbarVCs addObject:syncNav];
+     */
     tabbarController.viewControllers = [NSArray arrayWithArray:tabbarVCs];
     
     
@@ -197,6 +196,15 @@ shouldSelectViewController:(UIViewController *)viewController
 {
     
 }
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
+    
+}
+
+
 
 
 
