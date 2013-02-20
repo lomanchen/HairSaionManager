@@ -578,4 +578,13 @@
     [self clearAuth];
 
 }
+
+- (void)cancel
+{
+    isFinish = YES;
+    [self.operationQueue removeAllObjects];
+    self.operationCounter = 0;
+    self.totalOperation = 0;
+
+}
 @end

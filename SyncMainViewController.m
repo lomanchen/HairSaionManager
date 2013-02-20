@@ -96,7 +96,7 @@
 {
     if ([self.syncManager isAuthoried])
     {
-    [self.syncManager doSync:self];
+        [self.syncManager doSync:self];
     }
     else
     {

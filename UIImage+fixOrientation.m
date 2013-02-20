@@ -119,13 +119,13 @@
         //    UIImageView* iv = [[UIImageView alloc]initWithImage:img];
     CGFloat objectWidth = CGImageGetWidth(image.CGImage);
     CGFloat objectHeight = CGImageGetHeight(image.CGImage);
-    CGRect cameraOverlayFrame = CGRectMake(0, 0, SCREEN_H, SCREEN_W);//controller.cameraOverlayView.frame;
+    CGRect cameraOverlayFrame = CGRectMake(0, 0, CAMERA_SCREEN_H, CAMERA_SCREEN_W);//controller.cameraOverlayView.frame;
     CGFloat frameWidth = cameraOverlayFrame.size.width;
     CGFloat frameHeight = cameraOverlayFrame.size.height;
     CGFloat ivWidth = 0;
     CGFloat ivHeight = 0;
     //长形
-    if (objectWidth/SCREEN_W > objectHeight/SCREEN_H)
+    if (objectWidth/CAMERA_SCREEN_W > objectHeight/CAMERA_SCREEN_H)
     {
         ivWidth = frameWidth;
         ivHeight = objectHeight/(objectWidth/frameWidth);
@@ -139,7 +139,7 @@
     
     //    iv.frame = CGRectMake((cameraOverlayFrame.size.width-ivWidth)/2, (cameraOverlayFrame.size.height-ivHeight)/2, ivWidth, ivHeight);
     
-    UIGraphicsBeginImageContext(CGSizeMake(SCREEN_H, SCREEN_W));
+    UIGraphicsBeginImageContext(CGSizeMake(CAMERA_SCREEN_H, CAMERA_SCREEN_W));
     CGContextRef context = UIGraphicsGetCurrentContext();
     // create rect that fills screen
     CGRect bounds = CGRectMake((cameraOverlayFrame.size.width-ivWidth)/2, (cameraOverlayFrame.size.height-ivHeight)/2, ivWidth, ivHeight);

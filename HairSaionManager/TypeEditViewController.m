@@ -11,6 +11,13 @@
 #import "TextFieldEditViewController.h"
 #import "ProductTypeItem.h"
 #import "ProductTypeSelectorViewController.h"
+#import "ConfAdapter.h"
+typedef enum
+{
+    kType = 0,
+    kConf,
+    SIZE_OF_SECTION
+}kSection;
 
 @interface TypeEditViewController ()
 @property (nonatomic, strong)NSString* rootType;
@@ -42,7 +49,7 @@
     [super viewDidLoad];
     if ([_rootType isEqualToString:PRODUCT_TYPE_ROOT])
     {
-        self.title = @"一级分类";
+        self.title = @"产品一级分类及显示选项配置";
     }
     else
     {
@@ -70,21 +77,35 @@
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 1;
+    if ([_rootType isEqualToString:PRODUCT_TYPE_ROOT])
+        return SIZE_OF_SECTION;
+    else
+        return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    if (_rootType)
+    switch (section)
     {
-        return [[[DataAdapter shareInstance]productTypeForParent:_rootType] count];
+        case kType:
+            if (_rootType)
+            {
+                return [[[DataAdapter shareInstance]productTypeForParent:_rootType] count];
+            }
+            else
+            {
+                return [[[DataAdapter shareInstance]productTypeForParent:PRODUCT_TYPE_ROOT] count];
+            }
+            break;
+        case kConf:
+            return 2;
+        default:
+            return 0;
+            break;
     }
-    else
-    {
-        return [[[DataAdapter shareInstance]productTypeForParent:PRODUCT_TYPE_ROOT] count];
-    }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -95,8 +116,32 @@
     {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    ConfAdapter* ca = [ConfAdapter shareInstance];
+    switch (indexPath.section) {
+        case kType:
+                cell.textLabel.text = ((ProductType*)[[DataAdapter shareInstance]productTypeForParent:_rootType][indexPath.row]).typeName;
+            break;
+        case kConf:
+            switch (indexPath.row) {
+                case 0:
+                    cell.textLabel.text = @"分店介绍";
+                    if ([ca isShowSubbranch])
+                        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                    break;
+                    case 1:
+                    cell.textLabel.text = @"优惠政策";
+                    if ([ca isShowDiscountCard])
+                        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                    break;
+                default:
+                    break;
+            }
+        default:
+            break;
+    }
 //    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.textLabel.text = ((ProductType*)[[DataAdapter shareInstance]productTypeForParent:_rootType][indexPath.row]).typeName;
+
     // Configure the cell...
     
     return cell;
@@ -107,6 +152,15 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
+    switch (indexPath.section) {
+        case kType:
+            return YES;
+            break;
+        case kConf:
+            return NO;
+        default:
+            break;
+    }
     return YES;
 }
 
@@ -157,6 +211,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.section == kType)
+    {
     if ([tableView isEditing])
     {
         editingItem = [[ProductTypeItem alloc]initWithObject:[[DataAdapter shareInstance]productTypeForParent:_rootType][indexPath.row] ];
@@ -176,6 +232,45 @@
             TypeEditViewController* vc = [[TypeEditViewController alloc]init];
             [vc setRootType:((ProductType*)[[DataAdapter shareInstance]productTypeForParent:_rootType][indexPath.row]).productType];
             [self.navigationController pushViewController:vc animated:YES];
+        }
+    }
+    }
+    else
+    {
+        ConfAdapter* ca = [ConfAdapter shareInstance];
+        UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+        if (cell.accessoryType == UITableViewCellAccessoryCheckmark)
+        {
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
+        else
+        {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        }
+        switch (indexPath.row)
+        {
+            case 0:
+                if ([ca isShowSubbranch])
+                {
+                    [ca setShowSubBranch:NO];
+                }
+                else
+                {
+                    [ca setShowSubBranch:YES];
+                }
+                break;
+            case 1:
+                if ([ca isShowDiscountCard])
+                {
+                    [ca setShowDiscountCard:NO];
+                }
+                else
+                {
+                    [ca setShowDiscountCard:YES];
+                }
+                break;
+            default:
+                break;
         }
     }
 }

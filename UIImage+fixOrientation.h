@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#define CAMERA_SCREEN_W 1024
+#define CAMERA_SCREEN_H 768
 
 @interface UIImage (additions)
 - (UIImage *)fixOrientation ;

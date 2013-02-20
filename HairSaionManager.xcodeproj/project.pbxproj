@@ -18,6 +18,13 @@
 		D622DF50169EABE2005415A8 /* SyncPopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D622DF4F169EABE2005415A8 /* SyncPopUpViewController.m */; };
 		D622DF5F169EC79F005415A8 /* SyncOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D622DF5E169EC79F005415A8 /* SyncOperationManager.m */; };
 		D622DF64169ED724005415A8 /* LCKPFolderOperationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D622DF63169ED724005415A8 /* LCKPFolderOperationItem.m */; };
+		D63E01D016C250E2002A90D5 /* ConfAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D63E01CA16C250E2002A90D5 /* ConfAdapter.m */; };
+		D63E01D116C250E2002A90D5 /* ConfAdapter.h in Sources */ = {isa = PBXBuildFile; fileRef = D63E01CB16C250E2002A90D5 /* ConfAdapter.h */; };
+		D63E01D216C250E2002A90D5 /* UpdateHistory.h in Sources */ = {isa = PBXBuildFile; fileRef = D63E01CC16C250E2002A90D5 /* UpdateHistory.h */; };
+		D63E01D316C250E2002A90D5 /* UpdateHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = D63E01CD16C250E2002A90D5 /* UpdateHistory.m */; };
+		D63E01D416C250E2002A90D5 /* SysConf.h in Sources */ = {isa = PBXBuildFile; fileRef = D63E01CE16C250E2002A90D5 /* SysConf.h */; };
+		D63E01D516C250E2002A90D5 /* SysConf.m in Sources */ = {isa = PBXBuildFile; fileRef = D63E01CF16C250E2002A90D5 /* SysConf.m */; };
+		D63E01D716C25144002A90D5 /* YourHairSaion.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = D63E01D616C25144002A90D5 /* YourHairSaion.sqlite */; };
 		D659214D168C024300474F66 /* KuaiPanOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6592146168C024300474F66 /* KuaiPanOpenAPI.framework */; };
 		D659214E168C024300474F66 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = D6592148168C024300474F66 /* background.png */; };
 		D659214F168C024300474F66 /* KPAuthController_ipad.nib in Resources */ = {isa = PBXBuildFile; fileRef = D6592149168C024300474F66 /* KPAuthController_ipad.nib */; };
@@ -102,7 +109,6 @@
 		D6C0BB381676D9EE00F39206 /* ProductPricing.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB241676D9ED00F39206 /* ProductPricing.m */; };
 		D6C0BB391676D9EE00F39206 /* ProductType.h in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB251676D9EE00F39206 /* ProductType.h */; };
 		D6C0BB3A1676D9EE00F39206 /* ProductType.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB261676D9EE00F39206 /* ProductType.m */; };
-		D6CF70EC166F57F900BD9150 /* YourHairSaion.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = D6CF70EB166F57F900BD9150 /* YourHairSaion.sqlite */; };
 		D6CF7123166F8A5600BD9150 /* PopMideaPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6CF7120166F8A5500BD9150 /* PopMideaPickerViewController.m */; };
 		D6CF7124166F8A5600BD9150 /* PopMideaPickerViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6CF7121166F8A5500BD9150 /* PopMideaPickerViewController_iPhone.xib */; };
 		D6CF7125166F8A5600BD9150 /* PopMideaPickerViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6CF7122166F8A5600BD9150 /* PopMideaPickerViewController_iPad.xib */; };
@@ -150,6 +156,14 @@
 		D622DF60169ED426005415A8 /* SyncMainViewController+Action.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SyncMainViewController+Action.m"; sourceTree = "<group>"; };
 		D622DF62169ED724005415A8 /* LCKPFolderOperationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCKPFolderOperationItem.h; sourceTree = "<group>"; };
 		D622DF63169ED724005415A8 /* LCKPFolderOperationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCKPFolderOperationItem.m; sourceTree = "<group>"; };
+		D63E01C616C25095002A90D5 /* HairSaionManager.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = HairSaionManager.xcodeproj; sourceTree = "<group>"; };
+		D63E01CA16C250E2002A90D5 /* ConfAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ConfAdapter.m; path = ../YourHairSaion/YourHairSaion/DataBase/ConfAdapter.m; sourceTree = "<group>"; };
+		D63E01CB16C250E2002A90D5 /* ConfAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ConfAdapter.h; path = ../YourHairSaion/YourHairSaion/DataBase/ConfAdapter.h; sourceTree = "<group>"; };
+		D63E01CC16C250E2002A90D5 /* UpdateHistory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UpdateHistory.h; path = ../YourHairSaion/YourHairSaion/DataBase/UpdateHistory.h; sourceTree = "<group>"; };
+		D63E01CD16C250E2002A90D5 /* UpdateHistory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = UpdateHistory.m; path = ../YourHairSaion/YourHairSaion/DataBase/UpdateHistory.m; sourceTree = "<group>"; };
+		D63E01CE16C250E2002A90D5 /* SysConf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SysConf.h; path = ../YourHairSaion/YourHairSaion/DataBase/SysConf.h; sourceTree = "<group>"; };
+		D63E01CF16C250E2002A90D5 /* SysConf.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SysConf.m; path = ../YourHairSaion/YourHairSaion/DataBase/SysConf.m; sourceTree = "<group>"; };
+		D63E01D616C25144002A90D5 /* YourHairSaion.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = YourHairSaion.sqlite; path = ../YourHairSaion/YourHairSaion/YourHairSaion.sqlite; sourceTree = "<group>"; };
 		D6592146168C024300474F66 /* KuaiPanOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KuaiPanOpenAPI.framework; sourceTree = "<group>"; };
 		D6592148168C024300474F66 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		D6592149168C024300474F66 /* KPAuthController_ipad.nib */ = {isa = PBXFileReference; lastKnownFileType = file; path = KPAuthController_ipad.nib; sourceTree = "<group>"; };
@@ -274,7 +288,6 @@
 		D6C0BB241676D9ED00F39206 /* ProductPricing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ProductPricing.m; path = ../YourHairSaion/YourHairSaion/DataBase/ProductPricing.m; sourceTree = "<group>"; };
 		D6C0BB251676D9EE00F39206 /* ProductType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ProductType.h; path = ../YourHairSaion/YourHairSaion/DataBase/ProductType.h; sourceTree = "<group>"; };
 		D6C0BB261676D9EE00F39206 /* ProductType.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ProductType.m; path = ../YourHairSaion/YourHairSaion/DataBase/ProductType.m; sourceTree = "<group>"; };
-		D6CF70EB166F57F900BD9150 /* YourHairSaion.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = YourHairSaion.sqlite; sourceTree = "<group>"; };
 		D6CF711F166F8A5500BD9150 /* PopMideaPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopMideaPickerViewController.h; path = DataBase/PopMideaPickerViewController.h; sourceTree = "<group>"; };
 		D6CF7120166F8A5500BD9150 /* PopMideaPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopMideaPickerViewController.m; path = DataBase/PopMideaPickerViewController.m; sourceTree = "<group>"; };
 		D6CF7121166F8A5500BD9150 /* PopMideaPickerViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PopMideaPickerViewController_iPhone.xib; path = DataBase/PopMideaPickerViewController_iPhone.xib; sourceTree = "<group>"; };
@@ -376,6 +389,11 @@
 			name = LSVC;
 			sourceTree = "<group>";
 		};
+		D63E01C716C25095002A90D5 /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
+			sourceTree = "<group>";
+		};
 		D6592136168C01B600474F66 /* KuaiPan */ = {
 			isa = PBXGroup;
 			children = (
@@ -422,6 +440,8 @@
 		D6A1A270166EDDD80044A26B = {
 			isa = PBXGroup;
 			children = (
+				D63E01D616C25144002A90D5 /* YourHairSaion.sqlite */,
+				D63E01C616C25095002A90D5 /* HairSaionManager.xcodeproj */,
 				D6592136168C01B600474F66 /* KuaiPan */,
 				D6948A7716899E1400C58C1E /* UIImage+fixOrientation.h */,
 				D6948A7816899E1400C58C1E /* UIImage+fixOrientation.m */,
@@ -429,7 +449,6 @@
 				D6C0BB121676D9C900F39206 /* DataBase */,
 				D6C0BB0F1676D96300F39206 /* LCFileManager */,
 				D6C0BAD71676CF1100F39206 /* NGTabBar */,
-				D6CF70EB166F57F900BD9150 /* YourHairSaion.sqlite */,
 				D6A1A31E166F381C0044A26B /* SplitViewController */,
 				D6A1A287166EDDD80044A26B /* HairSaionManager */,
 				D6A1A27E166EDDD80044A26B /* Frameworks */,
@@ -619,6 +638,12 @@
 		D6C0BB121676D9C900F39206 /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
+				D63E01CA16C250E2002A90D5 /* ConfAdapter.m */,
+				D63E01CB16C250E2002A90D5 /* ConfAdapter.h */,
+				D63E01CC16C250E2002A90D5 /* UpdateHistory.h */,
+				D63E01CD16C250E2002A90D5 /* UpdateHistory.m */,
+				D63E01CE16C250E2002A90D5 /* SysConf.h */,
+				D63E01CF16C250E2002A90D5 /* SysConf.m */,
 				D6F9AE3C167705B400782B32 /* YourHairSaion.xcdatamodeld */,
 				D6C0BB131676D9EA00F39206 /* DataAdapter.h */,
 				D6C0BB141676D9EA00F39206 /* DataAdapter.m */,
@@ -720,6 +745,12 @@
 			mainGroup = D6A1A270166EDDD80044A26B;
 			productRefGroup = D6A1A27C166EDDD80044A26B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D63E01C716C25095002A90D5 /* Products */;
+					ProjectRef = D63E01C616C25095002A90D5 /* HairSaionManager.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D6A1A27A166EDDD80044A26B /* HairSaionManager */,
@@ -732,6 +763,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D63E01D716C25144002A90D5 /* YourHairSaion.sqlite in Resources */,
 				D6A1A28C166EDDD80044A26B /* InfoPlist.strings in Resources */,
 				D6A1A294166EDDD80044A26B /* Default.png in Resources */,
 				D6A1A296166EDDD80044A26B /* Default@2x.png in Resources */,
@@ -741,7 +773,6 @@
 				D6A1A3B3166F446B0044A26B /* babaibang1.jpeg in Resources */,
 				D6A1A3B4166F446B0044A26B /* babaibang2.jpeg in Resources */,
 				D6A1A3B5166F446B0044A26B /* babaibang3.jpeg in Resources */,
-				D6CF70EC166F57F900BD9150 /* YourHairSaion.sqlite in Resources */,
 				D6CF7124166F8A5600BD9150 /* PopMideaPickerViewController_iPhone.xib in Resources */,
 				D6CF7125166F8A5600BD9150 /* PopMideaPickerViewController_iPad.xib in Resources */,
 				D6C0BAD51676CB0600F39206 /* Window.xib in Resources */,
@@ -791,6 +822,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D63E01D016C250E2002A90D5 /* ConfAdapter.m in Sources */,
+				D63E01D116C250E2002A90D5 /* ConfAdapter.h in Sources */,
+				D63E01D216C250E2002A90D5 /* UpdateHistory.h in Sources */,
+				D63E01D316C250E2002A90D5 /* UpdateHistory.m in Sources */,
+				D63E01D416C250E2002A90D5 /* SysConf.h in Sources */,
+				D63E01D516C250E2002A90D5 /* SysConf.m in Sources */,
 				D6F9AE3E167705B400782B32 /* YourHairSaion.xcdatamodeld in Sources */,
 				D6C0BB271676D9EE00F39206 /* DataAdapter.h in Sources */,
 				D6C0BB281676D9EE00F39206 /* DataAdapter.m in Sources */,

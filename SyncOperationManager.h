@@ -38,6 +38,8 @@
 - (id)pop;
 - (void)popAndPerform;
 
+- (void)cancel;
+
 
 - (void)syncSuccess;
 - (void)syncFail;
