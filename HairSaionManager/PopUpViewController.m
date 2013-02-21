@@ -90,7 +90,7 @@
     [inView addSubview:self.view];
     [inView bringSubviewToFront:self.view];
     [self setVisiable:NO inView:inView];
-    if (nil == self.popUpDeleage || [self.popUpDeleage viewWillPopUpWithSubViewController:self.subViewController animated:animated])
+    if (nil == self.popUpDeleage || ![self.popUpDeleage respondsToSelector:@selector(viewWillPopUpWithSubViewController:animated:)] || [self.popUpDeleage viewWillPopUpWithSubViewController:self.subViewController animated:animated])
     {
         if (!animated)
         {
@@ -99,19 +99,37 @@
         else
         {
 //    [self.view bringSubviewToFront:self.statementViewController.view];
-            [UIView beginAnimations:@"showPopUp" context:(__bridge void *)(self.view)];
+            [UIView beginAnimations:@"showPopUp" context:(__bridge void *)(self)];
             [UIView setAnimationDuration:0.3f];
             [UIView setAnimationDelegate:self];
             [self setVisiable:YES inView:inView];
+            [UIView setAnimationDidStopSelector:@selector(viewDidShow:finished:context:)];
+
             [UIView commitAnimations];
         }
     }
 
 }
+- (void)viewDidShow:(NSString *)paraAnimationId finished:(NSString *)paraFinished context:(void *)paraContext
+{
+    if (nil != self.popUpDeleage && [self.popUpDeleage respondsToSelector:@selector(viewDidShow:)])
+    {
+        [self.popUpDeleage viewDidShow:self];
+    }
+}
+- (void)viewDidHide:(NSString *)paraAnimationId finished:(NSString *)paraFinished context:(void *)paraContext
+{
+    if (nil != self.popUpDeleage && [self.popUpDeleage respondsToSelector:@selector(viewDidHide:)])
+    {
+        [self.popUpDeleage viewDidHide:self];
+    }
+}
+
+
 
 - (void)hide:(BOOL)animated
 {
-    if (nil == self.popUpDeleage || [self.popUpDeleage viewWillHideWithSubViewController:self.subViewController animated:animated])
+    if (nil == self.popUpDeleage || ![self.popUpDeleage respondsToSelector:@selector(viewWillHideWithSubViewController:animated:)] || [self.popUpDeleage viewWillHideWithSubViewController:self.subViewController animated:animated])
     {
         if (!animated)
         {
@@ -119,10 +137,12 @@
         }
         else
         {
-            [UIView beginAnimations:@"hidePopUp" context:(__bridge void *)(self.view)];
+            [UIView beginAnimations:@"hidePopUp" context:(__bridge void *)(self)];
             [UIView setAnimationDuration:0.3f];
             [UIView setAnimationDelegate:self];
             [self setVisiable:NO inView:nil];
+            [UIView setAnimationDidStopSelector:@selector(viewDidHide:finished:context:)];
+
             [UIView commitAnimations];
         }
     }

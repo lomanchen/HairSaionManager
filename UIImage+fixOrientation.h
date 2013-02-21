@@ -15,5 +15,6 @@
 - (UIImage*)mirrored;
 - (UIImage*)downMirrored;
 - (UIImage*)merge:(UIImage*)image;
++ (UIImage*)imageWithFileName:(NSString*)path;
 
 @end

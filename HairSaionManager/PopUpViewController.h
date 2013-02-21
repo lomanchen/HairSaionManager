@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 @class PopUpSubViewController;
+@class PopUpViewController;
 @protocol PopUpViewControllerDeleage <NSObject>
 @required
 - (BOOL)viewWillPopUpWithSubViewController:(PopUpSubViewController*)subVc animated:(BOOL)animated; //return NO to not show
 - (BOOL)viewWillHideWithSubViewController:(PopUpSubViewController*)subVc animated:(BOOL)animated; //return NO to not hide
-- (void)viewDidHide; 
+- (void)viewDidHide:(PopUpViewController*)vc;
+- (void)viewDidShow:(PopUpViewController*)vc;
 
 @end
 @interface PopUpViewController : UIViewController

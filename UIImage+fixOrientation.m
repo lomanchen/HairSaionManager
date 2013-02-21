@@ -159,4 +159,10 @@
     return outputImage;
 }
 
++ (UIImage*)imageWithFileName:(NSString*)path
+{
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:path ofType:nil];
+    return [UIImage imageWithContentsOfFile:filePath];
+}
+
 @end
