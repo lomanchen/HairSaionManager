@@ -208,7 +208,8 @@ UIImage* imageFromView(UIImage* srcImage, CGRect* rect);
         self.scrollView = nil;
     }
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, _toolBar.bounds.size.height, self.view.frame.size.width, self.view.frame.size.height-_toolBar.bounds.size.height)];
-    [self.view addSubview:_scrollView];
+    [self.view addSubview:self.scrollView];
+    self.scrollView.frame = CGRectMake(0, _toolBar.bounds.size.height, self.view.frame.size.width, self.view.frame.size.height-_toolBar.bounds.size.height);
     imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height)];
     imageView.image = image;
     imageView.contentMode = UIViewContentModeScaleAspectFit;

@@ -57,7 +57,7 @@
     
     // Configure the cell...
     ProductShowingDetail* item = [self.items objectAtIndex:indexPath.row];
-    cell.imageView.image = [UIImage imageWithContentsOfFile:item.defaultImgLink];
+    cell.imageView.image = [item defaultImgLink];
     //cell.imageView.frame = CGRectMake(0, 0, 100, 100);
     cell.textLabel.text = item.name;
     cell.detailTextLabel.text = item.productDetail;

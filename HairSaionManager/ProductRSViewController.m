@@ -53,10 +53,7 @@ typedef enum
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    imagePickerViewController = [[ImagePickerViewController alloc]initWithNibName:@"ImagePickerViewController" bundle:nil];
-    imagePickerViewController.deleage = self;
-    popImagePicker = [[PopUpViewController alloc]initWithContentViewController:imagePickerViewController];
-    popImagePicker.popUpDeleage = self;
+    
     //    ProductShowingDetail* psd = (ProductShowingDetail*)self.item;
     //    NSLog(@"path=%@",[psd.imgDic objectForKey:PRODUCT_PIC_TYPE_FULL] );
     
@@ -123,8 +120,11 @@ typedef enum
                 key = PRODUCT_PIC_TYPE_THUMB;
                 break;
         }
-        
-        [self.imagePickerViewController setupViewWithImg:[UIImage imageWithContentsOfFile:[self.item.imgDic objectForKey:key]]withType:key];
+        imagePickerViewController = [[ImagePickerViewController alloc]initWithNibName:@"ImagePickerViewController" bundle:nil];
+        imagePickerViewController.deleage = self;
+        popImagePicker = [[PopUpViewController alloc]initWithContentViewController:imagePickerViewController];
+        popImagePicker.popUpDeleage = self;
+        [self.imagePickerViewController setupViewWithImg:[self.item imageAtIndex:indexPath.row]withType:key];
         [popImagePicker show:self.rootSplitViewController.view andAnimated:YES];
     }
     
@@ -218,7 +218,7 @@ typedef enum
     NSString  *pngPath = [[da imgPath] stringByAppendingPathComponent:imgFileName];
     NSLog(@"file path=%@", pngPath);
     [UIImageJPEGRepresentation(fixOrientationImg, 0.5) writeToFile:pngPath atomically:YES];
-    [self.item.imgDic setObject:pngPath forKey:type];
+    [self.item.imgLinkDic setObject:imgFileName forKey:type];
     
     
 }

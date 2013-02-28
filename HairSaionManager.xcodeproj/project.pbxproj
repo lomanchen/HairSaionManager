@@ -25,6 +25,7 @@
 		D63E01D416C250E2002A90D5 /* SysConf.h in Sources */ = {isa = PBXBuildFile; fileRef = D63E01CE16C250E2002A90D5 /* SysConf.h */; };
 		D63E01D516C250E2002A90D5 /* SysConf.m in Sources */ = {isa = PBXBuildFile; fileRef = D63E01CF16C250E2002A90D5 /* SysConf.m */; };
 		D63E01D716C25144002A90D5 /* YourHairSaion.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = D63E01D616C25144002A90D5 /* YourHairSaion.sqlite */; };
+		D646F4C616DF2B7600FCD814 /* hair_pic in Resources */ = {isa = PBXBuildFile; fileRef = D646F4C516DF2B7600FCD814 /* hair_pic */; };
 		D659214D168C024300474F66 /* KuaiPanOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6592146168C024300474F66 /* KuaiPanOpenAPI.framework */; };
 		D659214E168C024300474F66 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = D6592148168C024300474F66 /* background.png */; };
 		D659214F168C024300474F66 /* KPAuthController_ipad.nib in Resources */ = {isa = PBXBuildFile; fileRef = D6592149168C024300474F66 /* KPAuthController_ipad.nib */; };
@@ -39,6 +40,8 @@
 		D66FB39E1689F6BC0008F9F7 /* TypeLSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66FB39D1689F6BC0008F9F7 /* TypeLSViewController.m */; };
 		D672B67B16777A04005292DB /* ProductRSStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D672B67A16777A04005292DB /* ProductRSStoryboard.storyboard */; };
 		D672B67F1677832C005292DB /* TextEditTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D672B67E1677832C005292DB /* TextEditTableViewController.m */; };
+		D67EC55716DB9E33000CFDDE /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D67EC55516DB9E33000CFDDE /* Default-Landscape@2x~ipad.png */; };
+		D67EC55816DB9E33000CFDDE /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D67EC55616DB9E33000CFDDE /* icon.png */; };
 		D67EEAAB16B13F7B00182B6F /* ProductTypeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D67EEAAA16B13F7B00182B6F /* ProductTypeItem.m */; };
 		D67EEAB016B1789700182B6F /* TypeAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D67EEAAE16B1789700182B6F /* TypeAddViewController.m */; };
 		D67EEAB516B17D7A00182B6F /* TypeAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D67EEAB416B17D7A00182B6F /* TypeAddViewController.xib */; };
@@ -52,9 +55,6 @@
 		D6A1A28C166EDDD80044A26B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6A1A28A166EDDD80044A26B /* InfoPlist.strings */; };
 		D6A1A28E166EDDD80044A26B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A1A28D166EDDD80044A26B /* main.m */; };
 		D6A1A292166EDDD80044A26B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A1A291166EDDD80044A26B /* AppDelegate.m */; };
-		D6A1A294166EDDD80044A26B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A1A293166EDDD80044A26B /* Default.png */; };
-		D6A1A296166EDDD80044A26B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A1A295166EDDD80044A26B /* Default@2x.png */; };
-		D6A1A298166EDDD80044A26B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A1A297166EDDD80044A26B /* Default-568h@2x.png */; };
 		D6A1A29B166EDDD80044A26B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6A1A299166EDDD80044A26B /* MainStoryboard.storyboard */; };
 		D6A1A2A1166EDDD80044A26B /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A1A2A0166EDDD80044A26B /* MasterViewController.m */; };
 		D6A1A2A4166EDDD80044A26B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A1A2A3166EDDD80044A26B /* DetailViewController.m */; };
@@ -128,10 +128,6 @@
 		D6FAEC591682FD51002A4258 /* YSImagePickerEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAEC541682FD50002A4258 /* YSImagePickerEditor.m */; };
 		D6FAEC5E1683085B002A4258 /* PopUpSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FAEC5D1683085B002A4258 /* PopUpSubViewController.m */; };
 		D6FB5D501678694500797DFE /* ProductTypePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FB5D4F1678694400797DFE /* ProductTypePickerViewController.m */; };
-		D6FD81C416A44AF6000B3926 /* 护发产品 in Resources */ = {isa = PBXBuildFile; fileRef = D6FD81C016A44AF6000B3926 /* 护发产品 */; };
-		D6FD81C516A44AF6000B3926 /* 流行发型 in Resources */ = {isa = PBXBuildFile; fileRef = D6FD81C116A44AF6000B3926 /* 流行发型 */; };
-		D6FD81C616A44AF6000B3926 /* 男士发型 in Resources */ = {isa = PBXBuildFile; fileRef = D6FD81C216A44AF6000B3926 /* 男士发型 */; };
-		D6FD81C716A44AF6000B3926 /* 女士发型 in Resources */ = {isa = PBXBuildFile; fileRef = D6FD81C316A44AF6000B3926 /* 女士发型 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -164,6 +160,7 @@
 		D63E01CE16C250E2002A90D5 /* SysConf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SysConf.h; path = ../YourHairSaion/YourHairSaion/DataBase/SysConf.h; sourceTree = "<group>"; };
 		D63E01CF16C250E2002A90D5 /* SysConf.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SysConf.m; path = ../YourHairSaion/YourHairSaion/DataBase/SysConf.m; sourceTree = "<group>"; };
 		D63E01D616C25144002A90D5 /* YourHairSaion.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = YourHairSaion.sqlite; path = ../YourHairSaion/YourHairSaion/YourHairSaion.sqlite; sourceTree = "<group>"; };
+		D646F4C516DF2B7600FCD814 /* hair_pic */ = {isa = PBXFileReference; lastKnownFileType = folder; name = hair_pic; path = "../../../../Downloads/图片/hair_pic"; sourceTree = "<group>"; };
 		D6592146168C024300474F66 /* KuaiPanOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KuaiPanOpenAPI.framework; sourceTree = "<group>"; };
 		D6592148168C024300474F66 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		D6592149168C024300474F66 /* KPAuthController_ipad.nib */ = {isa = PBXFileReference; lastKnownFileType = file; path = KPAuthController_ipad.nib; sourceTree = "<group>"; };
@@ -183,6 +180,8 @@
 		D672B67A16777A04005292DB /* ProductRSStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProductRSStoryboard.storyboard; sourceTree = "<group>"; };
 		D672B67D1677832C005292DB /* TextEditTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextEditTableViewController.h; sourceTree = "<group>"; };
 		D672B67E1677832C005292DB /* TextEditTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextEditTableViewController.m; sourceTree = "<group>"; };
+		D67EC55516DB9E33000CFDDE /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
+		D67EC55616DB9E33000CFDDE /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		D67EEAA916B13F7B00182B6F /* ProductTypeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductTypeItem.h; sourceTree = "<group>"; };
 		D67EEAAA16B13F7B00182B6F /* ProductTypeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductTypeItem.m; sourceTree = "<group>"; };
 		D67EEAAD16B1789700182B6F /* TypeAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeAddViewController.h; sourceTree = "<group>"; };
@@ -204,9 +203,6 @@
 		D6A1A28F166EDDD80044A26B /* HairSaionManager-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HairSaionManager-Prefix.pch"; sourceTree = "<group>"; };
 		D6A1A290166EDDD80044A26B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D6A1A291166EDDD80044A26B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D6A1A293166EDDD80044A26B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		D6A1A295166EDDD80044A26B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		D6A1A297166EDDD80044A26B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D6A1A29A166EDDD80044A26B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		D6A1A29F166EDDD80044A26B /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		D6A1A2A0166EDDD80044A26B /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
@@ -320,10 +316,6 @@
 		D6FAEC5D1683085B002A4258 /* PopUpSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopUpSubViewController.m; sourceTree = "<group>"; };
 		D6FB5D4E1678694400797DFE /* ProductTypePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductTypePickerViewController.h; sourceTree = "<group>"; };
 		D6FB5D4F1678694400797DFE /* ProductTypePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductTypePickerViewController.m; sourceTree = "<group>"; };
-		D6FD81C016A44AF6000B3926 /* 护发产品 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "护发产品"; path = "../../../../Downloads/My Pic in use/护发产品"; sourceTree = "<group>"; };
-		D6FD81C116A44AF6000B3926 /* 流行发型 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "流行发型"; path = "../../../../Downloads/My Pic in use/流行发型"; sourceTree = "<group>"; };
-		D6FD81C216A44AF6000B3926 /* 男士发型 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "男士发型"; path = "../../../../Downloads/My Pic in use/男士发型"; sourceTree = "<group>"; };
-		D6FD81C316A44AF6000B3926 /* 女士发型 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "女士发型"; path = "../../../../Downloads/My Pic in use/女士发型"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -534,11 +526,10 @@
 				D6A1A31F166F446B0044A26B /* images */,
 				D6A1A289166EDDD80044A26B /* HairSaionManager-Info.plist */,
 				D6A1A28A166EDDD80044A26B /* InfoPlist.strings */,
+				D67EC55516DB9E33000CFDDE /* Default-Landscape@2x~ipad.png */,
+				D67EC55616DB9E33000CFDDE /* icon.png */,
 				D6A1A28D166EDDD80044A26B /* main.m */,
 				D6A1A28F166EDDD80044A26B /* HairSaionManager-Prefix.pch */,
-				D6A1A293166EDDD80044A26B /* Default.png */,
-				D6A1A295166EDDD80044A26B /* Default@2x.png */,
-				D6A1A297166EDDD80044A26B /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -697,10 +688,7 @@
 		D6FD81BE16A44ACB000B3926 /* product */ = {
 			isa = PBXGroup;
 			children = (
-				D6FD81C016A44AF6000B3926 /* 护发产品 */,
-				D6FD81C116A44AF6000B3926 /* 流行发型 */,
-				D6FD81C216A44AF6000B3926 /* 男士发型 */,
-				D6FD81C316A44AF6000B3926 /* 女士发型 */,
+				D646F4C516DF2B7600FCD814 /* hair_pic */,
 			);
 			name = product;
 			sourceTree = "<group>";
@@ -765,9 +753,6 @@
 			files = (
 				D63E01D716C25144002A90D5 /* YourHairSaion.sqlite in Resources */,
 				D6A1A28C166EDDD80044A26B /* InfoPlist.strings in Resources */,
-				D6A1A294166EDDD80044A26B /* Default.png in Resources */,
-				D6A1A296166EDDD80044A26B /* Default@2x.png in Resources */,
-				D6A1A298166EDDD80044A26B /* Default-568h@2x.png in Resources */,
 				D6A1A29B166EDDD80044A26B /* MainStoryboard.storyboard in Resources */,
 				D6A1A3B2166F446B0044A26B /* babaibang0.jpeg in Resources */,
 				D6A1A3B3166F446B0044A26B /* babaibang1.jpeg in Resources */,
@@ -789,13 +774,12 @@
 				D6592152168C024300474F66 /* KPRegisterAuthController_iphone.nib in Resources */,
 				D622DF43169E86EC005415A8 /* SyncMainViewController.xib in Resources */,
 				D622DF4D169E8EB6005415A8 /* SyncProcessViewController.xib in Resources */,
-				D6FD81C416A44AF6000B3926 /* 护发产品 in Resources */,
-				D6FD81C516A44AF6000B3926 /* 流行发型 in Resources */,
-				D6FD81C616A44AF6000B3926 /* 男士发型 in Resources */,
-				D6FD81C716A44AF6000B3926 /* 女士发型 in Resources */,
 				D6B61F2816AFF530001E2956 /* TextFieldEditViewController.xib in Resources */,
 				D67EEAB516B17D7A00182B6F /* TypeAddViewController.xib in Resources */,
 				D695401C16B21FB6008484B0 /* ProductTypeSelectorViewController.xib in Resources */,
+				D67EC55716DB9E33000CFDDE /* Default-Landscape@2x~ipad.png in Resources */,
+				D67EC55816DB9E33000CFDDE /* icon.png in Resources */,
+				D646F4C616DF2B7600FCD814 /* hair_pic in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

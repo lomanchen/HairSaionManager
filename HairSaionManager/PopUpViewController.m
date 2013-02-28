@@ -119,6 +119,7 @@
 }
 - (void)viewDidHide:(NSString *)paraAnimationId finished:(NSString *)paraFinished context:(void *)paraContext
 {
+    [self.view removeFromSuperview];
     if (nil != self.popUpDeleage && [self.popUpDeleage respondsToSelector:@selector(viewDidHide:)])
     {
         [self.popUpDeleage viewDidHide:self];
