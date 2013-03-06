@@ -26,6 +26,7 @@
 		D63E01D516C250E2002A90D5 /* SysConf.m in Sources */ = {isa = PBXBuildFile; fileRef = D63E01CF16C250E2002A90D5 /* SysConf.m */; };
 		D63E01D716C25144002A90D5 /* YourHairSaion.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = D63E01D616C25144002A90D5 /* YourHairSaion.sqlite */; };
 		D646F4C616DF2B7600FCD814 /* hair_pic in Resources */ = {isa = PBXBuildFile; fileRef = D646F4C516DF2B7600FCD814 /* hair_pic */; };
+		D6522A2616E5B94C00241DCE /* default.JPG in Resources */ = {isa = PBXBuildFile; fileRef = D6522A2516E5B94C00241DCE /* default.JPG */; };
 		D659214D168C024300474F66 /* KuaiPanOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6592146168C024300474F66 /* KuaiPanOpenAPI.framework */; };
 		D659214E168C024300474F66 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = D6592148168C024300474F66 /* background.png */; };
 		D659214F168C024300474F66 /* KPAuthController_ipad.nib in Resources */ = {isa = PBXBuildFile; fileRef = D6592149168C024300474F66 /* KPAuthController_ipad.nib */; };
@@ -161,6 +162,7 @@
 		D63E01CF16C250E2002A90D5 /* SysConf.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SysConf.m; path = ../YourHairSaion/YourHairSaion/DataBase/SysConf.m; sourceTree = "<group>"; };
 		D63E01D616C25144002A90D5 /* YourHairSaion.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = YourHairSaion.sqlite; path = ../YourHairSaion/YourHairSaion/YourHairSaion.sqlite; sourceTree = "<group>"; };
 		D646F4C516DF2B7600FCD814 /* hair_pic */ = {isa = PBXFileReference; lastKnownFileType = folder; name = hair_pic; path = "../../../../Downloads/图片/hair_pic"; sourceTree = "<group>"; };
+		D6522A2516E5B94C00241DCE /* default.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = default.JPG; path = ../../YourHairSaion/YourHairSaion/default.JPG; sourceTree = "<group>"; };
 		D6592146168C024300474F66 /* KuaiPanOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KuaiPanOpenAPI.framework; sourceTree = "<group>"; };
 		D6592148168C024300474F66 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		D6592149168C024300474F66 /* KPAuthController_ipad.nib */ = {isa = PBXFileReference; lastKnownFileType = file; path = KPAuthController_ipad.nib; sourceTree = "<group>"; };
@@ -526,6 +528,7 @@
 				D6A1A31F166F446B0044A26B /* images */,
 				D6A1A289166EDDD80044A26B /* HairSaionManager-Info.plist */,
 				D6A1A28A166EDDD80044A26B /* InfoPlist.strings */,
+				D6522A2516E5B94C00241DCE /* default.JPG */,
 				D67EC55516DB9E33000CFDDE /* Default-Landscape@2x~ipad.png */,
 				D67EC55616DB9E33000CFDDE /* icon.png */,
 				D6A1A28D166EDDD80044A26B /* main.m */,
@@ -780,6 +783,7 @@
 				D67EC55716DB9E33000CFDDE /* Default-Landscape@2x~ipad.png in Resources */,
 				D67EC55816DB9E33000CFDDE /* icon.png in Resources */,
 				D646F4C616DF2B7600FCD814 /* hair_pic in Resources */,
+				D6522A2616E5B94C00241DCE /* default.JPG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -111,10 +111,10 @@ typedef enum
                 key = PRODUCT_PIC_TYPE_THUMB;
                 break;
             case 1:
-                key = PRODUCT_PIC_TYPE_BACK;
+                key = PRODUCT_PIC_TYPE_LEFT;
                 break;
             case 2:
-                key = PRODUCT_PIC_TYPE_LEFT;
+                key = PRODUCT_PIC_TYPE_BACK;
                 break;
             default:
                 key = PRODUCT_PIC_TYPE_THUMB;

@@ -142,7 +142,7 @@
 
 - (void)doAuthorizeInViewController:(UIViewController*)vc
 {
-    KPConsumer *consumer = [[KPConsumer alloc] initWithKey:@"xcInFxiv9tnMmS5a" secret:@"D7JvQn0wTR5rP9D9"];
+    KPConsumer *consumer = [[KPConsumer alloc] initWithKey:@"xcev0kXWvPxod9Hs" secret:@"PDpFzAfw5QxcnNx6"];
     authController = [[KPAuthController alloc] initWithConsumer:consumer];
     [vc.navigationController pushViewController:authController animated:YES];
 //    UIBarButtonItem* item = [UIBarButtonItem alloc]init
