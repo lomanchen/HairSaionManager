@@ -12,6 +12,7 @@
 #import "ProductTypeItem.h"
 #import "ProductTypeSelectorViewController.h"
 #import "ConfAdapter.h"
+#define TYPE_MAX_COUNT 16
 typedef enum
 {
     kType = 0,
@@ -35,7 +36,7 @@ typedef enum
     if (self) {
         // Custom initialization
         _rootType = PRODUCT_TYPE_ROOT;
-
+        
     }
     return self;
 }
@@ -60,7 +61,7 @@ typedef enum
     self.tableView.allowsSelectionDuringEditing = YES;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -120,7 +121,7 @@ typedef enum
     ConfAdapter* ca = [ConfAdapter shareInstance];
     switch (indexPath.section) {
         case kType:
-                cell.textLabel.text = ((ProductType*)[[DataAdapter shareInstance]productTypeForParent:_rootType][indexPath.row]).typeName;
+            cell.textLabel.text = ((ProductType*)[[DataAdapter shareInstance]productTypeForParent:_rootType][indexPath.row]).typeName;
             break;
         case kConf:
             switch (indexPath.row) {
@@ -129,7 +130,7 @@ typedef enum
                     if ([ca isShowSubbranch])
                         cell.accessoryType = UITableViewCellAccessoryCheckmark;
                     break;
-                    case 1:
+                case 1:
                     cell.textLabel.text = @"优惠政策";
                     if ([ca isShowDiscountCard])
                         cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -140,8 +141,8 @@ typedef enum
         default:
             break;
     }
-//    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-
+    //    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
     // Configure the cell...
     
     return cell;
@@ -176,7 +177,7 @@ typedef enum
         //重置"+按钮"
         if ([self.navigationItem.rightBarButtonItems count] < 2)
         {
-            if ([[[DataAdapter shareInstance]productTypeForParent:_rootType] count] < 4)
+            if ([[[DataAdapter shareInstance]productTypeForParent:_rootType] count] < TYPE_MAX_COUNT)
             {
                 NSMutableArray* itemArray = [NSMutableArray arrayWithArray:self.navigationItem.rightBarButtonItems];
                 UIBarButtonItem* item = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onAdd:)];
@@ -187,25 +188,25 @@ typedef enum
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    }
 }
 
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 #pragma mark - Table view delegate
 
@@ -213,27 +214,27 @@ typedef enum
 {
     if (indexPath.section == kType)
     {
-    if ([tableView isEditing])
-    {
-        editingItem = [[ProductTypeItem alloc]initWithObject:[[DataAdapter shareInstance]productTypeForParent:_rootType][indexPath.row] ];
-//        TextFieldEditViewController* vc = [[TextFieldEditViewController alloc]initWithNibName:@"TextFieldEditViewController" bundle:nil];
-//        //[vc setData:&currentTypeName];
-//        [vc fillDataWithTarget:editingItem action:@selector(setName:) data:editingItem.name];
-        TypeAddViewController* vc = [[TypeAddViewController alloc]initWithItem:editingItem];
-        vc.delege = self;
-        [self.navigationController pushViewController:vc animated:YES];
-        
-    }
-    else
-    {
-        if ([((ProductType*)[[DataAdapter shareInstance]productTypeForParent:_rootType][indexPath.row]).typeParent isEqualToString:PRODUCT_TYPE_ROOT])
+        if ([tableView isEditing])
         {
-            
-            TypeEditViewController* vc = [[TypeEditViewController alloc]init];
-            [vc setRootType:((ProductType*)[[DataAdapter shareInstance]productTypeForParent:_rootType][indexPath.row]).productType];
+            editingItem = [[ProductTypeItem alloc]initWithObject:[[DataAdapter shareInstance]productTypeForParent:_rootType][indexPath.row] ];
+            //        TextFieldEditViewController* vc = [[TextFieldEditViewController alloc]initWithNibName:@"TextFieldEditViewController" bundle:nil];
+            //        //[vc setData:&currentTypeName];
+            //        [vc fillDataWithTarget:editingItem action:@selector(setName:) data:editingItem.name];
+            TypeAddViewController* vc = [[TypeAddViewController alloc]initWithItem:editingItem];
+            vc.delege = self;
             [self.navigationController pushViewController:vc animated:YES];
+            
         }
-    }
+        else
+        {
+            if ([((ProductType*)[[DataAdapter shareInstance]productTypeForParent:_rootType][indexPath.row]).typeParent isEqualToString:PRODUCT_TYPE_ROOT])
+            {
+                
+                TypeEditViewController* vc = [[TypeEditViewController alloc]init];
+                [vc setRootType:((ProductType*)[[DataAdapter shareInstance]productTypeForParent:_rootType][indexPath.row]).productType];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+        }
     }
     else
     {
@@ -293,14 +294,14 @@ typedef enum
     TypeAddViewController* vc  = [[TypeAddViewController alloc]initWithRootType:_rootType];
     vc.delege = self;
     [self.navigationController pushViewController:vc animated:YES];
-
+    
     
 }
 
 - (void)onFinish:(id)sender
 {
     [self.tableView setEditing:NO animated:YES];
-
+    
     [self setupNavForEdit];
 }
 
@@ -311,7 +312,7 @@ typedef enum
     NSMutableArray* itemArray = [NSMutableArray array];
     UIBarButtonItem* item = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(onEdit:)];
     [itemArray addObject:item];
-    if ([[[DataAdapter shareInstance]productTypeForParent:_rootType] count] < 4)
+    if ([[[DataAdapter shareInstance]productTypeForParent:_rootType] count] < TYPE_MAX_COUNT)
     {
         item = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onAdd:)];
         [itemArray addObject:item];
@@ -324,7 +325,7 @@ typedef enum
     NSMutableArray* itemArray = [NSMutableArray array];
     UIBarButtonItem* item = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onFinish:)];
     [itemArray addObject:item];
-    if ([[[DataAdapter shareInstance]productTypeForParent:_rootType] count] < 4)
+    if ([[[DataAdapter shareInstance]productTypeForParent:_rootType] count] < TYPE_MAX_COUNT)
     {
         item = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onAdd:)];
         [itemArray addObject:item];
@@ -351,7 +352,7 @@ typedef enum
 
 - (NSString*)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
 {
-    return @"提醒：当前系统只支持二级分类，每级分类暂只支持4种分类，多出部分将无法在终端显示。";
+    return @"提醒：当前系统只支持二级分类，多出部分将无法在终端显示。";
 }
 
 @end

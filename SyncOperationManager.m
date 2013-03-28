@@ -47,6 +47,8 @@
         operationQueue = [NSMutableArray array];
         currentSyncSerailNo = [[DataAdapter shareInstance]serialNo];
         isFinish = NO;
+        self.resultDelege = nil;
+        self.processerDelege = nil;
 
     }
     return self;
@@ -103,7 +105,16 @@
 - (void)popAndPerform
 {
     id op = [self pop];
-    [self.deleage  syncProgressUpdate:self andProgress:(self.totalOperation-self.operationCounter) / self.totalOperation ];
+    if (self.resultDelege && [self.resultDelege respondsToSelector:@selector(syncProgressUpdate:andProgress:)])
+    {
+        [self.resultDelege syncProgressUpdate:self andProgress:(self.totalOperation-self.operationCounter) / self.totalOperation];
+    }
+
+    if (self.processerDelege && [self.processerDelege respondsToSelector:@selector(syncProgressUpdate:andProgress:)])
+    {
+        [self.processerDelege  syncProgressUpdate:self andProgress:(self.totalOperation-self.operationCounter) / self.totalOperation ];
+    }
+    
 
     if (op == nil)
     {
@@ -126,7 +137,16 @@
 
 - (void)syncSuccess
 {
-    [self.deleage syncSuccess:self];
+    if (self.resultDelege && [self.resultDelege respondsToSelector:@selector(syncSuccess:)])
+    {
+        [self.resultDelege syncSuccess:self];
+    }
+
+    if (self.processerDelege && [self.processerDelege respondsToSelector:@selector(syncSuccess:)])
+    {
+        [self.processerDelege syncSuccess:self];
+    }
+
     self.currentSyncSerailNo = [[DataAdapter shareInstance]serialNo];
     [self finish];
     
@@ -135,7 +155,15 @@
 
 - (void)syncFail
 {
-    [self.deleage syncFail:self];
+    if (self.resultDelege && [self.resultDelege respondsToSelector:@selector(syncFail:)])
+    {
+        [self.resultDelege syncFail:self];
+    }
+
+    if (self.processerDelege && [self.processerDelege respondsToSelector:@selector(syncFail:)])
+    {
+        [self.processerDelege syncFail:self];
+    }
     [self finish];
 
 }
@@ -237,8 +265,15 @@
 {
     
     self.operationCounter = 0;
+    if (self.resultDelege && [self.resultDelege respondsToSelector:@selector(syncBegin:)])
+    {
+        [self.resultDelege syncBegin:self];
+    }
+    if (self.processerDelege && [self.processerDelege respondsToSelector:@selector(syncBegin:)])
+    {
+        [self.processerDelege syncBegin:self];
+    }
     
-    [self.deleage syncBegin:self];
     //create floder
     //check floder
     //if no, create floder
@@ -270,7 +305,14 @@
 - (void)doUpdate:(id)sender
 {
     self.operationCounter = 0;
-    [self.deleage syncBegin:self];
+    if (self.resultDelege && [self.resultDelege respondsToSelector:@selector(syncBegin:)])
+    {
+        [self.resultDelege syncBegin:self];
+    }
+    if (self.processerDelege && [self.processerDelege respondsToSelector:@selector(syncBegin:)])
+    {
+        [self.processerDelege syncBegin:self];
+    }
     
     //download db store with temp name
     [self downloadFileFromPath:[REMOTE_PATH_DB_FILE stringByAppendingPathComponent:LOCAL_DB_FILE_NAME] toPatn:[[[DataAdapter shareInstance]dbPath] stringByAppendingPathComponent:REMOTE_PATH_DB_TEMP_FILENAME]];
@@ -468,7 +510,15 @@
 
 - (void)onCancelAuth
 {
-    [self.deleage cancelAuth:self];
+    if (self.resultDelege && [self.resultDelege respondsToSelector:@selector(cancelAuth:)])
+    {
+        [self.resultDelege cancelAuth:self];
+    }
+    if (self.processerDelege && [self.processerDelege respondsToSelector:@selector(cancelAuth:)])
+    {
+        [self.processerDelege cancelAuth:self];
+    }
+
 }
 
 - (void)reloadDB
@@ -477,25 +527,22 @@
     int count = 0;
     NSString* resourcePath;
     NSString* defaultImg = [[DataAdapter shareInstance]defaultProductImg];
-    for (ProductPic* pic in [DataAdapter shareInstance].productPics)
+    NSLog(@"defaultImg = %@", defaultImg);
+    NSArray* pics = [self picArrayToDownload];
+    NSLog(@"ready to download[%@]", pics);
+    for (NSString* picLink in pics)
     {
         //[NSThread sleepForTimeInterval:2];
         
-        resourcePath = [[DataAdapter shareInstance]getLocalPath:pic.picLink];
-
+        resourcePath = [[DataAdapter shareInstance]getLocalPath:picLink];
+        
         //本地自带图片不进行下载
         
-        if (nil == resourcePath || [resourcePath isEqualToString:defaultImg])
-        {
-            NSLog(@"downPath:%@", resourcePath);
-            NSString  *imgPath = [[[DataAdapter shareInstance] imgPath] stringByAppendingPathComponent:pic.picLink];
-            [self downloadFileFromPath:[REMOTE_PATH_IMG_FILE stringByAppendingPathComponent:pic.picLink] toPatn:imgPath];
-            NSLog(@"download img count %d", ++count);
-        }
-        else
-        {
-            continue;
-        }
+        NSLog(@"downPath:%@", resourcePath);
+        NSLog(@"target file name=%@", picLink);
+        NSString  *imgPath = [[[DataAdapter shareInstance] imgPath] stringByAppendingPathComponent:picLink];
+        [self downloadFileFromPath:[REMOTE_PATH_IMG_FILE stringByAppendingPathComponent:picLink] toPatn:imgPath];
+        NSLog(@"download img count %d", ++count);
     }
     self.operationCounter -= 10;
     self.totalOperation -= 10;
@@ -524,22 +571,18 @@
     NSString* resourcePath;
     self.operationCounter -= 10;
     self.totalOperation -= 10;
-    for (ProductPic* pic in [DataAdapter shareInstance].productPics)
+    NSArray* pics = [self picArrayToUpload];
+    NSLog(@"ready to upload[%@]", pics);
+    for (NSString* picLink in pics)
     {
         //[NSThread sleepForTimeInterval:2];
-        
-        resourcePath = [[DataAdapter shareInstance]getLocalPath:pic.picLink];
+        resourcePath = [[DataAdapter shareInstance]getLocalPath:picLink];
         //本地自带图片不进行上传
-        if ((nil != resourcePath && [resourcePath rangeOfString:@"Documents"].location == NSNotFound) || [self isImgExistInRemote:pic.picLink])
-        {
-            continue;
-        }
-        else
-        {
-            NSLog(@"sendPath:%@", resourcePath);
-            [self uploadLocalFile:resourcePath toRemoteFilePath:[REMOTE_PATH_IMG_FILE stringByAppendingPathComponent:pic.picLink] overWrite:NO popMode:YES];
-            NSLog(@"upload img count %d", ++count);
-        }
+        
+        NSLog(@"sendPath:%@", resourcePath);
+        [self uploadLocalFile:resourcePath toRemoteFilePath:[REMOTE_PATH_IMG_FILE stringByAppendingPathComponent:picLink] overWrite:NO popMode:YES];
+        NSLog(@"upload img count %d", ++count);
+        
     }
     [self popAndPerform];
 }
@@ -553,6 +596,7 @@
         {
             if ([fileName isEqualToString:name])
             {
+                NSLog(@"File exit in remote:[%@]", fileName);
                 return YES;
             }
         }
@@ -587,4 +631,54 @@
     self.totalOperation = 0;
 
 }
+
+- (NSArray*)picArrayToUpload
+{
+    NSMutableArray* picsInUse = [[DataAdapter shareInstance] picsInUse];
+    NSString* defaultImg = [[DataAdapter shareInstance]defaultProductImg];
+    NSMutableArray* pics = [NSMutableArray array];
+    for (NSString* imgLink in picsInUse)
+    {
+        NSString  *resourcePath = [[DataAdapter shareInstance]getLocalPath:imgLink];
+        if (nil == resourcePath || [resourcePath isEqualToString:@""] || [imgLink isEqualToString:PRODUCT_PIC_DEFALUT_THUMB] || [resourcePath isEqualToString:defaultImg] || [resourcePath rangeOfString:@"Documents"].location == NSNotFound )
+        {
+            //[picsInUse removeObject:imgLink];
+        }
+        
+        else if ([self isImgExistInRemote:imgLink])
+        {
+            //[picsInUse removeObject:imgLink];
+        }
+        else
+        {
+            [pics addObject:imgLink];
+        }
+    }
+    return [NSArray arrayWithArray:pics];
+}
+
+- (NSArray*)picArrayToDownload
+{
+    NSMutableArray* picsInUse = [[DataAdapter shareInstance] picsInUse];
+    NSString* defaultImg = [[DataAdapter shareInstance]defaultProductImg];
+    NSMutableArray* pics = [NSMutableArray array];
+
+    
+    for (NSString* imgLink in picsInUse)
+    {
+        NSString  *resourcePath = [[DataAdapter shareInstance]getLocalPath:imgLink];
+        if (nil == resourcePath || [resourcePath isEqualToString:@""] || [imgLink isEqualToString:PRODUCT_PIC_DEFALUT_THUMB] )
+        {
+            //[picsInUse removeObject:imgLink];
+        }
+        else if (nil != resourcePath && [resourcePath isEqualToString:defaultImg])
+        {
+            [pics addObject:imgLink];
+
+        }
+    }
+    return [NSArray arrayWithArray:pics];
+}
+
+
 @end

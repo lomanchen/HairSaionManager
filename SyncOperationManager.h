@@ -20,8 +20,20 @@
 - (void)syncProgressUpdate:(SyncOperationManager*)manager andProgress:(CGFloat)progress;
 
 @end
+
+
+@protocol SyncResultDeleage <NSObject>
+- (void)cancelAuth:(SyncOperationManager*)manager;
+- (void)syncBegin:(SyncOperationManager*)manager;
+- (void)syncSuccess:(SyncOperationManager*)manager;
+- (void)syncFail:(SyncOperationManager*)manager;
+- (void)syncProgressUpdate:(SyncOperationManager*)manager andProgress:(CGFloat)progress;
+
+@end
+
 @interface SyncOperationManager : NSObject<KPOperationDelegate>
-@property (nonatomic, assign)id<SyncOperationDeleage> deleage;
+@property (nonatomic, assign)id<SyncOperationDeleage> processerDelege;
+@property (nonatomic, assign)id<SyncResultDeleage> resultDelege;
 
 @property (nonatomic, strong)NSString* lastErrorString;
 @property (nonatomic, strong)NSMutableArray* retryArray;

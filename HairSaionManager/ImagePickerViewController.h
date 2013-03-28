@@ -40,4 +40,7 @@
 - (void)setupViewWithImg:(UIImage*)image withType:(NSNumber*)type;
 
 - (UIImagePickerControllerSourceType)imagePickerControllerSourceType;
+
+
+- (void)setContentSize:(CGSize)size;
 @end

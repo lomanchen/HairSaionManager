@@ -1,44 +1,33 @@
 //
-//  MainSplitViewController.m
-//  YourHairSaion
+//  EmpMainSplitViewController.m
+//  HairSaionManager
 //
-//  Created by chen loman on 12-11-15.
-//  Copyright (c) 2012年 chen loman. All rights reserved.
+//  Created by chen loman on 13-3-7.
+//  Copyright (c) 2013年 chen loman. All rights reserved.
 //
 
-#import "MainSplitViewController.h"
-#import "ProductLSViewController.h"
+#import "EmpMainSplitViewController.h"
 #import "DefalueRSViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "DataAdapter.h"
-#import "ProductPolicy.h"
-#import "TypePolicy.h"
+#import "BranchLSViewController.h"
+#import "BranchPolicy.h"
+#import "DiscountCardLSViewController.h"
+#import "DiscountCardPolicy.h"
+@interface EmpMainSplitViewController ()
 
-
-@interface MainSplitViewController ()
-- (void)loadTabBar;
 @end
 
-@implementation MainSplitViewController
-@synthesize detailViewController, masterBeforeDetail;
+@implementation EmpMainSplitViewController
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-//        UIStoryboard *mainSb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-//        self.detailViewController = [mainSb instantiateViewControllerWithIdentifier:@"DetailViewController"];
-//        self.masterViewController = [mainSb instantiateViewControllerWithIdentifier:@"MasterViewController"];
-//        
-//        UINavigationController* nav1 = [[UINavigationController alloc]initWithRootViewController:self.detailViewController];
-//        UINavigationController* nav2 = [[UINavigationController alloc]initWithRootViewController:self.masterViewController];
-//        self.detailViewController.splitViewController = self;
-//        self.masterViewController.splitViewController = self;
-//        self.viewControllers = @[nav1, nav2];
-//        self.delegate = self.detailViewController;
+        // Custom initialization
     }
     return self;
 }
-
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -46,10 +35,11 @@
     if (self)
     {
         [self loadTabBar];
-
+        
     }
     return self;
 }
+
 - (id)init
 {
     self = [super init];
@@ -59,9 +49,8 @@
         
     }
     return self;
-    
-}
 
+}
 
 - (void)viewDidLoad
 {
@@ -75,15 +64,19 @@
     [fileMgr createDirectoryAtPath: [NSString stringWithFormat:@"%@/IMG/Product", documentsDirectory] attributes:nil];
     //self.splitWidth = 1;
     [self setSplitPosition:SPLIT_POSITION_MID];
-    [self setMasterBeforeDetail:YES];
-    // Do any additional setup after loading the view from its nib.
+    [self setMasterBeforeDetail:YES];}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:animated];
-
+    
     CALayer* layer = self.detailViewController.view.layer;
     layer.shadowColor = [UIColor blackColor].CGColor;
     layer.shadowOffset = CGSizeMake(0, 0);
@@ -108,49 +101,54 @@
     self.detailViewController = nav;
     NGTabBarController* tabbarController = [[NGTabBarController alloc]initWithDelegate:self];
     tabbarController.tabBarPosition = NGTabBarPositionLeft;
-//    tabbarController.tabBar.backgroundColor = [UIColor yellowColor];
+    //    tabbarController.tabBar.backgroundColor = [UIColor yellowColor];
     self.masterViewController = tabbarController;
     NSMutableArray* tabbarVCs = [NSMutableArray array];
     DataAdapter* da = [DataAdapter shareInstance];
-    for (ProductType* type in [da productTypeForParent:PRODUCT_TYPE_ROOT])
-    {
-        ProductLSViewController* vc1 = [[ProductLSViewController alloc]init];
-        UINavigationController* nav = [[UINavigationController alloc]initWithRootViewController:vc1];
-        nav.ng_tabBarItem = [NGTabBarItem itemWithTitle:type.typeName image:nil];
-        vc1.detailNav = nav;
-        vc1.mainVc = self;
-        vc1.policy = [[ProductPolicy alloc]initWithSubType:type.productType];
-        
-        [tabbarVCs addObject:nav];
-    }
-//    //类型编辑
-//    ProductLSViewController* typeVc = [[ProductLSViewController alloc]init];
-//    UINavigationController* navType = [[UINavigationController alloc]initWithRootViewController:typeVc];
-//    navType.ng_tabBarItem = [NGTabBarItem itemWithTitle:@"类型管理" image:nil];
-//    typeVc.detailNav = nav;
-//    typeVc.mainVc = self;
-//    typeVc.policy = [[TypePolicy alloc]initWithSubType:nil];
-//    [tabbarVCs addObject:typeVc];
+
+    BranchLSViewController* vc1 = [[BranchLSViewController alloc]init];
+    UINavigationController* nav1 = [[UINavigationController alloc]initWithRootViewController:vc1];
+    nav1.ng_tabBarItem = [NGTabBarItem itemWithTitle:@"分店介绍" image:nil];
+    vc1.detailNav = nav1;
+    vc1.mainVc = self;
+    vc1.policy = [[BranchPolicy alloc]initWithSubType:nil];
+
+    [tabbarVCs addObject:nav1];
+    
+    DiscountCardLSViewController* vc2 = [[DiscountCardLSViewController alloc]init];
+    UINavigationController* nav2 = [[UINavigationController alloc]initWithRootViewController:vc2];
+    nav2.ng_tabBarItem = [NGTabBarItem itemWithTitle:@"优惠政策" image:nil];
+    vc2.detailNav = nav2;
+    vc2.mainVc = self;
+    vc2.policy = [[DiscountCardPolicy alloc]initWithSubType:nil];
+    
+    [tabbarVCs addObject:nav2];
+
+    
+    
+    
+    //    //类型编辑
+    //    ProductLSViewController* typeVc = [[ProductLSViewController alloc]init];
+    //    UINavigationController* navType = [[UINavigationController alloc]initWithRootViewController:typeVc];
+    //    navType.ng_tabBarItem = [NGTabBarItem itemWithTitle:@"类型管理" image:nil];
+    //    typeVc.detailNav = nav;
+    //    typeVc.mainVc = self;
+    //    typeVc.policy = [[TypePolicy alloc]initWithSubType:nil];
+    //    [tabbarVCs addObject:typeVc];
     
     /*
-    //发布
-    SyncMainViewController* syncVc = [[SyncMainViewController alloc]initWithNibName:@"SyncMainViewController" bundle:nil];
-    UINavigationController* syncNav = [[UINavigationController alloc]initWithRootViewController:syncVc];
-    syncNav.ng_tabBarItem = [NGTabBarItem itemWithTitle:@"发布" image:nil];
-    syncVc.detailNav = nav;
-    syncVc.mainVc = self;
-
-    [tabbarVCs addObject:syncNav];
+     //发布
+     SyncMainViewController* syncVc = [[SyncMainViewController alloc]initWithNibName:@"SyncMainViewController" bundle:nil];
+     UINavigationController* syncNav = [[UINavigationController alloc]initWithRootViewController:syncVc];
+     syncNav.ng_tabBarItem = [NGTabBarItem itemWithTitle:@"发布" image:nil];
+     syncVc.detailNav = nav;
+     syncVc.mainVc = self;
+     
+     [tabbarVCs addObject:syncNav];
      */
     tabbarController.viewControllers = [NSArray arrayWithArray:tabbarVCs];
     
     
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
@@ -214,9 +212,6 @@ shouldSelectViewController:(UIViewController *)viewController
     [self.navigationController setNavigationBarHidden:NO];
     
 }
-
-
-
 
 
 

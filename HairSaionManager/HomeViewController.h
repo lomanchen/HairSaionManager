@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeViewController : UIViewController
+#import "SyncOperationManager.h"
+#import "PopUpViewController.h"
+
+@interface HomeViewController : UIViewController<SyncResultDeleage, PopUpViewControllerDeleage>
 
 @end

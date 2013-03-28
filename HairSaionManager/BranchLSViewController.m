@@ -1,28 +1,39 @@
 //
-//  BaseLeftSideViewController.m
+//  BranchLSViewController.m
 //  HairSaionManager
 //
-//  Created by chen loman on 12-12-11.
-//  Copyright (c) 2012年 chen loman. All rights reserved.
+//  Created by chen loman on 13-3-7.
+//  Copyright (c) 2013年 chen loman. All rights reserved.
 //
 
-#import "ProductLSViewController.h"
-#import "ProductShowingDetail.h"
-#import "ProductPolicy.h"
+#import "BranchLSViewController.h"
 #import "ProductRSViewController.h"
 #import "ProductCell.h"
-#import "MainSplitViewController.h"
+#import "OrganizationItem.h"
+#import "BranchLSViewController.h"
+#import "EmpMainSplitViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface ProductLSViewController ()
+
+@interface BranchLSViewController ()
+
 @end
 
-@implementation ProductLSViewController
+@implementation BranchLSViewController
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -30,9 +41,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-#pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 #warning Potentially incomplete method implementation.
@@ -56,11 +64,11 @@
     }
     
     // Configure the cell...
-    ProductShowingDetail* item = [self.items objectAtIndex:indexPath.row];
+    OrganizationItem* item = [self.items objectAtIndex:indexPath.row];
     cell.imageView.image = [item defaultImgLink];
     //cell.imageView.frame = CGRectMake(0, 0, 100, 100);
     cell.textLabel.text = item.name;
-    cell.detailTextLabel.text = item.productDetail;
+    cell.detailTextLabel.text = [item address];
     return cell;
 }
 
@@ -82,30 +90,30 @@
 
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 
 - (void)loadData
 {
     DataAdapter * da = [DataAdapter shareInstance];
-    int count = [da count];
+    int count = [da.organizations count];
     self.items = [NSMutableArray array];
     for (int i = 0; i < count; i ++)
     {
-        ProductShowingDetail* item = [ProductShowingDetail  initByIndex:i];
+        OrganizationItem* item = [[OrganizationItem alloc]initWithObject:(da.organizations)[i]];
         [self.items addObject:item];
     }
     
@@ -115,8 +123,8 @@
 
 - (void)removeObjectAtIndex:(NSInteger)index
 {
-    ProductShowingDetail* psd = [self.items objectAtIndex:index];
-    [[DataAdapter shareInstance]deletebyProductId:psd.productId];
+    OrganizationItem* item = [self.items objectAtIndex:index];
+    [[DataAdapter shareInstance]deleteOrgByOrgId:item.key];
     [super removeObjectAtIndex:index];
 }
 
@@ -125,21 +133,10 @@
     [super loadNavItem];
     if (self.navigationItem)
     {
-        NSArray* array = [[DataAdapter shareInstance]productTypeForParent:self.policy.subType];
-        int count = -1;
-        NSMutableArray* leftItems = [NSMutableArray arrayWithCapacity:[array count]];
+        NSMutableArray* leftItems = [NSMutableArray array];
         UIBarButtonItem* itemMain = [[UIBarButtonItem alloc] initWithTitle:@"主页" style:UIBarButtonItemStylePlain target:self action:@selector(onBarMain:)];
         itemMain.tag = -2;
         [leftItems addObject:itemMain];
-        UIBarButtonItem* itemAll = [[UIBarButtonItem alloc] initWithTitle:@"全部" style:UIBarButtonItemStylePlain target:self action:@selector(onBarItem:)];
-        itemAll.tag = count++;
-        [leftItems addObject:itemAll];
-        for (ProductType* type in array)
-        {
-            UIBarButtonItem* item = [[UIBarButtonItem alloc] initWithTitle:type.typeName style:UIBarButtonItemStylePlain target:self action:@selector(onBarItem:)];
-            item.tag = count++;
-            [leftItems addObject:item];
-        }
         self.navigationItem.leftBarButtonItems = [NSArray arrayWithArray:leftItems];
     }
 }
@@ -172,8 +169,8 @@
 - (void)addObject
 {
     [super addObject];
-    NSString* productId = [[DataAdapter shareInstance]createNewProduct];
-    ProductShowingDetail* item = [ProductShowingDetail initByProductBase:[[DataAdapter shareInstance]productBaseByProduceId:productId]];
+    NSString* orgId = [[DataAdapter shareInstance]createNewOrg];
+    OrganizationItem* item = [[OrganizationItem alloc]initWithObject:[[DataAdapter shareInstance]orgByOrgId:orgId]];
     UINavigationController* vc = (UINavigationController*)[self.policy createRightVC];
     BaseRightSideViewController* rvc = vc.viewControllers[0];
     rvc.rootSplitViewController = self.mainVc;
@@ -186,8 +183,8 @@
 - (void)addObjectCancel
 {
     BaseRightSideViewController* rvc = ((UINavigationController*)self.currentRvc).viewControllers[0];
-    ProductShowingDetail* item = rvc.item;
-    [[DataAdapter shareInstance]deletebyProductId:item.productId];
+    OrganizationItem* item = rvc.item;
+    [[DataAdapter shareInstance]deleteOrgByOrgId:item.key];
 }
 
 @end

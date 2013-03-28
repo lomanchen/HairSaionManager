@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>imgName</key>
+		<string>login.jpg</string>
+		<key>displayName</key>
+		<string>登陆</string>
+		<key>onClickSel</key>
+		<string>onLogin:</string>
+	</dict>
+	<dict>
+		<key>imgName</key>
+		<string>typeMgr.jpg</string>
+		<key>displayName</key>
+		<string>类型管理</string>
+		<key>onClickSel</key>
+		<string>onTypeMgr:</string>
+	</dict>
+	<dict>
+		<key>imgName</key>
+		<string>productMgr.jpg</string>
+		<key>displayName</key>
+		<string>产品管理</string>
+		<key>onClickSel</key>
+		<string>onProductMgr:</string>
+	</dict>
+	<dict>
+		<key>imgName</key>
+		<string>empMgr.jpg</string>
+		<key>displayName</key>
+		<string>企业管理</string>
+		<key>onClickSel</key>
+		<string>onEmpMgr:</string>
+	</dict>
+	<dict>
+		<key>imgName</key>
+		<string>sync.jpg</string>
+		<key>displayName</key>
+		<string>同步</string>
+		<key>onClickSel</key>
+		<string>onSync:</string>
+	</dict>
+	<dict>
+		<key>imgName</key>
+		<string>pub.jpg</string>
+		<key>displayName</key>
+		<string>发布</string>
+		<key>onClickSel</key>
+		<string>onPub:</string>
+	</dict>
+	<dict>
+		<key>imgName</key>
+		<string>about.jpg</string>
+		<key>displayName</key>
+		<string>关于</string>
+		<key>onClickSel</key>
+		<string>onAbout:</string>
+	</dict>
+</array>
+</plist>

@@ -15,5 +15,4 @@
 #endif
 
 
-#define SCREEN_W 1024
-#define SCREEN_H 768
+#import "LCDefined.h"

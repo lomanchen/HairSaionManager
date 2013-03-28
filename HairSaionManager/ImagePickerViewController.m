@@ -17,6 +17,10 @@ UIImage* imageFromView(UIImage* srcImage, CGRect* rect);
 @interface ImagePickerViewController ()
 @property (nonatomic, strong)YSImagePickerEditor* imagePicker;
 @property (nonatomic, strong)NSNumber* imgType;
+@property (nonatomic, assign)CGSize viewSize;
+@property (nonatomic, assign)CGSize toolBarSize;
+@property (nonatomic, assign)CGSize scrolViewSize;
+
 
 -(void)resetViewWithImage:(UIImage*)image;
 
@@ -220,5 +224,14 @@ UIImage* imageFromView(UIImage* srcImage, CGRect* rect);
 - (UIImagePickerControllerSourceType)imagePickerControllerSourceType
 {
     return self.imagePicker.sourceType;
+}
+
+- (void)setContentSize:(CGSize)size
+{
+    self.viewSize = CGSizeMake(size.width, size.height+_toolBar.bounds.size.height);
+    self.view.bounds = CGRectMake(0, 0, size.width, size.height+_toolBar.bounds.size.height);
+    self.toolBarSize = CGSizeMake(size.width, _toolBar.bounds.size.height);
+    self.toolBar.bounds = CGRectMake(0,0,size.width, _toolBar.bounds.size.height);
+    self.scrolViewSize = size;
 }
 @end
