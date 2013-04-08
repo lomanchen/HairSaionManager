@@ -10,7 +10,7 @@
 #import "ProductLSViewController.h"
 #import "DefalueRSViewController.h"
 #import <QuartzCore/QuartzCore.h>
-#import "DataAdapter.h"
+#import "LifeBarDataProvider.h"
 #import "ProductPolicy.h"
 #import "TypePolicy.h"
 
@@ -111,15 +111,15 @@
 //    tabbarController.tabBar.backgroundColor = [UIColor yellowColor];
     self.masterViewController = tabbarController;
     NSMutableArray* tabbarVCs = [NSMutableArray array];
-    DataAdapter* da = [DataAdapter shareInstance];
-    for (ProductType* type in [da productTypeForParent:PRODUCT_TYPE_ROOT])
+    for (ProductTypeItem* type in [[LifeBarDataProvider shareInstance] productTypesWithParentId:LB_PRODUCT_TYPE_ROOT])
     {
         ProductLSViewController* vc1 = [[ProductLSViewController alloc]init];
         UINavigationController* nav = [[UINavigationController alloc]initWithRootViewController:vc1];
-        nav.ng_tabBarItem = [NGTabBarItem itemWithTitle:type.typeName image:nil];
+        nav.ng_tabBarItem = [NGTabBarItem itemWithTitle:type.name image:nil];
+        vc1.baseTypeId = type.typeId;
         vc1.detailNav = nav;
         vc1.mainVc = self;
-        vc1.policy = [[ProductPolicy alloc]initWithSubType:type.productType];
+        vc1.policy = [[ProductPolicy alloc]initWithSubType:type.typeId];
         
         [tabbarVCs addObject:nav];
     }

@@ -30,4 +30,22 @@
     self.key = self.productType;
 }
 
+- (ProductTypeItem*)initWithDic:(NSDictionary *)dic
+{
+    self = [super init];
+    if (self && nil != dic)
+    {
+        self.name = [dic objectForKey:@"name"];
+        self.orgId = [[dic objectForKey:@"orgId"] integerValue];
+        self.parent = [[dic objectForKey:@"parent"] integerValue];
+        self.typeId = [[dic objectForKey:@"typeId"] integerValue];
+    }
+    return self;
+}
+
+- (void)setTypeIdWithObject:(NSNumber*)number
+{
+    self.typeId = [number integerValue];
+}
+
 @end

@@ -9,15 +9,17 @@
 #import "BaseTabBarPolicy.h"
 #import "BaseRightSideViewController.h"
 #import "BaseLeftSideViewController.h"
+#import "LifeBarDataProvider.h"
 @interface BaseTabBarPolicy()
-@property (nonatomic, strong)NSString* subType;
+{
+    NSInteger subType;
+}
 @end
 @implementation BaseTabBarPolicy
-@synthesize subType=_subType;
 
-- (NSString*)subType
+- (NSInteger)subType
 {
-    return _subType;
+    return subType;
 }
 
 - (BOOL)isProduct
@@ -31,16 +33,16 @@
 
 - (NSString*)genKey4Index:(NSInteger)index
 {
-    return [NSString stringWithFormat:@"Product%@%d", _subType == nil ? @"ALL" : _subType, index];
+    return [NSString stringWithFormat:@"Product%d%d", subType, index];
 }
 - (void)setFilter
 {
-    [[DataAdapter shareInstance]setFilterByTypeId:_subType];
+    //[[DataAdapter shareInstance]setFilterByTypeId:subType];
 }
 
 - (NSString*)title
 {
-    return [[DataAdapter shareInstance]currentFilterLinkString];
+    return [[LifeBarDataProvider shareInstance]titleForProductType:subType];
 }
 
 
@@ -54,18 +56,19 @@
     
 }
 
-- (id)initWithSubType:(NSString *)subType
+- (id)initWithSubType:(NSInteger)typeId
 {
     self = [super init];
     if (self)
     {
-        self.subType = subType;
-        if (nil == self.subType)
-        {
-            self.subType = @"";
-        }
+        subType = typeId;
     }
     return self;
+}
+
+- (void)setSubType:(NSInteger)typeId
+{
+    subType = typeId;
 }
 
 @end

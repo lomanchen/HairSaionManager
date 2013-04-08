@@ -10,5 +10,5 @@
 @class ProductTypeItem;
 @interface ProductTypeSelectorViewController : UITableViewController
 - (id)initWithItem:(ProductTypeItem*)item;
-- (id)initWithProductTypeId:(NSString*)productTypeId target:(id)target action:(SEL)action;
+- (id)initWithProductTypeId:(NSInteger)typeId target:(id)target action:(SEL)action;
 @end

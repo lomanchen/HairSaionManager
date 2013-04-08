@@ -12,5 +12,5 @@
 @class PsDataItem;
 
 @interface ProductLSViewController : TableLSViewController
-
+@property (nonatomic, assign)NSInteger baseTypeId;
 @end

@@ -7,11 +7,10 @@
 //
 
 #import "ProductTypePickerViewController.h"
-#import "DataAdapter.h"
-#import "ProductShowingDetail.h"
-#import "ProductBase.h"
+#import "LifeBarDataProvider.h"
 @interface ProductTypePickerViewController ()
 @property (nonatomic, strong)NSArray* productTypesL1;
+@property (nonatomic, strong)NSMutableArray* productTypes;
 @end
 
 @implementation ProductTypePickerViewController
@@ -28,8 +27,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    productTypesL1 = [[DataAdapter shareInstance]productTypeForParent:PRODUCT_TYPE_ROOT];
+    productTypesL1 = [[LifeBarDataProvider shareInstance]productTypesWithParentId:LB_PRODUCT_TYPE_ROOT];
 	// Do any additional setup after loading the view.
+}
+- (void)setData:(PsDataItem *)item
+{
+    [super setData:item];
+    ProductShowingDetail* psd = item;
+    if (psd.Id == 0)
+    {
+        psd.types = [NSMutableArray array];
+    }
+    else
+    {
+        psd.types = [[LifeBarDataProvider shareInstance]getProductTypesWithProductId:((ProductShowingDetail*)self.item).Id];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,7 +57,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[DataAdapter shareInstance]productTypeForParent:((ProductType*)productTypesL1[section]).productType] count] + 1;
+    return [[[LifeBarDataProvider shareInstance]productTypesWithParentId:((ProductTypeItem*)productTypesL1[section]).typeId] count] + 1;
 }
 
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
@@ -56,13 +68,19 @@
     UITableViewCell* cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
     if (UITableViewCellAccessoryCheckmark == cell.accessoryType)
     {
-        ProductType* type = [self productTypeAtIndexPath:indexPath andLevel:nil];
-        [[[DataAdapter shareInstance]productBaseByProduceId:((ProductShowingDetail*)self.item).productId] dropProductType:type];
+        NSInteger typeId = [self productTypeAtIndexPath:indexPath andLevel:nil];
+        //if ([[LifeBarDataProvider shareInstance]dropType:typeId fromProduct:((ProductShowingDetail*)self.item).Id])
+        {
+            [self productDropType:typeId];
+        }
     }
     else
     {
-        ProductType* type = [self productTypeAtIndexPath:indexPath andLevel:nil];
-        [[[DataAdapter shareInstance]productBaseByProduceId:((ProductShowingDetail*)self.item).productId] appendProductType:type];
+        NSInteger typeId = [self productTypeAtIndexPath:indexPath andLevel:nil];
+       // if ([[LifeBarDataProvider shareInstance]addProduct:((ProductShowingDetail*)self.item).Id toType:typeId])
+        {
+            [self productAddType:typeId];
+        }
     }
         [tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationAutomatic];
     
@@ -80,7 +98,7 @@
         }
     }
     
-    if ([[[DataAdapter shareInstance]productBaseByProduceId:((ProductShowingDetail*)self.item).productId] isType:[self productTypeAtIndexPath:indexPath andLevel:nil]])
+    if ([self productIsType:[self productTypeAtIndexPath:indexPath andLevel:nil]])
     {
         cell.accessoryType =  UITableViewCellAccessoryCheckmark;
     }
@@ -91,14 +109,14 @@
     }
     if (indexPath.row == 0)
     {
-        cell.textLabel.text = ((ProductType*)productTypesL1[indexPath.section]).typeName;
+        cell.textLabel.text = ((ProductTypeItem*)productTypesL1[indexPath.section]).name;
         cell.indentationLevel = 0;
         cell.indentationWidth = 0;
 
     }
     else{
         int level = 0;
-        cell.textLabel.text = [self productTypeAtIndexPath:indexPath andLevel:&level].typeName;
+        cell.textLabel.text = [[LifeBarDataProvider shareInstance]getProductTypeById:[self productTypeAtIndexPath:indexPath andLevel:&level]].name;
         cell.indentationLevel = level;
         cell.indentationWidth = level*20;
     }
@@ -125,26 +143,80 @@
 //}
 
 
-- (ProductType*)productTypeAtIndexPath:(NSIndexPath*)path andLevel:(int*)level
+
+- (NSInteger)productTypeAtIndexPath:(NSIndexPath*)path andLevel:(int*)level
 {
-    
-    ProductType* rootType = self.productTypesL1[path.section];
     if (path.row == 0)
     {
         if (level)
         {
             *level = 0;
         }
-        return rootType;
+        return ((ProductTypeItem*)self.productTypesL1[path.section]).typeId;
     }
-    
-    DataAdapter* da = [DataAdapter shareInstance];
-    NSArray* types = [da productTypeForParent:rootType.productType];
-    if (level)
+    else
     {
-        *level = 1;
+        if (level)
+        {
+            *level = 1;
+        }
+        return ((ProductTypeItem*)[[LifeBarDataProvider shareInstance]productTypesWithParentId:((ProductTypeItem*)self.productTypesL1[path.section]).typeId][path.row - 1]).typeId;
+        
     }
-    return types[path.row - 1];
+}
+
+- (BOOL)productIsType:(NSInteger)typeId
+{
+    ProductShowingDetail* psd = self.item;
+    if (psd.types && [psd.types count] > 0)
+    {
+        for (NSNumber* type in psd.types)
+        {
+            if ([type integerValue] == typeId)
+            {
+                return YES;
+            }
+        }
+    }
+    return NO;
+}
+
+- (BOOL)productAddType:(NSInteger)typeId
+{
+    ProductShowingDetail* psd = self.item;
+    if (psd.types)
+    {
+        ProductTypeItem* type = [[LifeBarDataProvider shareInstance]getProductTypeById:typeId];
+        if (type.parent != LB_PRODUCT_TYPE_ROOT)
+        {
+           [self productAddType:type.parent];
+        }
+        [psd.types addObject:[NSNumber numberWithInteger:typeId]];
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL)productDropType:(NSInteger)typeId
+{
+    ProductShowingDetail* psd = self.item;
+    if (psd.types && [psd.types count] > 0)
+    {
+        for (NSNumber* type in psd.types)
+        {
+            if ([type integerValue] == typeId)
+            {
+                NSArray* array = [[LifeBarDataProvider shareInstance]productTypesWithParentId:typeId];
+                for (ProductTypeItem* item in array)
+                {
+                    [self productDropType:item.typeId];
+                }
+                [psd.types removeObject:type];
+                return YES;
+            }
+        }
+    }
+    return NO;
 }
 
 

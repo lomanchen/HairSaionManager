@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1810" systemVersion="11G63" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="DiscountCard" representedClassName="DiscountCard" syncable="YES">
+        <attribute name="cardId" attributeType="String" syncable="YES"/>
+        <attribute name="detail" attributeType="String" syncable="YES"/>
+        <attribute name="imgLink" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="overlay" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="type" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Organization" representedClassName="Organization" syncable="YES">
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imgLink" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="orgDetail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orgId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orgName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orgType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="parent" optional="YES" attributeType="String" defaultValueString="root" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="zip" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ProductAmount" representedClassName="ProductAmount" syncable="YES">
+        <attribute name="amount" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="productId" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ProductAttr" representedClassName="ProductAttr" syncable="YES">
+        <attribute name="attrDetail" attributeType="String" syncable="YES"/>
+        <attribute name="attrName" attributeType="String" syncable="YES"/>
+        <attribute name="attrState" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="attrValue" attributeType="String" syncable="YES"/>
+        <attribute name="productId" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ProductBase" representedClassName="ProductBase" syncable="YES">
+        <attribute name="allowCustomizeFlag" attributeType="Integer 32" syncable="YES"/>
+        <attribute name="createTime" attributeType="Date" syncable="YES"/>
+        <attribute name="effDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="expDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="orgId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pricingTypeId" attributeType="String" syncable="YES"/>
+        <attribute name="priority" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="productDetail" attributeType="String" syncable="YES"/>
+        <attribute name="productId" attributeType="String" syncable="YES"/>
+        <attribute name="productName" attributeType="String" syncable="YES"/>
+        <attribute name="productPrice" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="productState" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="productType" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ProductPic" representedClassName="ProductPic" syncable="YES">
+        <attribute name="picLink" attributeType="String" syncable="YES"/>
+        <attribute name="picType" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="picValue" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="productId" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ProductPricing" representedClassName="ProductPricing" syncable="YES">
+        <attribute name="calcValue" attributeType="String" syncable="YES"/>
+        <attribute name="discountName" attributeType="String" syncable="YES"/>
+        <attribute name="discountType" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="productId" attributeType="String" syncable="YES"/>
+        <attribute name="productType" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ProductType" representedClassName="ProductType" syncable="YES">
+        <attribute name="productType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="typeName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="typeParent" attributeType="String" defaultValueString="root" syncable="YES"/>
+        <attribute name="typePricingId" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Organization" positionX="367" positionY="237" width="128" height="270"/>
+        <element name="ProductAmount" positionX="475" positionY="456" width="128" height="75"/>
+        <element name="ProductAttr" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="ProductBase" positionX="160" positionY="192" width="128" height="240"/>
+        <element name="ProductPic" positionX="259" positionY="-72" width="128" height="105"/>
+        <element name="ProductPricing" positionX="529" positionY="261" width="128" height="120"/>
+        <element name="ProductType" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="DiscountCard" positionX="160" positionY="192" width="128" height="135"/>
+    </elements>
+</model>

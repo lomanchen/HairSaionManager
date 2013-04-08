@@ -11,15 +11,15 @@
 
 @interface BaseTabBarPolicy : NSObject
 - (BOOL)isProduct;
-- (NSString*)subType;
+- (NSInteger)subType;
 - (UIViewController*)createRightVC;
 - (NSString*)genKey4Index:(NSInteger)index;
 - (void)setFilter;
-- (void)setSubType:(NSString*)subType;
+- (void)setSubType:(NSInteger)subType;
 - (NSInteger)calcPageCount;
 - (NSString*)title;
 - (void)setIndex;
-- (id)initWithSubType:(NSString*)subType;
+- (id)initWithSubType:(NSInteger)typeId;
 - (BOOL)need2RefreshWhenAppear;
 - (void)refreshData;
 - (void)bindVcPair:(UIViewController*)rvc withLvc:(UIViewController*)lvc;

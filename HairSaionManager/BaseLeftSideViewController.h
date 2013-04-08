@@ -28,5 +28,6 @@
 - (void)addObject;
 - (void)addObjectCancel;
 - (void)onSave:(PsDataItem*)dataItem;
+- (void)dataDidLoad;
 
 @end

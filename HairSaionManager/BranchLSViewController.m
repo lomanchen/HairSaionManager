@@ -13,6 +13,7 @@
 #import "BranchLSViewController.h"
 #import "EmpMainSplitViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "LifeBarDataProvider.h"
 
 
 @interface BranchLSViewController ()
@@ -143,7 +144,7 @@
 
 - (void)onBarItem:(id)sender
 {
-    NSArray* array = [[DataAdapter shareInstance]productTypeForParent:self.policy.subType];
+    NSArray* array = [[LifeBarDataProvider shareInstance]productTypesWithParentId:self.policy.subType];
     int tag = ((UIBarButtonItem*)sender).tag;
     if (tag == -1)
     {

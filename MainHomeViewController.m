@@ -23,6 +23,7 @@
 #import "TypeEditViewController.h"
 #import "EmpMainSplitViewController.h"
 #import "MainSplitViewController.h"
+#import "LifeBarDataProvider.h"
 
 @interface MainHomeViewController ()
 @property (nonatomic, strong)IBOutlet UILabel* labelName;
@@ -35,6 +36,7 @@
 
 @property (nonatomic, assign) BOOL isAuthing;
 @property (nonatomic, assign) BOOL isSynced;
+@property (nonatomic, strong) NSString* imgPath;
 
 
 - (void)onLogin:(id)sender;
@@ -53,6 +55,7 @@
 - (void)setUp
 {
 	//set up data
+    LifeBarDataProvider* lbp = [LifeBarDataProvider shareInstance];
 	wrap = YES;
     self.items = [NSArray arrayWithContentsOfFile:[[NSBundle  mainBundle] pathForResource:@"MainHomeItem.plist"    ofType:nil]];
     self.isSynced = NO;
@@ -289,6 +292,10 @@
 
 - (void)onLogin:(id)sender
 {
+    OrganizationItem* orgInfo;
+    if([[LifeBarDataProvider shareInstance]orgLogin:@"babaiban" andPwd:@"222222"])
+    {
+        return ;
     SyncOperationManager* sync = [SyncOperationManager shareInstance];
     if ([sync isAuthoried])
     {
@@ -297,6 +304,7 @@
     else
     {
         [sync doAuthorizeInViewController:self];
+    }
     }
 }
 

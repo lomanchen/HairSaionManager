@@ -8,9 +8,10 @@
 
 #import "TypeAddViewController.h"
 #import "ProductTypeItem.h"
-#import "DataAdapter.h"
 #import "TextFieldEditViewController.h"
 #import "ProductTypeSelectorViewController.h"
+#import "LifeBarDataProvider.h"
+#import "OrganizationItem.h"
 
 #define _DEFAULT_NAME @"类型名称"
 typedef enum
@@ -47,14 +48,15 @@ typedef enum
     }
     return self;
 }
-- (id)initWithRootType:(NSString*)rootType
+- (id)initWithRootType:(NSInteger)type
 {
     self = [super initWithNibName:@"TypeAddViewController" bundle:nil];
     if (self)
     {
         _item = [[ProductTypeItem alloc]init];
         _item.name = _DEFAULT_NAME;
-        _item.typeParent = rootType;
+        _item.parent = type;
+        _item.orgId = [LifeBarDataProvider shareInstance].getCurrentOrgInfo.orgId;
         _rootSelected = YES;
         _addMode = YES;
     }
@@ -118,13 +120,13 @@ typedef enum
                 cell.textLabel.text = _item.name;
                 break;
             case kParent:
-                if ([_item.typeParent isEqualToString:PRODUCT_TYPE_ROOT])
+                if (_item.parent == LB_PRODUCT_TYPE_ROOT)
                 {
                     cell.textLabel.text = @"根类型";
                 }
                 else
                 {
-                    cell.textLabel.text = [[DataAdapter shareInstance]productTypeById:_item.typeParent].typeName;
+                    cell.textLabel.text = [[LifeBarDataProvider shareInstance]getProductTypeById:_item.parent].name;
                 }
                 break;
             default:
@@ -208,7 +210,7 @@ typedef enum
     }
     else if (indexPath.section == kParent)
     {
-        ProductTypeSelectorViewController* vc = [[ProductTypeSelectorViewController alloc]initWithProductTypeId:_item.typeParent target:_item action:@selector(setTypeParent:)];
+        ProductTypeSelectorViewController* vc = [[ProductTypeSelectorViewController alloc]initWithProductTypeId:_item.typeId target:_item action:@selector(setTypeIdWithObject:)];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
@@ -245,11 +247,11 @@ typedef enum
     {
         if (_addMode)
         {
-            [[DataAdapter shareInstance]insertProductType:_item];
+            [[LifeBarDataProvider shareInstance]addProductType:_item];
         }
         else
         {
-            [[DataAdapter shareInstance]updateProductType:_item];
+            [[LifeBarDataProvider shareInstance]updateProductType:_item];
         }
         [self.navigationController popViewControllerAnimated:YES];
         if (_delege)

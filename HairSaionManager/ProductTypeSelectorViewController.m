@@ -7,7 +7,7 @@
 //
 
 #import "ProductTypeSelectorViewController.h"
-#import "DataAdapter.h"
+#import "LifeBarDataProvider.h"
 #import "ProductShowingDetail.h"
 #import "ProductTypeItem.h"
 
@@ -17,7 +17,7 @@
     SEL _action;
 }
 @property (nonatomic, strong)NSArray* productTypesL1;
-@property (nonatomic, strong)NSString* productTypeId;
+@property (nonatomic, assign)NSInteger typeId;
 
 @end
 
@@ -43,14 +43,14 @@
 //    return self;
 //}
 
-- (id)initWithProductTypeId:(NSString *)productTypeId target:(id)target action:(SEL)action
+- (id)initWithProductTypeId:(NSInteger)typeId target:(id)target action:(SEL)action
 {
     //    _item = [[ProductTypeItem alloc]initWithObject:[[DataAdapter shareInstance]productTypeById:productTypeId]];
     self = [super initWithNibName:@"ProductTypeSelectorViewController" bundle:nil];
     if (self)
     {
         
-        _productTypeId = productTypeId;
+        _typeId = typeId;
         _target = target;
         _action = action;
     }
@@ -61,7 +61,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    productTypesL1 = [[DataAdapter shareInstance]productTypeForParent:PRODUCT_TYPE_ROOT];
+    productTypesL1 = [[LifeBarDataProvider shareInstance]productTypesWithParentId:LB_PRODUCT_TYPE_ROOT];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -119,7 +119,7 @@
         }
     }
     
-    if ([_productTypeId isEqualToString:[self productTypeAtIndexPath:indexPath andLevel:nil]])
+    if (_typeId  == [self productTypeAtIndexPath:indexPath andLevel:nil])
     {
         cell.accessoryType =  UITableViewCellAccessoryCheckmark;
     }
@@ -137,7 +137,7 @@
     }
     else{
         int level = 0;
-        cell.textLabel.text = [[DataAdapter shareInstance]productTypeById:[self productTypeAtIndexPath:indexPath andLevel:&level]].typeName;
+        cell.textLabel.text = [[LifeBarDataProvider shareInstance]getProductTypeById:[self productTypeAtIndexPath:indexPath andLevel:&level]].name;
         cell.indentationLevel = level;
         cell.indentationWidth = level*20;
     }
@@ -164,7 +164,7 @@
 //}
 
 
-- (NSString*)productTypeAtIndexPath:(NSIndexPath*)path andLevel:(int*)level
+- (NSInteger)productTypeAtIndexPath:(NSIndexPath*)path andLevel:(int*)level
 {
     
 //    ProductType* rootType = self.productTypesL1[path.section];
@@ -190,7 +190,7 @@
         {
             *level = 0;
         }
-        return PRODUCT_TYPE_ROOT;
+        return LB_PRODUCT_TYPE_ROOT;
     }
     else
     {
@@ -198,19 +198,19 @@
         {
             *level = 1;
         }
-        return ((ProductType*)self.productTypesL1[path.row -1]).productType;
+        return ((ProductTypeItem*)self.productTypesL1[path.row -1]).typeId;
 
     }
 }
 
-- (void)setProductTypeId:(NSString *)productTypeId
+- (void)setProductTypeId:(NSInteger)productTypeId
 {
-    _productTypeId = productTypeId;
+    _typeId = productTypeId;
     if (_target)
     {
         if ([_target respondsToSelector:_action])
         {
-            [_target performSelector:_action withObject:_productTypeId];
+            [_target performSelector:_action withObject:[NSNumber numberWithInteger:productTypeId]];
         }
     }
 }

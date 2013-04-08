@@ -172,7 +172,10 @@
     
 }
 
-
+- (void)dataDidLoad
+{
+    [self.tableView reloadData];
+}
 
 
 

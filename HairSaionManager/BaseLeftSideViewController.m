@@ -52,6 +52,11 @@
     [self loadData];
 }
 
+- (void)dataDidLoad
+{
+    
+}
+
 - (void)pushRSViewController:(UIViewController*)rvc
 {
     [self hideRSViewController:NO];

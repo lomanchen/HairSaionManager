@@ -15,6 +15,11 @@
 #import "ImagePickerViewController.h"
 #import "ProductLSViewController.h"
 #import "UIImage+fixOrientation.h"
+#import "LifeBarDataProvider.h"
+#import "MBProgressHUD.h"
+#import <SDWebImage/SDWebImageManager.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <SDWebImage/SDWebImageDownloader.h>
 
 typedef enum
 {
@@ -33,6 +38,9 @@ typedef enum
     SIZE_OF_INTRODUCT,
 }enumTableSctionIntroduct;
 @interface ProductRSViewController ()
+{
+    BOOL beSubmited;
+}
 @property (nonatomic, strong)PopUpViewController* popImagePicker;
 @property (nonatomic, strong)ImagePickerViewController* imagePickerViewController;
 
@@ -53,6 +61,7 @@ typedef enum
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    beSubmited = NO;
     
     //    ProductShowingDetail* psd = (ProductShowingDetail*)self.item;
     //    NSLog(@"path=%@",[psd.imgDic objectForKey:PRODUCT_PIC_TYPE_FULL] );
@@ -104,27 +113,55 @@ typedef enum
     }
     else
     {
-        NSNumber* key = nil;
+        NSInteger key = nil;
         switch (indexPath.row)
         {
             case 0:
-                key = PRODUCT_PIC_TYPE_THUMB;
+                key = LB_PRODUCT_PIC_TYPE_THUMB;
                 break;
             case 1:
-                key = PRODUCT_PIC_TYPE_LEFT;
+                key = LB_PRODUCT_PIC_TYPE_LEFT;
                 break;
             case 2:
-                key = PRODUCT_PIC_TYPE_BACK;
+                key = LB_PRODUCT_PIC_TYPE_BACK;
                 break;
             default:
-                key = PRODUCT_PIC_TYPE_THUMB;
+                key = LB_PRODUCT_PIC_TYPE_THUMB;
                 break;
         }
         imagePickerViewController = [[ImagePickerViewController alloc]initWithNibName:@"ImagePickerViewController" bundle:nil];
         imagePickerViewController.deleage = self;
         popImagePicker = [[PopUpViewController alloc]initWithContentViewController:imagePickerViewController];
         popImagePicker.popUpDeleage = self;
-        [self.imagePickerViewController setupViewWithImg:[self.item imageAtIndex:indexPath.row]withType:key];
+        //[self.imagePickerViewController setupViewWithImg:[self.item imageAtIndex:indexPath.row]withType:key];
+        NSString* imageFileName = [self.item.imgLinkDic objectForKey:[NSNumber numberWithInteger:key]];
+        if (imageFileName && ![imageFileName isEqualToString:@""])
+        {
+            NSString* tmpFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:imageFileName];
+            if ([[LCFileManager shareInstance]checkSourPath:tmpFilePath error:nil])
+            {
+                [self.imagePickerViewController setupViewWithImg:[UIImage imageWithContentsOfFile:tmpFilePath] withType:[NSNumber numberWithInteger:key]];
+            }
+            else
+            {
+                NSString* url = [[[LifeBarDataProvider shareInstance]imgPathForProduct] stringByAppendingString:imageFileName];
+                SDWebImageManager *manager = [SDWebImageManager sharedManager];
+                [manager downloadWithURL:url
+                                 options:0
+                                progress:^(NSUInteger receivedSize, long long expectedSize)
+                 {
+                     // progression tracking code
+                 }
+                               completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished)
+                 {
+                     if (image)
+                     {
+                         [self.imagePickerViewController setupViewWithImg:image withType:[NSNumber numberWithInteger:key]];
+                     }
+                 }];
+            }
+        }
+        
         [popImagePicker show:self.rootSplitViewController.view andAnimated:YES];
     }
     
@@ -136,6 +173,7 @@ typedef enum
 - (void)setData:(PsDataItem *)item
 {
     [super setData:item];
+    [[LifeBarDataProvider shareInstance]loadPicLinksForProduct:item];
     
 }
 
@@ -188,17 +226,48 @@ typedef enum
 
 - (void)onSave:(id)sender
 {
-    [[DataAdapter shareInstance]updateProduct:self.item];
-    if (self.isAddMode)
-    {
-        [((ProductLSViewController*)self.leftViewController) addRowWithData:self.item];
-        self.isAddMode = NO;
-    }
-    else
-    {
-        [((ProductLSViewController*)self.leftViewController) reloadRowWithData:self.item];
-    }
+    MBProgressHUD *hub = [[MBProgressHUD alloc] initWithView:self.leftViewController.mainVc.navigationController.view];
+    [self.leftViewController.mainVc.navigationController.view addSubview:hub];
     
+    hub.labelText = @"处理中...";
+    
+    // myProgressTask uses the HUD instance to update progress
+    [hub showAnimated:YES whileExecutingBlock:^(void){
+        if (self.isAddMode)
+        {
+            
+            if ([[LifeBarDataProvider shareInstance]addProduct:self.item])
+            {
+                [((ProductLSViewController*)self.leftViewController) addRowWithData:self.item];
+                self.isAddMode = NO;
+                hub.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
+                hub.mode = MBProgressHUDModeCustomView;
+                hub.labelText = @"完成！";
+                beSubmited = YES;
+            }
+            else
+            {
+                hub.labelText = @"添加产品失败，请重试！";
+            }
+            
+            
+        }
+        else
+        {
+            if ([[LifeBarDataProvider shareInstance]updateProduct:self.item])
+            {
+                [((ProductLSViewController*)self.leftViewController) reloadRowWithData:self.item];
+                hub.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
+                hub.mode = MBProgressHUDModeCustomView;
+                hub.labelText = @"完成！";
+                beSubmited = YES;
+            }
+            else
+            {
+                hub.labelText = @"更新产品失败，请重试！";
+            }
+        }
+    }];
     [((ProductLSViewController*)self.leftViewController) onSave:self.item];
     
     [self.leftViewController hideRSViewController:YES];
@@ -207,19 +276,34 @@ typedef enum
 
 - (void)imageFinishEdit:(ImagePickerViewController *)imagePicker andImage:(UIImage *)image andType:(NSNumber *)type
 {
-    DataAdapter* da = [DataAdapter shareInstance];
-    UIImage* fixOrientationImg = [image fixOrientation];
-    //[self.item.imgDic setObject:vc.imageSource forKey:PRODUCT_PIC_TYPE_FULL];
-    if (imagePicker.imagePickerControllerSourceType == UIImagePickerControllerSourceTypeCamera)
+    if (type)
     {
-        UIImageWriteToSavedPhotosAlbum(fixOrientationImg, nil, nil, nil);
+        MBProgressHUD *hub = [[MBProgressHUD alloc] initWithView:self.leftViewController.mainVc.navigationController.view];
+        [self.leftViewController.mainVc.navigationController.view addSubview:hub];
+        hub.labelText = @"图片上传中...";
+        // myProgressTask uses the HUD instance to update progress
+        [hub showAnimated:YES whileExecutingBlock:^(void){
+            
+            UIImage* fixOrientationImg = [image fixOrientation];
+            //[self.item.imgDic setObject:vc.imageSource forKey:PRODUCT_PIC_TYPE_FULL];
+            if (imagePicker.imagePickerControllerSourceType == UIImagePickerControllerSourceTypeCamera)
+            {
+                UIImageWriteToSavedPhotosAlbum(fixOrientationImg, nil, nil, nil);
+            }
+            NSString *tempPath = NSTemporaryDirectory();
+            NSString  *pngPath = [tempPath stringByAppendingPathComponent:@"tmpproductimg.jpg"];
+            NSLog(@"file path=%@", pngPath);
+            [UIImageJPEGRepresentation(fixOrientationImg, 0.5) writeToFile:pngPath atomically:YES];
+            NSString* tmpFileName = [[LifeBarDataProvider shareInstance]uploadImg:pngPath];
+            if (tmpFileName && ![tmpFileName isEqualToString:@""])
+            {
+                [[LCFileManager shareInstance]moveFile:pngPath toDestPath:[tempPath stringByAppendingPathComponent:tmpFileName] overWrite:YES error:nil];
+                [self.item setImgLink:tmpFileName withType:[type integerValue]];
+            }
+            
+        }];
     }
-    NSString* imgFileName = [[da imgFileNameGenerator] stringByAppendingString:@".jpg"];
-    NSString  *pngPath = [[da imgPath] stringByAppendingPathComponent:imgFileName];
-    NSLog(@"file path=%@", pngPath);
-    [UIImageJPEGRepresentation(fixOrientationImg, 0.5) writeToFile:pngPath atomically:YES];
-    [self.item.imgLinkDic setObject:imgFileName forKey:type];
-    
+    //[self.item.imgLinkDic setObject:imgFileName forKey:type];
     
 }
 

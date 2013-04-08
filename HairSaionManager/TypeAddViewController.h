@@ -18,5 +18,5 @@
 @interface TypeAddViewController : UITableViewController
 @property (nonatomic, assign)id<TypeAddViewControllerDelege> delege;
 - (id)initWithItem:(ProductTypeItem*)item;
-- (id)initWithRootType:(NSString*)rootType;
+- (id)initWithRootType:(NSInteger)type;
 @end

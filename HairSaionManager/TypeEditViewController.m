@@ -7,11 +7,13 @@
 //
 
 #import "TypeEditViewController.h"
-#import "DataAdapter.h"
 #import "TextFieldEditViewController.h"
 #import "ProductTypeItem.h"
 #import "ProductTypeSelectorViewController.h"
-#import "ConfAdapter.h"
+#import "LifeBarDataProvider.h"
+#import "OrganizationItem.h"
+
+
 #define TYPE_MAX_COUNT 16
 typedef enum
 {
@@ -21,34 +23,45 @@ typedef enum
 }kSection;
 
 @interface TypeEditViewController ()
-@property (nonatomic, strong)NSString* rootType;
-@property (nonatomic, strong)NSString* typeName;
-@property (nonatomic, strong)ProductTypeItem* editingItem;
+{
+    NSInteger rootType;
+    NSString* typeName;
+    ProductTypeItem* editingItem;
+    NSArray* typeList;
+    LifeBarDataProvider* lbp;
+
+}
 - (void)onEdit:(id)sender;
 - (void)onAdd:(id)sender;
 @end
 
 @implementation TypeEditViewController
-@synthesize typeName, editingItem;
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-        _rootType = PRODUCT_TYPE_ROOT;
-        
+        [self setup];
     }
     return self;
 }
 
 - (id)init
 {
+    [self setup];
     return [self initWithStyle:UITableViewStyleGrouped];
 }
+
+- (void)setup
+{
+    lbp = [LifeBarDataProvider shareInstance];
+    rootType = LB_PRODUCT_TYPE_ROOT;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if ([_rootType isEqualToString:PRODUCT_TYPE_ROOT])
+    if (rootType == LB_PRODUCT_TYPE_ROOT)
     {
         self.title = @"产品一级分类及显示选项配置";
     }
@@ -59,11 +72,17 @@ typedef enum
     [self setupNavForEdit];
     
     self.tableView.allowsSelectionDuringEditing = YES;
+    [self loadData];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)loadData
+{
+    typeList = [lbp getTypesWithOrgId:[lbp getCurrentOrgInfo].orgId];
 }
 
 - (void)didReceiveMemoryWarning
@@ -78,7 +97,7 @@ typedef enum
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    if ([_rootType isEqualToString:PRODUCT_TYPE_ROOT])
+    if (rootType == LB_PRODUCT_TYPE_ROOT)
         return SIZE_OF_SECTION;
     else
         return 1;
@@ -91,13 +110,13 @@ typedef enum
     switch (section)
     {
         case kType:
-            if (_rootType)
+            if (rootType)
             {
-                return [[[DataAdapter shareInstance]productTypeForParent:_rootType] count];
+                return [[[LifeBarDataProvider shareInstance]productTypesWithParentId:rootType] count];
             }
             else
             {
-                return [[[DataAdapter shareInstance]productTypeForParent:PRODUCT_TYPE_ROOT] count];
+                return [[[LifeBarDataProvider shareInstance]productTypesWithParentId:LB_PRODUCT_TYPE_ROOT] count];
             }
             break;
         case kConf:
@@ -118,21 +137,20 @@ typedef enum
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    ConfAdapter* ca = [ConfAdapter shareInstance];
     switch (indexPath.section) {
         case kType:
-            cell.textLabel.text = ((ProductType*)[[DataAdapter shareInstance]productTypeForParent:_rootType][indexPath.row]).typeName;
+            cell.textLabel.text = ((ProductTypeItem*)[lbp productTypesWithParentId:rootType][indexPath.row]).name;
             break;
         case kConf:
             switch (indexPath.row) {
                 case 0:
                     cell.textLabel.text = @"分店介绍";
-                    if ([ca isShowSubbranch])
+                    if ([[[lbp getCurrentOrgInfo].conf objectForKey:LB_ORG_CONF_KEY_SHOW_SUBBRANCH] isEqualToString:LB_ORG_CONF_VALUE_YES])
                         cell.accessoryType = UITableViewCellAccessoryCheckmark;
                     break;
                 case 1:
                     cell.textLabel.text = @"优惠政策";
-                    if ([ca isShowDiscountCard])
+                    if ([[[lbp getCurrentOrgInfo].conf objectForKey:LB_ORG_CONF_KEY_SHOW_DISCOUNT_CARD] isEqualToString:LB_ORG_CONF_VALUE_YES])
                         cell.accessoryType = UITableViewCellAccessoryCheckmark;
                     break;
                 default:
@@ -170,19 +188,22 @@ typedef enum
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [[DataAdapter shareInstance]deleteProductType:[[DataAdapter shareInstance]productTypeForParent:_rootType][indexPath.row]];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        //重置"+按钮"
-        if ([self.navigationItem.rightBarButtonItems count] < 2)
+        if ([lbp deleteProductTypeById:((ProductTypeItem*)[lbp productTypesWithParentId:rootType][indexPath.row]).typeId])
         {
-            if ([[[DataAdapter shareInstance]productTypeForParent:_rootType] count] < TYPE_MAX_COUNT)
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            //重置"+按钮"
+            if ([self.navigationItem.rightBarButtonItems count] < 2)
             {
-                NSMutableArray* itemArray = [NSMutableArray arrayWithArray:self.navigationItem.rightBarButtonItems];
-                UIBarButtonItem* item = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onAdd:)];
-                [itemArray addObject:item];
-                self.navigationItem.rightBarButtonItems = [NSArray arrayWithArray:itemArray];
+                if ([[lbp productTypesWithParentId:rootType] count] < TYPE_MAX_COUNT)
+                {
+                    NSMutableArray* itemArray = [NSMutableArray arrayWithArray:self.navigationItem.rightBarButtonItems];
+                    UIBarButtonItem* item = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onAdd:)];
+                    [itemArray addObject:item];
+                    self.navigationItem.rightBarButtonItems = [NSArray arrayWithArray:itemArray];
+                }
             }
         }
     }
@@ -216,7 +237,7 @@ typedef enum
     {
         if ([tableView isEditing])
         {
-            editingItem = [[ProductTypeItem alloc]initWithObject:[[DataAdapter shareInstance]productTypeForParent:_rootType][indexPath.row] ];
+            editingItem = [lbp productTypesWithParentId:rootType][indexPath.row];
             //        TextFieldEditViewController* vc = [[TextFieldEditViewController alloc]initWithNibName:@"TextFieldEditViewController" bundle:nil];
             //        //[vc setData:&currentTypeName];
             //        [vc fillDataWithTarget:editingItem action:@selector(setName:) data:editingItem.name];
@@ -227,18 +248,17 @@ typedef enum
         }
         else
         {
-            if ([((ProductType*)[[DataAdapter shareInstance]productTypeForParent:_rootType][indexPath.row]).typeParent isEqualToString:PRODUCT_TYPE_ROOT])
+            if (((ProductTypeItem*)[lbp productTypesWithParentId:rootType][indexPath.row]).parent ==  LB_PRODUCT_TYPE_ROOT)
             {
                 
                 TypeEditViewController* vc = [[TypeEditViewController alloc]init];
-                [vc setRootType:((ProductType*)[[DataAdapter shareInstance]productTypeForParent:_rootType][indexPath.row]).productType];
+                [vc setRootType:((ProductTypeItem*)[lbp productTypesWithParentId:rootType][indexPath.row]).typeId];
                 [self.navigationController pushViewController:vc animated:YES];
             }
         }
     }
     else
     {
-        ConfAdapter* ca = [ConfAdapter shareInstance];
         UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
         if (cell.accessoryType == UITableViewCellAccessoryCheckmark)
         {
@@ -251,23 +271,27 @@ typedef enum
         switch (indexPath.row)
         {
             case 0:
-                if ([ca isShowSubbranch])
+                if ([[[lbp getCurrentOrgInfo].conf objectForKey:LB_ORG_CONF_KEY_SHOW_SUBBRANCH] isEqualToString:LB_ORG_CONF_VALUE_YES])
                 {
-                    [ca setShowSubBranch:NO];
+                    [[lbp getCurrentOrgInfo].conf setObject:LB_ORG_CONF_VALUE_NO forKey:LB_ORG_CONF_KEY_SHOW_SUBBRANCH];
+                    [lbp updateOrgConfWithOrgId:[lbp getCurrentOrgInfo].orgId andKey:LB_ORG_CONF_KEY_SHOW_SUBBRANCH andValue:LB_ORG_CONF_VALUE_NO];
                 }
                 else
                 {
-                    [ca setShowSubBranch:YES];
+                    [[lbp getCurrentOrgInfo].conf setObject:LB_ORG_CONF_VALUE_YES forKey:LB_ORG_CONF_KEY_SHOW_SUBBRANCH];
+                    [lbp updateOrgConfWithOrgId:[lbp getCurrentOrgInfo].orgId andKey:LB_ORG_CONF_KEY_SHOW_SUBBRANCH andValue:LB_ORG_CONF_VALUE_YES];
                 }
                 break;
             case 1:
-                if ([ca isShowDiscountCard])
+                if ([[[lbp getCurrentOrgInfo].conf objectForKey:LB_ORG_CONF_KEY_SHOW_DISCOUNT_CARD] isEqualToString:LB_ORG_CONF_VALUE_YES])
                 {
-                    [ca setShowDiscountCard:NO];
+                    [[lbp getCurrentOrgInfo].conf setObject:LB_ORG_CONF_VALUE_NO forKey:LB_ORG_CONF_KEY_SHOW_DISCOUNT_CARD];
+                    [lbp updateOrgConfWithOrgId:[lbp getCurrentOrgInfo].orgId andKey:LB_ORG_CONF_KEY_SHOW_DISCOUNT_CARD andValue:LB_ORG_CONF_VALUE_NO];
                 }
                 else
                 {
-                    [ca setShowDiscountCard:YES];
+                    [[lbp getCurrentOrgInfo].conf setObject:LB_ORG_CONF_VALUE_YES forKey:LB_ORG_CONF_KEY_SHOW_DISCOUNT_CARD];
+                    [lbp updateOrgConfWithOrgId:[lbp getCurrentOrgInfo].orgId andKey:LB_ORG_CONF_KEY_SHOW_DISCOUNT_CARD andValue:LB_ORG_CONF_VALUE_YES];
                 }
                 break;
             default:
@@ -276,9 +300,9 @@ typedef enum
     }
 }
 
-- (void)setRootType:(NSString *)rootType
+- (void)setRootType:(NSInteger)type
 {
-    _rootType = rootType;
+    rootType = type;
     [self.tableView reloadData];
 }
 
@@ -291,7 +315,7 @@ typedef enum
 
 - (void)onAdd:(id)sender
 {
-    TypeAddViewController* vc  = [[TypeAddViewController alloc]initWithRootType:_rootType];
+    TypeAddViewController* vc  = [[TypeAddViewController alloc]initWithRootType:rootType];
     vc.delege = self;
     [self.navigationController pushViewController:vc animated:YES];
     
@@ -312,7 +336,7 @@ typedef enum
     NSMutableArray* itemArray = [NSMutableArray array];
     UIBarButtonItem* item = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(onEdit:)];
     [itemArray addObject:item];
-    if ([[[DataAdapter shareInstance]productTypeForParent:_rootType] count] < TYPE_MAX_COUNT)
+    if ([[lbp productTypesWithParentId:rootType] count] < TYPE_MAX_COUNT)
     {
         item = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onAdd:)];
         [itemArray addObject:item];
@@ -325,7 +349,7 @@ typedef enum
     NSMutableArray* itemArray = [NSMutableArray array];
     UIBarButtonItem* item = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onFinish:)];
     [itemArray addObject:item];
-    if ([[[DataAdapter shareInstance]productTypeForParent:_rootType] count] < TYPE_MAX_COUNT)
+    if ([[lbp productTypesWithParentId:rootType] count] < TYPE_MAX_COUNT)
     {
         item = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onAdd:)];
         [itemArray addObject:item];
