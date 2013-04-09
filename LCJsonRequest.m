@@ -192,7 +192,7 @@ static NSString *urlEncode(id object) {
         }
         else
         {
-            errMsg = @"返回结果异常!";
+            errMsg = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
         }
     }
     else

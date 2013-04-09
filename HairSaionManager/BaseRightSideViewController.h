@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "BaseTabBarPolicy.h"
 #import "PsDataItem.h"
+#import "ImagePickerViewController.h"
+
 @class MGSplitViewController;
 @class BaseLeftSideViewController;
 
-@interface BaseRightSideViewController : UITableViewController
+@interface BaseRightSideViewController : UITableViewController<ImagePickerViewControllerDeleage>
 @property (nonatomic, strong)BaseTabBarPolicy* policy;
 @property (nonatomic, strong)PsDataItem* item;
 @property (nonatomic, strong)NSIndexPath* lastSelectIndex;

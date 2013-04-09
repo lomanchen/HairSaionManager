@@ -107,6 +107,8 @@
 		D6A1A3B3166F446B0044A26B /* babaibang1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D6A1A351166F446B0044A26B /* babaibang1.jpeg */; };
 		D6A1A3B4166F446B0044A26B /* babaibang2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D6A1A352166F446B0044A26B /* babaibang2.jpeg */; };
 		D6A1A3B5166F446B0044A26B /* babaibang3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D6A1A353166F446B0044A26B /* babaibang3.jpeg */; };
+		D6AD6D1D1714234A004D2795 /* DataAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB141676D9EA00F39206 /* DataAdapter.m */; };
+		D6AD6D1E1714234A004D2795 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB161676D9EA00F39206 /* DBManager.m */; };
 		D6B2547916EF77DE006A7584 /* SyncProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B2547416EF77DE006A7584 /* SyncProgressViewController.m */; };
 		D6B2547A16EF77DE006A7584 /* SyncProgressViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = D6B2547516EF77DE006A7584 /* SyncProgressViewController.xib */; };
 		D6B2547B16EF77DE006A7584 /* SyncProgressViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = D6B2547616EF77DE006A7584 /* SyncProgressViewController.h */; };
@@ -140,10 +142,6 @@
 		D6C0BB0A1676D77700F39206 /* BaseLeftSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB091676D77700F39206 /* BaseLeftSideViewController.m */; };
 		D6C0BB0D1676D91D00F39206 /* LCFileManager.h in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB0B1676D91D00F39206 /* LCFileManager.h */; };
 		D6C0BB0E1676D91D00F39206 /* LCFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB0C1676D91D00F39206 /* LCFileManager.m */; };
-		D6C0BB271676D9EE00F39206 /* DataAdapter.h in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB131676D9EA00F39206 /* DataAdapter.h */; };
-		D6C0BB281676D9EE00F39206 /* DataAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB141676D9EA00F39206 /* DataAdapter.m */; };
-		D6C0BB291676D9EE00F39206 /* DBManager.h in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB151676D9EA00F39206 /* DBManager.h */; };
-		D6C0BB2A1676D9EE00F39206 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB161676D9EA00F39206 /* DBManager.m */; };
 		D6C0BB2B1676D9EE00F39206 /* DiscountCard.h in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB171676D9EB00F39206 /* DiscountCard.h */; };
 		D6C0BB2C1676D9EE00F39206 /* DiscountCard.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB181676D9EB00F39206 /* DiscountCard.m */; };
 		D6C0BB2D1676D9EE00F39206 /* Organization.h in Sources */ = {isa = PBXBuildFile; fileRef = D6C0BB191676D9EB00F39206 /* Organization.h */; };
@@ -1186,6 +1184,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6AD6D1D1714234A004D2795 /* DataAdapter.m in Sources */,
+				D6AD6D1E1714234A004D2795 /* DBManager.m in Sources */,
 				D6BB6AD717119E3900FD0AF0 /* MBProgressHUD.m in Sources */,
 				D64DD24217097B0700A3E175 /* LCJsonRequest.m in Sources */,
 				D64DD226170971AD00A3E175 /* Reachability.m in Sources */,
@@ -1210,10 +1210,6 @@
 				D63E01D416C250E2002A90D5 /* SysConf.h in Sources */,
 				D63E01D516C250E2002A90D5 /* SysConf.m in Sources */,
 				D6F9AE3E167705B400782B32 /* YourHairSaion.xcdatamodeld in Sources */,
-				D6C0BB271676D9EE00F39206 /* DataAdapter.h in Sources */,
-				D6C0BB281676D9EE00F39206 /* DataAdapter.m in Sources */,
-				D6C0BB291676D9EE00F39206 /* DBManager.h in Sources */,
-				D6C0BB2A1676D9EE00F39206 /* DBManager.m in Sources */,
 				D6C0BB2B1676D9EE00F39206 /* DiscountCard.h in Sources */,
 				D6C0BB2C1676D9EE00F39206 /* DiscountCard.m in Sources */,
 				D6C0BB2D1676D9EE00F39206 /* Organization.h in Sources */,

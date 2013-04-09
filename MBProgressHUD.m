@@ -151,6 +151,29 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	return [NSArray arrayWithArray:huds];
 }
 
+
++ (void)showAnimated:(BOOL)animated whileExecutingBlock:(dispatch_block_t)block completionBlock:(MBProgressHUDCompletionBlock)completion withTitle:(NSString*)title inView:(UIView*)view
+{
+    MBProgressHUD* hub = [[MBProgressHUD alloc]initWithView:view];
+    [view addSubview:hub];
+    hub.removeFromSuperViewOnHide = YES;
+    hub.labelText = title;
+    [hub showAnimated:animated whileExecutingBlock:block completionBlock:completion];
+}
+
++ (void)showMessage:(NSString*)message inView:(UIView*)view
+{
+    MBProgressHUD* hub = [[MBProgressHUD alloc]initWithView:view];
+    [view addSubview:hub];
+    
+    hub.labelText = message;
+    hub.mode = MBProgressHUDModeText;
+    hub.margin = 10.f;
+    hub.yOffset = 150.f;
+    hub.removeFromSuperViewOnHide = YES;
+    [hub show:YES];
+    [hub hide:YES afterDelay:3];
+}
 #pragma mark - Lifecycle
 
 - (id)initWithFrame:(CGRect)frame {

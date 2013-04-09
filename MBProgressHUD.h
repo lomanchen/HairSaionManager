@@ -238,14 +238,14 @@ typedef void (^MBProgressHUDCompletionBlock)();
  * @see showAnimated:whileExecutingBlock:onQueue:completionBlock:
  */
 - (void)showAnimated:(BOOL)animated whileExecutingBlock:(dispatch_block_t)block;
-
 /**
  * Shows the HUD while a block is executing on a background queue, then hides the HUD.
  *
  * @see showAnimated:whileExecutingBlock:onQueue:completionBlock:
  */
 - (void)showAnimated:(BOOL)animated whileExecutingBlock:(dispatch_block_t)block completionBlock:(MBProgressHUDCompletionBlock)completion;
-
++ (void)showAnimated:(BOOL)animated whileExecutingBlock:(dispatch_block_t)block completionBlock:(MBProgressHUDCompletionBlock)completion withTitle:(NSString*)title inView:(UIView*)view;
++ (void)showMessage:(NSString*)message inView:(UIView*)view;
 /**
  * Shows the HUD while a block is executing on the specified dispatch queue, then hides the HUD.
  *

@@ -29,12 +29,24 @@
 #define LB_ACTION_KEY_ORG_ADD_PRODUCTTYPE @"json_addProductType.do"
 #define LB_ACTION_KEY_ORG_ADD_ORGCONF @"json_addOrgConf.do"
 #define LB_ACTION_KEY_ORG_UPDATE_ORGCONF @"json_updateOrgConf.do"
+#define LB_ACTION_KEY_ORG_DELETE_PRODUCT @"json_deleteProduct.do"
+#define LB_ACTION_KEY_ORG_PICS @"json_pics.do"
+#define LB_ACTION_KEY_ORG_SUBORGS @"json_subOrgs.do"
+#define LB_ACTION_KEY_ORG_ADDSUBORG @"json_addSubOrg.do"
+#define LB_ACTION_KEY_ORG_UPDATE @"json_updateOrg.do"
+#define LB_ACTION_KEY_ORG_DELETESUBORG @"json_deleteSubOrg.do"
+#define LB_ACTION_KEY_ORG_DISCOUNTCARDS @"json_discountCards.do"
+#define LB_ACTION_KEY_ORG_ADDDISCOUNTCARD @"json_addDiscountCard.do"
+#define LB_ACTION_KEY_ORG_UPDATEDISCOUNTCARD @"json_updateDiscountCard.do"
+#define LB_ACTION_KEY_ORG_DELETEDISCOUNTCARD @"json_deleteDiscountCard.do"
+
 
 #define LB_ACTION_KEY_PRODUCT_PICS @"json_pics.do"
 #define LB_ACTION_KEY_PRODUCT_PICPATH @"json_picPath.do"
 #define LB_ACTION_KEY_PRODUCT_ADDPIC @"json_addPic.do"
 #define LB_ACTION_KEY_PRODUCT_UPDATEPIC @"json_updatePic.do"
 #define LB_ACTION_KEY_PRODUCT_UPDATEPICS @"json_updatePics.do"
+#define LB_ACTION_KEY_PRODUCT_TYPES @"json_types.do"
 
 #define LB_ACTION_KEY_UPLOAD_PIC @"fileUpload.do"
 #define LB_ACTION_KEY_PRODUCT_PICFORTYPE @"json_picForType.do"
@@ -43,6 +55,9 @@
 #define LB_ACTION_KEY_PRODUCT_UPDATETYPES @"json_updateTypes.do"
 
 #define LB_ACTION_KEY_FILEUPLOAD @"fileUpload.do"
+#define LB_ACTION_KEY_UPDATE_PICS @"json_updatePics.do"
+#define LB_ACTION_KEY_PICS @"json_pics.do"
+
 
 
 
@@ -165,6 +180,7 @@
         {
             [currentOrgInfo.conf setObject:[dic objectForKey:@"value"] forKey:[dic objectForKey:@"name"]];
         }
+        [self getTypesWithOrgId:currentOrgInfo.Id];
         return YES;
     }
     NSLog(@"Error:%@", [request getErrMsg]);
@@ -205,7 +221,7 @@
     }
     else
     {
-        if ([[self getTypesWithOrgId:self.getCurrentOrgInfo.orgId] count] > 0)
+        if ([[self getTypesWithOrgId:self.getCurrentOrgInfo.Id] count] > 0)
         {
             return [self productTypesWithParentId:parent];
         }
@@ -250,7 +266,7 @@
 - (BOOL)updateProductType:(ProductTypeItem *)item
 {
     
-    NSDictionary* param = [NSDictionary dictionaryWithObjects:@[[NSString stringWithFormat:@"%d", item.typeId], item.name, [NSString stringWithFormat:@"%d", item.parent], [NSString stringWithFormat:@"%d", self.getCurrentOrgInfo.orgId]] forKeys:@[@"productType.typeId", @"productType.name", @"productType.parent", @"productType.orgId"]];
+    NSDictionary* param = [NSDictionary dictionaryWithObjects:@[[NSString stringWithFormat:@"%d", item.typeId], item.name, [NSString stringWithFormat:@"%d", item.parent], [NSString stringWithFormat:@"%d", self.getCurrentOrgInfo.Id]] forKeys:@[@"productType.typeId", @"productType.name", @"productType.parent", @"productType.orgId"]];
     LCJsonRequest* request = [[LCJsonRequest alloc]initWithURL:[orgBaseUrl stringByAppendingString:LB_ACTION_KEY_ORG_UPDATE_PRODUCTTYPE] paramDic:param delegate:nil doneSelector:nil errorSelector:nil];
     [request sendSynchronousRequest];
     if ([request isRequestDidSuccessed])
@@ -264,7 +280,7 @@
 
 - (BOOL)addProductType:(ProductTypeItem *)item
 {
-    NSDictionary* param = [NSDictionary dictionaryWithObjects:@[item.name, [NSString stringWithFormat:@"%d", item.parent], [NSString stringWithFormat:@"%d", self.getCurrentOrgInfo.orgId]] forKeys:@[@"productType.name", @"productType.parent", @"productType.orgId"]];
+    NSDictionary* param = [NSDictionary dictionaryWithObjects:@[item.name, [NSString stringWithFormat:@"%d", item.parent], [NSString stringWithFormat:@"%d", self.getCurrentOrgInfo.Id]] forKeys:@[@"productType.name", @"productType.parent", @"productType.orgId"]];
     LCJsonRequest* request = [[LCJsonRequest alloc]initWithURL:[orgBaseUrl stringByAppendingString:LB_ACTION_KEY_ORG_ADD_PRODUCTTYPE] paramDic:param delegate:nil doneSelector:nil errorSelector:nil];
     [request sendSynchronousRequest];
     if ([request isRequestDidSuccessed])
@@ -370,7 +386,7 @@
 
 - (BOOL)updateProduct:(ProductShowingDetail *)item
 {
-    NSDictionary* param = [NSDictionary dictionaryWithObjects:@[[NSString stringWithFormat:@"%ld", item.Id], item.name, [NSString stringWithFormat:@"%d", LB_PRODUCT_STATE_ONSALE], [NSString stringWithFormat:@"%d", item.type], item.detail, [NSString stringWithFormat:@"%d", LB_PRODUCT_PRIORITY_NORMAL], [NSString stringWithFormat:@"%d", self.getCurrentOrgInfo.orgId], [NSString stringWithFormat:@"%@", item.price], [NSString stringWithFormat:@"%d", item.amount]] forKeys:@[@"product.productId", @"product.name", @"product.status",@"product.type", @"product.detail", @"product.priority", @"product.orgid", @"product.price", @"product.amount"]];
+    NSDictionary* param = [NSDictionary dictionaryWithObjects:@[[NSString stringWithFormat:@"%ld", item.Id], item.name, [NSString stringWithFormat:@"%d", LB_PRODUCT_STATE_ONSALE], [NSString stringWithFormat:@"%d", item.type], item.detail, [NSString stringWithFormat:@"%d", LB_PRODUCT_PRIORITY_NORMAL], [NSString stringWithFormat:@"%ld", self.getCurrentOrgInfo.Id], [NSString stringWithFormat:@"%@", item.price], [NSString stringWithFormat:@"%d", item.amount]] forKeys:@[@"product.productId", @"product.name", @"product.status",@"product.type", @"product.detail", @"product.priority", @"product.orgid", @"product.price", @"product.amount"]];
     LCJsonRequest* request = [[LCJsonRequest alloc]initWithURL:[orgBaseUrl stringByAppendingString:LB_ACTION_KEY_ORG_UPDATEPRODUCT] paramDic:param delegate:nil doneSelector:nil errorSelector:nil];
     [request sendSynchronousRequest];
     if ([request isRequestDidSuccessed])
@@ -385,7 +401,7 @@
 
 - (BOOL)deleteProductById:(long)productId
 {
-    LCJsonRequest* request = [[LCJsonRequest alloc]initWithURL:[orgBaseUrl stringByAppendingString:LB_ACTION_KEY_ORG_DELETE_PRODUCTTYPE] paramDic:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"%ld", productId] forKey:@"productId"] delegate:nil doneSelector:nil errorSelector:nil];
+    LCJsonRequest* request = [[LCJsonRequest alloc]initWithURL:[orgBaseUrl stringByAppendingString:LB_ACTION_KEY_ORG_DELETE_PRODUCT] paramDic:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"%ld", productId] forKey:@"productId"] delegate:nil doneSelector:nil errorSelector:nil];
     [request sendSynchronousRequest];
     if ([request isRequestDidSuccessed])
     {
@@ -490,20 +506,23 @@
         }
     }];
 }
-- (BOOL)loadPicLinksForProduct:(ProductShowingDetail *)item
+
+- (BOOL)loadPicLinksForItem:(PsDataItem *)item withRefType:(short)refType
 {
-    NSDictionary* param = [NSDictionary dictionaryWithObjects:@[[NSString stringWithFormat:@"%ld", item.Id]] forKeys:@[@"productId"]];
-    LCJsonRequest* request = [[LCJsonRequest alloc]initWithURL:[productBaseUrl stringByAppendingString:LB_ACTION_KEY_PRODUCT_PICS] paramDic:param delegate:nil doneSelector:nil errorSelector:nil];
-    [request sendAsynchronousRequestAndcompletionHandler:^(NSData* data)
-     {
+    LCJsonRequest* request = [[LCJsonRequest alloc]initWithURL:[serverUrl stringByAppendingString:LB_ACTION_KEY_PICS] paramDic:[NSDictionary dictionaryWithObjects:@[[NSString stringWithFormat:@"%ld", item.Id], [NSString stringWithFormat:@"%d", refType]] forKeys:@[@"refId", @"picRefType"]] delegate:nil doneSelector:nil errorSelector:nil];
+    [request sendSynchronousRequest];
+    if ([request isRequestDidSuccessed])
+    {
         NSArray* picList = [[request getResultDic]objectForKey:@"picList"];
-         for (NSDictionary* dic in picList)
-         {
-             [item setImgLink:[dic objectForKey:@"link"] withType:[[dic objectForKey:@"type"]integerValue]];
-         }
-         
-     }];
-    return YES;
+        for (NSDictionary* dic in picList)
+        {
+            [item setImgLink:[dic objectForKey:@"link"] withType:[[dic objectForKey:@"type"]integerValue]];
+        }
+        return YES;
+        
+    };
+    NSLog(@"Error:%@", [request getErrMsg]);
+    return NO;
 }
 
 - (BOOL)addProduct:(long)productId toType:(NSInteger)typeId
@@ -550,7 +569,7 @@
 
 - (NSMutableArray*)getProductTypesWithProductId:(long)productId
 {
-    LCJsonRequest* request = [[LCJsonRequest alloc]initWithURL:[productBaseUrl stringByAppendingString:LB_ACTION_KEY_ORG_PRODUCTS] paramDic:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"%ld", productId] forKey:@"productId"] delegate:nil doneSelector:nil errorSelector:nil];
+    LCJsonRequest* request = [[LCJsonRequest alloc]initWithURL:[productBaseUrl stringByAppendingString:LB_ACTION_KEY_PRODUCT_TYPES] paramDic:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"%ld", productId] forKey:@"productId"] delegate:nil doneSelector:nil errorSelector:nil];
     NSMutableArray* result = [NSMutableArray array];
     [request sendSynchronousRequest];
     if ([request isRequestDidSuccessed])
@@ -589,6 +608,93 @@
 
 - (BOOL)updateProductPics:(ProductShowingDetail *)item
 {
+    return [self updatePics:item forRefType:LB_PIC_TYPE_PRODUCT];
+//    NSMutableString* picListString = [NSMutableString string];
+//    for (NSString* link in [item.imgLinkDic allValues])
+//    {
+//        [picListString appendFormat:@"%@,", link];
+//    }
+//    
+//    NSMutableString* picTypeListString = [NSMutableString string];
+//    for (NSNumber* type in [item.imgLinkDic allKeys])
+//    {
+//        [picTypeListString appendFormat:@"%@,", type];
+//    }
+//    
+//    LCJsonRequest* request = [[LCJsonRequest alloc]initWithURL:[productBaseUrl stringByAppendingString:LB_ACTION_KEY_PRODUCT_UPDATEPICS] paramDic:[NSDictionary dictionaryWithObjects:@[[NSString stringWithFormat:@"%ld", item.Id], picListString, picTypeListString] forKeys:@[@"productId", @"picListString", @"picTypeListString"]] delegate:nil doneSelector:nil errorSelector:nil];
+//    [request sendSynchronousRequest];
+//    if ([request isRequestDidSuccessed])
+//    {
+//        return YES;
+//    }
+//    NSLog(@"Error:%@", [request getErrMsg]);
+//    return NO;
+}
+
+- (NSMutableArray*)getSubOrgByOrgId:(NSInteger)orgId
+{
+    NSDictionary* param = [NSDictionary dictionaryWithObjects:@[[NSString stringWithFormat:@"%d",orgId]] forKeys:@[@"orgId"]];
+    LCJsonRequest* request = [[LCJsonRequest alloc]initWithURL:[orgBaseUrl stringByAppendingString:LB_ACTION_KEY_ORG_SUBORGS] paramDic:param delegate:nil doneSelector:nil errorSelector:nil];
+    [request sendSynchronousRequest];
+    NSMutableArray* subOrgs = [NSMutableArray array];
+    if ([request isRequestDidSuccessed])
+    {
+        NSArray* subOrgList = [[request getResultDic]objectForKey:@"subOrgList"];
+        for (NSDictionary* dic in subOrgList)
+        {
+            [subOrgs addObject:[[OrganizationItem alloc]initWithDic:dic]];
+        }
+    }
+    else
+    {
+        NSLog(@"Error:%@", [request getErrMsg]);
+    }
+    return subOrgs;
+}
+
+- (BOOL)addOrg:(OrganizationItem*)item
+{
+    NSDictionary* param = [NSDictionary dictionaryWithObjects:@[item.name, item.account, [NSString stringWithFormat:@"%d", item.status], [NSString stringWithFormat:@"%d", item.type], item.detail, item.cclass, item.group, [NSString stringWithFormat:@"%d", item.groupId], [NSString stringWithFormat:@"%ld", item.credit], item.email, [NSString stringWithFormat:@"%d", item.parent], item.phone, item.mobile, item.url, item.state, item.city, item.street, item.zip, [NSString stringWithFormat:@"%.10f", item.latitude], [NSString stringWithFormat:@"%.10f", item.longitude], @""] forKeys:@[@"org.cname", @"org.account", @"org.cstatus",@"org.type", @"org.detail", @"org.cclass", @"org.cgroup", @"org.cgroupid", @"org.credit", @"org.email", @"org.parent", @"org.phone", @"org.mobile", @"org.website", @"org.state", @"org.city", @"org.street", @"org.zip", @"org.latitude", @"org.longitude", @"org.cface"]];
+    LCJsonRequest* request = [[LCJsonRequest alloc]initWithURL:[orgBaseUrl stringByAppendingString:LB_ACTION_KEY_ORG_ADDSUBORG] paramDic:param delegate:nil doneSelector:nil errorSelector:nil];
+    [request sendSynchronousRequest];
+    if ([request isRequestDidSuccessed])
+    {
+        item.Id  = [[[request getResultDic] objectForKey:@"orgId"] integerValue];
+        return [self updatePics:item forRefType:LB_PIC_TYPE_ORG];
+    }
+    NSLog(@"Error:%@", [request getErrMsg]);
+    return NO;
+}
+- (BOOL)updateOrg:(OrganizationItem*)item
+{
+    NSDictionary* param = [NSDictionary dictionaryWithObjects:@[[NSString stringWithFormat:@"%ld", item.Id], item.name, item.account, [NSString stringWithFormat:@"%d", item.status], [NSString stringWithFormat:@"%d", item.type], item.detail, item.cclass, item.group, [NSString stringWithFormat:@"%d", item.groupId], [NSString stringWithFormat:@"%ld", item.credit], item.email, [NSString stringWithFormat:@"%d", item.parent], item.phone, item.mobile, item.url, item.state, item.city, item.street, item.zip, [NSString stringWithFormat:@"%.10f", item.latitude], [NSString stringWithFormat:@"%.10f", item.longitude], @""] forKeys:@[@"org.companyId", @"org.cname", @"org.account", @"org.cstatus",@"org.type", @"org.detail", @"org.cclass", @"org.cgroup", @"org.cgroupid", @"org.credit", @"org.email", @"org.parent", @"org.phone", @"org.mobile", @"org.website", @"org.state", @"org.city", @"org.street", @"org.zip", @"org.latitude", @"org.longitude", @"org.cface"]];
+    LCJsonRequest* request = [[LCJsonRequest alloc]initWithURL:[orgBaseUrl stringByAppendingString:LB_ACTION_KEY_ORG_UPDATE] paramDic:param delegate:nil doneSelector:nil errorSelector:nil];
+    [request sendSynchronousRequest];
+    if ([request isRequestDidSuccessed])
+    {
+        return [self updatePics:item forRefType:LB_PIC_TYPE_ORG];
+    }
+    NSLog(@"Error:%@", [request getErrMsg]);
+    return NO;
+
+}
+- (BOOL)deleteOrgById:(NSInteger)orgId
+{
+    LCJsonRequest* request = [[LCJsonRequest alloc]initWithURL:[orgBaseUrl stringByAppendingString:LB_ACTION_KEY_ORG_DELETESUBORG] paramDic:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"%d", orgId] forKey:@"orgId"] delegate:nil doneSelector:nil errorSelector:nil];
+    [request sendSynchronousRequest];
+    if ([request isRequestDidSuccessed])
+    {
+        return YES;
+    }
+    NSLog(@"Error:%@", [request getErrMsg]);
+    return NO;
+}
+- (BOOL)updatePics:(PsDataItem*)item forRefType:(short)refType
+{
+    if (nil == item.imgLinkDic || [item imageCount] <= 0)
+    {
+        return YES;
+    }
     NSMutableString* picListString = [NSMutableString string];
     for (NSString* link in [item.imgLinkDic allValues])
     {
@@ -601,7 +707,65 @@
         [picTypeListString appendFormat:@"%@,", type];
     }
     
-    LCJsonRequest* request = [[LCJsonRequest alloc]initWithURL:[productBaseUrl stringByAppendingString:LB_ACTION_KEY_PRODUCT_UPDATEPICS] paramDic:[NSDictionary dictionaryWithObjects:@[[NSString stringWithFormat:@"%ld", item.Id], picListString, picTypeListString] forKeys:@[@"productId", @"picListString", @"picTypeListString"]] delegate:nil doneSelector:nil errorSelector:nil];
+    LCJsonRequest* request = [[LCJsonRequest alloc]initWithURL:[serverUrl stringByAppendingString:LB_ACTION_KEY_UPDATE_PICS] paramDic:[NSDictionary dictionaryWithObjects:@[[NSString stringWithFormat:@"%ld", item.Id], [NSString stringWithFormat:@"%d", refType], picListString, picTypeListString] forKeys:@[@"refId", @"picRefType", @"picListString", @"picTypeListString"]] delegate:nil doneSelector:nil errorSelector:nil];
+    [request sendSynchronousRequest];
+    if ([request isRequestDidSuccessed])
+    {
+        return YES;
+    }
+    NSLog(@"Error:%@", [request getErrMsg]);
+    return NO;
+}
+
+- (NSMutableArray*)getDiscountCardByOrgId:(NSInteger)orgId
+{
+    NSDictionary* param = [NSDictionary dictionaryWithObjects:@[[NSString stringWithFormat:@"%d",orgId]] forKeys:@[@"orgId"]];
+    LCJsonRequest* request = [[LCJsonRequest alloc]initWithURL:[orgBaseUrl stringByAppendingString:LB_ACTION_KEY_ORG_DISCOUNTCARDS] paramDic:param delegate:nil doneSelector:nil errorSelector:nil];
+    [request sendSynchronousRequest];
+    NSMutableArray* cards = [NSMutableArray array];
+    if ([request isRequestDidSuccessed])
+    {
+        NSArray* cardsList = [[request getResultDic]objectForKey:@"discountCardList"];
+        for (NSDictionary* dic in cardsList)
+        {
+            [cards addObject:[[DiscountCardItem alloc]initWithDic:dic]];
+        }
+    }
+    else
+    {
+        NSLog(@"Error:%@", [request getErrMsg]);
+    }
+    return cards;
+
+}
+- (BOOL)addDiscountCard:(DiscountCardItem*)item
+{
+    NSDictionary* param = [NSDictionary dictionaryWithObjects:@[[NSString stringWithFormat:@"%d", item.orgId], item.name, item.detail, [NSString stringWithFormat:@"%d", item.overlay], [NSString stringWithFormat:@"%d", item.type], item.value] forKeys:@[@"card.orgId", @"card.name", @"card.detail", @"card.overlay", @"card.type", @"card.value"]];
+    LCJsonRequest* request = [[LCJsonRequest alloc]initWithURL:[orgBaseUrl stringByAppendingString:LB_ACTION_KEY_ORG_ADDDISCOUNTCARD] paramDic:param delegate:nil doneSelector:nil errorSelector:nil];
+    [request sendSynchronousRequest];
+    if ([request isRequestDidSuccessed])
+    {
+        item.Id  = [[[request getResultDic] objectForKey:@"cardId"] integerValue];
+        return [self updatePics:item forRefType:LB_PIC_TYPE_DISCOUNTCARD];
+    }
+    NSLog(@"Error:%@", [request getErrMsg]);
+    return NO;
+}
+- (BOOL)updateDiscountCard:(DiscountCardItem*)item
+{
+    NSDictionary* param = [NSDictionary dictionaryWithObjects:@[[NSString stringWithFormat:@"%ld", item.Id], [NSString stringWithFormat:@"%d", item.orgId], item.name, item.detail, [NSString stringWithFormat:@"%d", item.overlay], [NSString stringWithFormat:@"%d", item.type], item.value] forKeys:@[@"card.id", @"card.orgId", @"card.name", @"card.detail", @"card.overlay", @"card.type", @"card.value"]];
+    LCJsonRequest* request = [[LCJsonRequest alloc]initWithURL:[orgBaseUrl stringByAppendingString:LB_ACTION_KEY_ORG_UPDATEDISCOUNTCARD] paramDic:param delegate:nil doneSelector:nil errorSelector:nil];
+    [request sendSynchronousRequest];
+    if ([request isRequestDidSuccessed])
+    {
+        return [self updatePics:item forRefType:LB_PIC_TYPE_DISCOUNTCARD];
+    }
+    NSLog(@"Error:%@", [request getErrMsg]);
+    return NO;
+}
+- (BOOL)deleteDiscountCardById:(NSInteger)cardId
+{
+    LCJsonRequest* request = [[LCJsonRequest alloc]initWithURL:[orgBaseUrl stringByAppendingString:LB_ACTION_KEY_ORG_DELETEDISCOUNTCARD] paramDic:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"%d", cardId] forKey:@"cardId"] delegate:nil doneSelector:nil errorSelector:nil];
     [request sendSynchronousRequest];
     if ([request isRequestDidSuccessed])
     {

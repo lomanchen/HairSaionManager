@@ -9,7 +9,7 @@
 #import "EmpMainSplitViewController.h"
 #import "DefalueRSViewController.h"
 #import <QuartzCore/QuartzCore.h>
-#import "DataAdapter.h"
+#import "LifeBarDataProvider.h"
 #import "BranchLSViewController.h"
 #import "BranchPolicy.h"
 #import "DiscountCardLSViewController.h"
@@ -55,14 +55,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSFileManager *fileMgr = [NSFileManager defaultManager];
-    //指向文件目录
-    NSString *documentsDirectory= [[DataAdapter shareInstance]path];
-    
-    //创建一个目录
-    [fileMgr createDirectoryAtPath: [NSString stringWithFormat:@"%@/IMG", documentsDirectory] attributes:nil];
-    [fileMgr createDirectoryAtPath: [NSString stringWithFormat:@"%@/IMG/Product", documentsDirectory] attributes:nil];
-    //self.splitWidth = 1;
     [self setSplitPosition:SPLIT_POSITION_MID];
     [self setMasterBeforeDetail:YES];}
 
@@ -104,7 +96,6 @@
     //    tabbarController.tabBar.backgroundColor = [UIColor yellowColor];
     self.masterViewController = tabbarController;
     NSMutableArray* tabbarVCs = [NSMutableArray array];
-    DataAdapter* da = [DataAdapter shareInstance];
 
     BranchLSViewController* vc1 = [[BranchLSViewController alloc]init];
     UINavigationController* nav1 = [[UINavigationController alloc]initWithRootViewController:vc1];
@@ -124,28 +115,6 @@
     
     [tabbarVCs addObject:nav2];
 
-    
-    
-    
-    //    //类型编辑
-    //    ProductLSViewController* typeVc = [[ProductLSViewController alloc]init];
-    //    UINavigationController* navType = [[UINavigationController alloc]initWithRootViewController:typeVc];
-    //    navType.ng_tabBarItem = [NGTabBarItem itemWithTitle:@"类型管理" image:nil];
-    //    typeVc.detailNav = nav;
-    //    typeVc.mainVc = self;
-    //    typeVc.policy = [[TypePolicy alloc]initWithSubType:nil];
-    //    [tabbarVCs addObject:typeVc];
-    
-    /*
-     //发布
-     SyncMainViewController* syncVc = [[SyncMainViewController alloc]initWithNibName:@"SyncMainViewController" bundle:nil];
-     UINavigationController* syncNav = [[UINavigationController alloc]initWithRootViewController:syncVc];
-     syncNav.ng_tabBarItem = [NGTabBarItem itemWithTitle:@"发布" image:nil];
-     syncVc.detailNav = nav;
-     syncVc.mainVc = self;
-     
-     [tabbarVCs addObject:syncNav];
-     */
     tabbarController.viewControllers = [NSArray arrayWithArray:tabbarVCs];
     
     

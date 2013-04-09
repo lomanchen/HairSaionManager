@@ -82,7 +82,7 @@ typedef enum
 
 - (void)loadData
 {
-    typeList = [lbp getTypesWithOrgId:[lbp getCurrentOrgInfo].orgId];
+    typeList = [lbp getTypesWithOrgId:[lbp getCurrentOrgInfo].Id];
 }
 
 - (void)didReceiveMemoryWarning
@@ -274,24 +274,24 @@ typedef enum
                 if ([[[lbp getCurrentOrgInfo].conf objectForKey:LB_ORG_CONF_KEY_SHOW_SUBBRANCH] isEqualToString:LB_ORG_CONF_VALUE_YES])
                 {
                     [[lbp getCurrentOrgInfo].conf setObject:LB_ORG_CONF_VALUE_NO forKey:LB_ORG_CONF_KEY_SHOW_SUBBRANCH];
-                    [lbp updateOrgConfWithOrgId:[lbp getCurrentOrgInfo].orgId andKey:LB_ORG_CONF_KEY_SHOW_SUBBRANCH andValue:LB_ORG_CONF_VALUE_NO];
+                    [lbp updateOrgConfWithOrgId:[lbp getCurrentOrgInfo].Id andKey:LB_ORG_CONF_KEY_SHOW_SUBBRANCH andValue:LB_ORG_CONF_VALUE_NO];
                 }
                 else
                 {
                     [[lbp getCurrentOrgInfo].conf setObject:LB_ORG_CONF_VALUE_YES forKey:LB_ORG_CONF_KEY_SHOW_SUBBRANCH];
-                    [lbp updateOrgConfWithOrgId:[lbp getCurrentOrgInfo].orgId andKey:LB_ORG_CONF_KEY_SHOW_SUBBRANCH andValue:LB_ORG_CONF_VALUE_YES];
+                    [lbp updateOrgConfWithOrgId:[lbp getCurrentOrgInfo].Id andKey:LB_ORG_CONF_KEY_SHOW_SUBBRANCH andValue:LB_ORG_CONF_VALUE_YES];
                 }
                 break;
             case 1:
                 if ([[[lbp getCurrentOrgInfo].conf objectForKey:LB_ORG_CONF_KEY_SHOW_DISCOUNT_CARD] isEqualToString:LB_ORG_CONF_VALUE_YES])
                 {
                     [[lbp getCurrentOrgInfo].conf setObject:LB_ORG_CONF_VALUE_NO forKey:LB_ORG_CONF_KEY_SHOW_DISCOUNT_CARD];
-                    [lbp updateOrgConfWithOrgId:[lbp getCurrentOrgInfo].orgId andKey:LB_ORG_CONF_KEY_SHOW_DISCOUNT_CARD andValue:LB_ORG_CONF_VALUE_NO];
+                    [lbp updateOrgConfWithOrgId:[lbp getCurrentOrgInfo].Id andKey:LB_ORG_CONF_KEY_SHOW_DISCOUNT_CARD andValue:LB_ORG_CONF_VALUE_NO];
                 }
                 else
                 {
                     [[lbp getCurrentOrgInfo].conf setObject:LB_ORG_CONF_VALUE_YES forKey:LB_ORG_CONF_KEY_SHOW_DISCOUNT_CARD];
-                    [lbp updateOrgConfWithOrgId:[lbp getCurrentOrgInfo].orgId andKey:LB_ORG_CONF_KEY_SHOW_DISCOUNT_CARD andValue:LB_ORG_CONF_VALUE_YES];
+                    [lbp updateOrgConfWithOrgId:[lbp getCurrentOrgInfo].Id andKey:LB_ORG_CONF_KEY_SHOW_DISCOUNT_CARD andValue:LB_ORG_CONF_VALUE_YES];
                 }
                 break;
             default:

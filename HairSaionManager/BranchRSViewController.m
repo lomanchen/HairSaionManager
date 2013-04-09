@@ -17,7 +17,9 @@
 #import "OrganizationItem.h"
 #import "TextFieldEditViewController.h"
 #import "LCMapKits.h"
-
+#import "MBProgressHUD.h"
+#import "LifeBarDataProvider.h"
+#import <SDWebImage/SDWebImageManager.h>
 
 typedef enum
 {
@@ -216,8 +218,39 @@ typedef enum
         self.imagePickerViewController = [[ImagePickerViewController alloc]initWithNibName:@"ImagePickerViewController" bundle:nil];
         self.imagePickerViewController.deleage = self;
         self.popImagePicker = [[PopUpViewController alloc]initWithContentViewController:self.imagePickerViewController];
-        self.popImagePicker.popUpDeleage = self;
-        [self.imagePickerViewController setupViewWithImg:[self.item imageAtIndex:indexPath.row]withType:PRODUCT_PIC_TYPE_DEFAULT];
+        self.popImagePicker.popUpDeleage = self;        
+        NSString* imageFileName = [self.item.imgLinkDic objectForKey:[NSNumber numberWithInteger:LB_ORG_PIC_TYPE_DEFAULT]];
+        if (imageFileName && ![imageFileName isEqualToString:@""])
+        {
+            NSString* tmpFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:imageFileName];
+            if ([[LCFileManager shareInstance]checkSourPath:tmpFilePath error:nil])
+            {
+                [self.imagePickerViewController setupViewWithImg:[UIImage imageWithContentsOfFile:tmpFilePath] withType:[NSNumber numberWithInteger:LB_ORG_PIC_TYPE_DEFAULT]];
+            }
+            else
+            {
+                NSString* url = [[[LifeBarDataProvider shareInstance]imgPathForProduct] stringByAppendingString:imageFileName];
+                SDWebImageManager *manager = [SDWebImageManager sharedManager];
+                [manager downloadWithURL:url
+                                 options:0
+                                progress:^(NSUInteger receivedSize, long long expectedSize)
+                 {
+                     // progression tracking code
+                 }
+                               completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished)
+                 {
+                     if (image)
+                     {
+                         [self.imagePickerViewController setupViewWithImg:image withType:[NSNumber numberWithInteger:LB_ORG_PIC_TYPE_DEFAULT]];
+                     }
+                 }];
+            }
+        }
+        else
+        {
+            [self.imagePickerViewController setupViewWithImg:nil withType:[NSNumber numberWithInteger:LB_ORG_PIC_TYPE_DEFAULT]];
+        }
+        
         [self.popImagePicker show:self.rootSplitViewController.view andAnimated:YES];
     }
     
@@ -256,38 +289,59 @@ typedef enum
 
 - (void)onSave:(id)sender
 {
-    [[DataAdapter shareInstance]updateOrg:self.item];
-    if (self.isAddMode)
+    
+    NSString* errMsg;
+    if (![self.item checkProperties:&errMsg])
     {
-        [((BranchLSViewController*)self.leftViewController) addRowWithData:self.item];
-        self.isAddMode = NO;
-    }
-    else
-    {
-        [((BranchLSViewController*)self.leftViewController) reloadRowWithData:self.item];
+        [MBProgressHUD showMessage:errMsg inView:self.leftViewController.mainVc.navigationController.view];
+        return ;
     }
     
-    [((BranchLSViewController*)self.leftViewController) onSave:self.item];
-    
-    [self.leftViewController hideRSViewController:YES];
-    
-}
-
-- (void)imageFinishEdit:(ImagePickerViewController *)imagePicker andImage:(UIImage *)image andType:(NSNumber *)type
-{
-    DataAdapter* da = [DataAdapter shareInstance];
-    UIImage* fixOrientationImg = [image fixOrientation];
-    //[self.item.imgDic setObject:vc.imageSource forKey:PRODUCT_PIC_TYPE_FULL];
-    if (imagePicker.imagePickerControllerSourceType == UIImagePickerControllerSourceTypeCamera)
-    {
-        UIImageWriteToSavedPhotosAlbum(fixOrientationImg, nil, nil, nil);
-    }
-    NSString* imgFileName = [[da imgFileNameGenerator] stringByAppendingString:@".jpg"];
-    NSString  *pngPath = [[da imgPath] stringByAppendingPathComponent:imgFileName];
-    NSLog(@"file path=%@", pngPath);
-    [UIImageJPEGRepresentation(fixOrientationImg, 0.5) writeToFile:pngPath atomically:YES];
-    [self.item.imgLinkDic setObject:imgFileName forKey:type];
-    
+    MBProgressHUD *hub = [[MBProgressHUD alloc] initWithView:self.leftViewController.mainVc.navigationController.view];
+    [self.leftViewController.mainVc.navigationController.view addSubview:hub];
+    hub.labelText = @"处理中...";
+    __block BOOL saveResult = NO;
+    [hub showAnimated:YES whileExecutingBlock:^(void){
+        if (self.isAddMode)
+        {
+            saveResult = [[LifeBarDataProvider shareInstance]addOrg:self.item];
+            
+        }
+        else
+        {
+            saveResult = [[LifeBarDataProvider shareInstance]updateOrg:self.item];
+        }
+    }completionBlock:^(void){
+        if (saveResult)
+        {
+            if (self.isAddMode)
+            {
+                [((TableLSViewController*)self.leftViewController) addRowWithData:self.item];
+                self.isAddMode = NO;
+            }
+            else
+            {
+                [((TableLSViewController*)self.leftViewController) reloadRowWithData:self.item];
+            }
+            [((TableLSViewController*)self.leftViewController) onSave:self.item];
+            [self.leftViewController hideRSViewController:YES];
+            hub.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
+            hub.mode = MBProgressHUDModeCustomView;
+            hub.labelText = @"完成！";
+            hub.removeFromSuperViewOnHide = YES;
+            [hub hide:YES afterDelay:1];
+        }
+        else
+        {
+            hub.labelText = @"网络不给力，请重试！";
+            hub.mode = MBProgressHUDModeText;
+            hub.margin = 10.f;
+            hub.yOffset = 150.f;
+            hub.removeFromSuperViewOnHide = YES;
+            [hub hide:YES afterDelay:3];
+            
+        }
+    }];
     
 }
 

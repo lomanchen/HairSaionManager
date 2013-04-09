@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DataAdapter.h"
 
 @interface BaseTabBarPolicy : NSObject
 - (BOOL)isProduct;

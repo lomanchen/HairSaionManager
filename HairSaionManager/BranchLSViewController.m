@@ -14,6 +14,8 @@
 #import "EmpMainSplitViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "LifeBarDataProvider.h"
+#import "MBProgressHUD.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 
 @interface BranchLSViewController ()
@@ -66,8 +68,22 @@
     
     // Configure the cell...
     OrganizationItem* item = [self.items objectAtIndex:indexPath.row];
-    cell.imageView.image = [item defaultImgLink];
-    //cell.imageView.frame = CGRectMake(0, 0, 100, 100);
+    NSString* imageFileName = [item.imgLinkDic objectForKey:[NSNumber numberWithInteger:LB_ORG_PIC_TYPE_DEFAULT]];
+    if (imageFileName && ![imageFileName isEqualToString:@""])
+    {
+        NSString* tmpFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:imageFileName];
+        if ([[LCFileManager shareInstance]checkSourPath:tmpFilePath error:nil])
+        {
+            cell.imageView.image = [UIImage imageWithContentsOfFile:tmpFilePath];
+        }
+        else
+        {
+            NSString* url = [[[LifeBarDataProvider shareInstance]imgPathForOrg] stringByAppendingString:imageFileName];
+            [cell.imageView setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+        }
+    }
+    
+       //cell.imageView.frame = CGRectMake(0, 0, 100, 100);
     cell.textLabel.text = item.name;
     cell.detailTextLabel.text = [item address];
     return cell;
@@ -109,14 +125,24 @@
 
 - (void)loadData
 {
-    DataAdapter * da = [DataAdapter shareInstance];
-    int count = [da.organizations count];
-    self.items = [NSMutableArray array];
-    for (int i = 0; i < count; i ++)
-    {
-        OrganizationItem* item = [[OrganizationItem alloc]initWithObject:(da.organizations)[i]];
-        [self.items addObject:item];
-    }
+    [MBProgressHUD showAnimated:YES whileExecutingBlock:^(void)
+     {
+         LifeBarDataProvider* lbp = [LifeBarDataProvider shareInstance];
+         self.items = [lbp getSubOrgByOrgId:[lbp getCurrentOrgInfo].Id];
+         if ([self.items count] < 1 || ([self.items count] > 1 && ![[self.items objectAtIndex:0] isEqual:[lbp getCurrentOrgInfo]]))
+         {
+             [self.items insertObject:[lbp getCurrentOrgInfo] atIndex:0];
+         }
+         for (OrganizationItem* item in self.items)
+         {
+             [lbp loadPicLinksForItem:item withRefType:LB_PIC_TYPE_ORG];
+             NSLog(@"id=%ld pic=%@", item.Id, [item.imgLinkDic objectForKey:[NSNumber numberWithInteger:LB_DISCOUNTCARD_PIC_TYPE_DEFAULT]]);
+
+         }
+     } completionBlock:^(void)
+     {
+         [self.tableView reloadData];
+     } withTitle:@"Loading" inView:self.view];
     
 }
 
@@ -124,9 +150,18 @@
 
 - (void)removeObjectAtIndex:(NSInteger)index
 {
-    OrganizationItem* item = [self.items objectAtIndex:index];
-    [[DataAdapter shareInstance]deleteOrgByOrgId:item.key];
-    [super removeObjectAtIndex:index];
+    if (index > 1)
+    {
+        OrganizationItem* item = [self.items objectAtIndex:index];
+        if ([[LifeBarDataProvider shareInstance]deleteOrgById:item.Id])
+        {
+            [super removeObjectAtIndex:index];
+        }
+    }
+    else
+    {
+        [MBProgressHUD showMessage:@"禁止删除总店信息!" inView:self.view];
+    }
 }
 
 - (void)loadNavItem
@@ -153,7 +188,6 @@
     else
     {
         ProductType* type = [array objectAtIndex:tag];
-        [[DataAdapter shareInstance]setFilter:type];
         [self loadData];
         [self.tableView reloadData];
     }
@@ -170,8 +204,7 @@
 - (void)addObject
 {
     [super addObject];
-    NSString* orgId = [[DataAdapter shareInstance]createNewOrg];
-    OrganizationItem* item = [[OrganizationItem alloc]initWithObject:[[DataAdapter shareInstance]orgByOrgId:orgId]];
+    OrganizationItem* item = [[OrganizationItem alloc]init];
     UINavigationController* vc = (UINavigationController*)[self.policy createRightVC];
     BaseRightSideViewController* rvc = vc.viewControllers[0];
     rvc.rootSplitViewController = self.mainVc;
@@ -183,9 +216,9 @@
 
 - (void)addObjectCancel
 {
-    BaseRightSideViewController* rvc = ((UINavigationController*)self.currentRvc).viewControllers[0];
-    OrganizationItem* item = rvc.item;
-    [[DataAdapter shareInstance]deleteOrgByOrgId:item.key];
+//    BaseRightSideViewController* rvc = ((UINavigationController*)self.currentRvc).viewControllers[0];
+//    OrganizationItem* item = rvc.item;
+//    [[DataAdapter shareInstance]deleteOrgByOrgId:item.key];
 }
 
 @end

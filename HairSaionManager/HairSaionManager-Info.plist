@@ -52,6 +52,6 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>server</key>
-	<string>http://localhost:8080/jsonTest/</string>
+	<string>http://mp3update.vicp.net:8080/LifeBarServer/</string>
 </dict>
 </plist>

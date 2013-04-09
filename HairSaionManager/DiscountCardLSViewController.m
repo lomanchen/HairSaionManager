@@ -13,7 +13,9 @@
 #import "DiscountCardRSViewController.h"
 #import "EmpMainSplitViewController.h"
 #import <QuartzCore/QuartzCore.h>
-
+#import "LifeBarDataProvider.h"
+#import "MBProgressHUD.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface DiscountCardLSViewController ()
 
@@ -57,8 +59,20 @@
     
     // Configure the cell...
     DiscountCardItem* item = [self.items objectAtIndex:indexPath.row];
-    cell.imageView.image = [item defaultImgLink];
-    //cell.imageView.frame = CGRectMake(0, 0, 100, 100);
+    NSString* imageFileName = [item.imgLinkDic objectForKey:[NSNumber numberWithInteger:LB_DISCOUNTCARD_PIC_TYPE_DEFAULT]];
+    if (imageFileName && ![imageFileName isEqualToString:@""])
+    {
+        NSString* tmpFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:imageFileName];
+        if ([[LCFileManager shareInstance]checkSourPath:tmpFilePath error:nil])
+        {
+            cell.imageView.image = [UIImage imageWithContentsOfFile:tmpFilePath];
+        }
+        else
+        {
+            NSString* url = [[[LifeBarDataProvider shareInstance]imgPathForOrg] stringByAppendingString:imageFileName];
+            [cell.imageView setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+        }
+    }    //cell.imageView.frame = CGRectMake(0, 0, 100, 100);
     cell.textLabel.text = item.name;
     cell.detailTextLabel.text = item.detail;
     return cell;
@@ -100,15 +114,23 @@
 
 - (void)loadData
 {
-    DataAdapter * da = [DataAdapter shareInstance];
-    int count = [da.discountCards count];
-    self.items = [NSMutableArray array];
-    for (int i = 0; i < count; i ++)
-    {
-        DiscountCardItem* item = [[DiscountCardItem alloc]initWithObject:(da.discountCards)[i]];
-        [self.items addObject:item];
-    }
     
+    [MBProgressHUD showAnimated:YES whileExecutingBlock:^(void)
+     {
+         LifeBarDataProvider* lbp = [LifeBarDataProvider shareInstance];
+         @synchronized(lbp)
+         {
+             LifeBarDataProvider* lbp = [LifeBarDataProvider shareInstance];
+             self.items = [lbp getDiscountCardByOrgId:[lbp getCurrentOrgInfo].Id];
+             for (DiscountCardItem* item in self.items)
+             {
+                 [lbp loadPicLinksForItem:item withRefType:LB_PIC_TYPE_DISCOUNTCARD];
+             }
+         }
+     } completionBlock:^(void)
+     {
+         [self.tableView reloadData];
+     } withTitle:@"Loading" inView:self.view];
 }
 
 
@@ -116,8 +138,10 @@
 - (void)removeObjectAtIndex:(NSInteger)index
 {
     DiscountCardItem* item = [self.items objectAtIndex:index];
-    [[DataAdapter shareInstance]deleteDiscountCardByCardId:item.key];
-    [super removeObjectAtIndex:index];
+    if ([[LifeBarDataProvider shareInstance]deleteDiscountCardById:item.Id])
+    {
+        [super removeObjectAtIndex:index];
+    }
 }
 
 - (void)loadNavItem
@@ -144,8 +168,7 @@
 - (void)addObject
 {
     [super addObject];
-    NSString* cardId = [[DataAdapter shareInstance]createNewDiscountCard];
-    DiscountCardItem* item = [[DiscountCardItem alloc]initWithObject:[[DataAdapter shareInstance]discountCardByCardId:cardId]];
+    DiscountCardItem* item = [[DiscountCardItem alloc]init];
     UINavigationController* vc = (UINavigationController*)[self.policy createRightVC];
     BaseRightSideViewController* rvc = vc.viewControllers[0];
     rvc.rootSplitViewController = self.mainVc;
@@ -157,9 +180,9 @@
 
 - (void)addObjectCancel
 {
-    BaseRightSideViewController* rvc = ((UINavigationController*)self.currentRvc).viewControllers[0];
-    DiscountCardItem* item = rvc.item;
-    [[DataAdapter shareInstance]deleteDiscountCardByCardId:item.key];
+//    BaseRightSideViewController* rvc = ((UINavigationController*)self.currentRvc).viewControllers[0];
+//    DiscountCardItem* item = rvc.item;
+//    [[DataAdapter shareInstance]deleteDiscountCardByCardId:item.key];
 }
 
 @end

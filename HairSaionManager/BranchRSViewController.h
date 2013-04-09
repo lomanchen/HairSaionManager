@@ -9,6 +9,6 @@
 #import "BaseRightSideViewController.h"
 #import "PopUpViewController.h"
 #import "ImagePickerViewController.h"
-@interface BranchRSViewController : BaseRightSideViewController<PopUpViewControllerDeleage, ImagePickerViewControllerDeleage>
+@interface BranchRSViewController : BaseRightSideViewController<PopUpViewControllerDeleage,ImagePickerViewControllerDeleage>
 
 @end

@@ -161,6 +161,10 @@ typedef enum
                  }];
             }
         }
+        else
+        {
+            [self.imagePickerViewController setupViewWithImg:nil withType:[NSNumber numberWithInteger:key]];
+        }
         
         [popImagePicker show:self.rootSplitViewController.view andAnimated:YES];
     }
@@ -173,7 +177,13 @@ typedef enum
 - (void)setData:(PsDataItem *)item
 {
     [super setData:item];
-    [[LifeBarDataProvider shareInstance]loadPicLinksForProduct:item];
+    [MBProgressHUD showAnimated:YES whileExecutingBlock:^(void)
+     {
+         [[LifeBarDataProvider shareInstance]loadPicLinksForItem:item withRefType:LB_PIC_TYPE_PRODUCT];
+         ((ProductShowingDetail*)item).types = [[LifeBarDataProvider shareInstance]getProductTypesWithProductId:((ProductShowingDetail*)item).Id];
+     } completionBlock:nil withTitle:@"Loading" inView:self.leftViewController.mainVc.navigationController.view];
+    
+    
     
 }
 
@@ -231,81 +241,51 @@ typedef enum
     
     hub.labelText = @"处理中...";
     
-    // myProgressTask uses the HUD instance to update progress
+    __block BOOL saveResult = NO;
     [hub showAnimated:YES whileExecutingBlock:^(void){
         if (self.isAddMode)
         {
-            
-            if ([[LifeBarDataProvider shareInstance]addProduct:self.item])
-            {
-                [((ProductLSViewController*)self.leftViewController) addRowWithData:self.item];
-                self.isAddMode = NO;
-                hub.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
-                hub.mode = MBProgressHUDModeCustomView;
-                hub.labelText = @"完成！";
-                beSubmited = YES;
-            }
-            else
-            {
-                hub.labelText = @"添加产品失败，请重试！";
-            }
-            
+            saveResult = [[LifeBarDataProvider shareInstance]addProduct:(ProductShowingDetail*)self.item];
             
         }
         else
         {
-            if ([[LifeBarDataProvider shareInstance]updateProduct:self.item])
+            saveResult = [[LifeBarDataProvider shareInstance]updateProduct:(ProductShowingDetail*)self.item];
+        }
+    }completionBlock:^(void){
+        if (saveResult)
+        {
+            if (self.isAddMode)
             {
-                [((ProductLSViewController*)self.leftViewController) reloadRowWithData:self.item];
-                hub.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
-                hub.mode = MBProgressHUDModeCustomView;
-                hub.labelText = @"完成！";
-                beSubmited = YES;
+                [((TableLSViewController*)self.leftViewController) addRowWithData:self.item];
+                self.isAddMode = NO;
             }
             else
             {
-                hub.labelText = @"更新产品失败，请重试！";
+                [((TableLSViewController*)self.leftViewController) reloadRowWithData:self.item];
             }
+            [((TableLSViewController*)self.leftViewController) onSave:self.item];
+            [self.leftViewController hideRSViewController:YES];
+            hub.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
+            hub.mode = MBProgressHUDModeCustomView;
+            hub.labelText = @"完成！";
+            hub.removeFromSuperViewOnHide = YES;
+            [hub hide:YES afterDelay:1];
         }
-    }];
-    [((ProductLSViewController*)self.leftViewController) onSave:self.item];
-    
-    [self.leftViewController hideRSViewController:YES];
-    
+        else
+        {
+            hub.labelText = @"网络不给力，请重试！";
+            hub.mode = MBProgressHUDModeText;
+            hub.margin = 10.f;
+            hub.yOffset = 150.f;
+            hub.removeFromSuperViewOnHide = YES;
+            [hub hide:YES afterDelay:3];
+
+        }
+    }];    
 }
 
-- (void)imageFinishEdit:(ImagePickerViewController *)imagePicker andImage:(UIImage *)image andType:(NSNumber *)type
-{
-    if (type)
-    {
-        MBProgressHUD *hub = [[MBProgressHUD alloc] initWithView:self.leftViewController.mainVc.navigationController.view];
-        [self.leftViewController.mainVc.navigationController.view addSubview:hub];
-        hub.labelText = @"图片上传中...";
-        // myProgressTask uses the HUD instance to update progress
-        [hub showAnimated:YES whileExecutingBlock:^(void){
-            
-            UIImage* fixOrientationImg = [image fixOrientation];
-            //[self.item.imgDic setObject:vc.imageSource forKey:PRODUCT_PIC_TYPE_FULL];
-            if (imagePicker.imagePickerControllerSourceType == UIImagePickerControllerSourceTypeCamera)
-            {
-                UIImageWriteToSavedPhotosAlbum(fixOrientationImg, nil, nil, nil);
-            }
-            NSString *tempPath = NSTemporaryDirectory();
-            NSString  *pngPath = [tempPath stringByAppendingPathComponent:@"tmpproductimg.jpg"];
-            NSLog(@"file path=%@", pngPath);
-            [UIImageJPEGRepresentation(fixOrientationImg, 0.5) writeToFile:pngPath atomically:YES];
-            NSString* tmpFileName = [[LifeBarDataProvider shareInstance]uploadImg:pngPath];
-            if (tmpFileName && ![tmpFileName isEqualToString:@""])
-            {
-                [[LCFileManager shareInstance]moveFile:pngPath toDestPath:[tempPath stringByAppendingPathComponent:tmpFileName] overWrite:YES error:nil];
-                [self.item setImgLink:tmpFileName withType:[type integerValue]];
-            }
-            
-        }];
-    }
-    //[self.item.imgLinkDic setObject:imgFileName forKey:type];
-    
-}
+
 
 
 @end

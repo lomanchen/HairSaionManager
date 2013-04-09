@@ -146,15 +146,14 @@
     {
         //delete data
         [self removeObjectAtIndex:self.currentEditIndex];
-        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:self.currentEditIndex inSection:0];
-        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        
     }
 }
 
 - (void)removeObjectAtIndex:(NSInteger)index
 {
     [self.items removeObjectAtIndex:self.currentEditIndex];
+    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:self.currentEditIndex inSection:0];
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 - (void)reloadRowWithData:(PsDataItem *)dataItem

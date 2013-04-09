@@ -39,6 +39,7 @@
         self.orgId = [[dic objectForKey:@"orgId"] integerValue];
         self.parent = [[dic objectForKey:@"parent"] integerValue];
         self.typeId = [[dic objectForKey:@"typeId"] integerValue];
+        self.Id = self.typeId;
     }
     return self;
 }

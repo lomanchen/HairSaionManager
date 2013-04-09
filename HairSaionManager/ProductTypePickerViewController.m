@@ -40,7 +40,10 @@
     }
     else
     {
-        psd.types = [[LifeBarDataProvider shareInstance]getProductTypesWithProductId:((ProductShowingDetail*)self.item).Id];
+        if (!psd.types)
+        {
+           psd.types = [[LifeBarDataProvider shareInstance]getProductTypesWithProductId:((ProductShowingDetail*)self.item).Id];
+        }
     }
 }
 

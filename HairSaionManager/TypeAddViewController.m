@@ -56,7 +56,7 @@ typedef enum
         _item = [[ProductTypeItem alloc]init];
         _item.name = _DEFAULT_NAME;
         _item.parent = type;
-        _item.orgId = [LifeBarDataProvider shareInstance].getCurrentOrgInfo.orgId;
+        _item.orgId = [LifeBarDataProvider shareInstance].getCurrentOrgInfo.Id;
         _rootSelected = YES;
         _addMode = YES;
     }

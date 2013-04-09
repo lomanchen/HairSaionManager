@@ -15,6 +15,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "LifeBarDataProvider.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "MBProgressHUD.h"
 
 @interface ProductLSViewController ()
 @end
@@ -109,8 +110,14 @@
 
 - (void)loadData
 {
-    LifeBarDataProvider* lbp = [LifeBarDataProvider shareInstance];
-    self.items = [lbp getProductsWithOrgId:[lbp getCurrentOrgInfo].orgId andTypeId:self.policy.subType];
+    [MBProgressHUD showAnimated:YES whileExecutingBlock:^(void)
+     {
+         LifeBarDataProvider* lbp = [LifeBarDataProvider shareInstance];
+         self.items = [lbp getProductsWithOrgId:[lbp getCurrentOrgInfo].Id andTypeId:self.policy.subType];
+     } completionBlock:^(void)
+     {
+         [self.tableView reloadData];
+     } withTitle:@"Loading" inView:self.view];
 }
 
 
@@ -118,8 +125,10 @@
 - (void)removeObjectAtIndex:(NSInteger)index
 {
     ProductShowingDetail* psd = [self.items objectAtIndex:index];
-    [[DataAdapter shareInstance]deletebyProductId:psd.productId];
-    [super removeObjectAtIndex:index];
+    if ([[LifeBarDataProvider shareInstance]deleteProductById:psd.Id])
+    {
+        [super removeObjectAtIndex:index];
+    }
 }
 
 - (void)loadNavItem
